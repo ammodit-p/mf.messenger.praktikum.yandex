@@ -6,8 +6,9 @@
   <meta charset="utf-8">
 </head>
 <body>
+  <script src="./js/index.js"></script>
   <div class="wrapper signin-form">
-    <form name = "signin-form">
+    <form name = "signin-form" onsubmit="objFromForm()">
       <div>
         <h2>Регистрация</h2>
         <label>Почта</label>
@@ -23,7 +24,7 @@
         <label>Пароль</label>
         <input name = "password" type = "password" class="blue-input">
         <label>Пароль (еще раз)</label>
-        <input name = "password" type = password class="blue-input">
+        <input name = "second_password" type = "password" class="blue-input">
       </div>
       <div>
         <button type = "submit" class="button">Зарегистрироваться</button>
