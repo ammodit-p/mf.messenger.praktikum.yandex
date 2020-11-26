@@ -6,7 +6,7 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <div class="chatlist-area">
+ <div class="chatlist-area">
     <div class = "chatlist-header">
       <a href="#" class="chatlist-profile-link">
         Профиль
@@ -24,22 +24,51 @@
     <div class= "chatlist-list">
       <ul class = "chatlist">
         <li class = "chatlist-item">
-          <ul class="chatlist-preview">
-            <li class="chatlist-preview-item profile-name">
-              Имя
-            </li class="chatlist-preview-item">
-            <li>
-              Что-то в чатике
-            </li>
-          </ul>
+          <div class="chatlist-item-icon">
+            <span>
+              <img src="./img/avatar.png">
+            </span>
+          </div>
+          <div class="chatlist-item-info">
+            <ul>
+              <li class="chatlist-info-name">
+                Имя
+              </li>
+              <li class="chatlist-info-preview">
+                Что-то в чатике
+              </li>
+            </ul>
+            <span class="chatlist-info-time">11:11</span>
+            <span class="chatlist-info-unread">3</span>
+          </div>
         </li>
-        <li class = "chatlist-item"></li>
+        <li class = "chatlist-item">
+          <div class="chatlist-item-icon">
+            <span>
+              <img src="./img/avatar.png">
+            </span>
+          </div>
+          <div class="chatlist-item-info">
+            <ul>
+              <li class="chatlist-info-name">
+                Чатик
+              </li>
+              <li class="chatlist-info-preview">
+                Привет! Смотри, тут всплыл интересный кусок лунной...
+              </li>
+            </ul>
+            <span class="chatlist-info-time">11:11</span>
+          </div>
+        </li>
+        </li>
         <li class = "chatlist-item"></li>
       </ul>
     </div>
   </div>
   <div class="chat-area">
-    <p class="chat-no-chosen">Выберите чат чтобы отправить сообщение</p>
+    <div class="chat-no-chosen">
+      <span>Выберите чат чтобы отправить сообщение</span>
+    </div>
   </div>
 </body>
 </html> 

@@ -7,13 +7,18 @@
 </head>
 <body>
 
-	<div class="wrapper">
-		<form name = "login-form">
-	    <h2>Вход</h2>
-	    <input name = "login" type = 'text' class="blue-input">
-	    <input name = "password" type = "password" class="blue-input">
-	    <button type = "submit" class="button">Авторизоваться</button>
-	    <a href = '#' name = "signin-link">Нет аккаунта?</a>
+	<div class="wrapper login-form">
+		<form>
+	    <div>
+	    	<h2>Вход</h2>
+	    	<label for="login">Логин</label><input id="login" name = "login" type = 'text' class="blue-input">
+	    	<label for="password">Пароль</label>
+	    	<input id="password" name = "password" type = "password" class="blue-input">
+	    </div>
+	    <div>
+	    	<button type = "submit" class="button">Авторизоваться</button>
+	    	<a href = '#' name = "signin-link">Нет аккаунта?</a>
+	    </div>
 		 </form>
 	</div>
 
