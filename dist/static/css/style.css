@@ -59,11 +59,6 @@ button:focus {
 }
 
 .wrapper {
-	border: 1px solid red;
-/*	display: flex;
-	height: 100%;
-	width: 100%;
-	justify-content: center;*/
   min-height: 460px;
   width: 340px;
   margin-left: auto;
@@ -157,12 +152,12 @@ button {
 	position: relative;
 	width: 100%;
 	height: 33px;
-	border-top: 1px solid #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
 	text-align: left;
 	padding: 10px 0 10px 0;
 }
 
-.profile-list-item: last-child {
+.profile-list-item:last-child {
 	border: none;
 }
 
@@ -195,14 +190,13 @@ button {
 	background-color: #FBFBFB;
 	border-right: 1px solid #EAEAEA;
 	color: #999999;
-	padding: 0 10px 0 10px;
 }
 
 .chatlist-header {
 	position: relative;
 	height: 102px;
-	width: 100%;
-	padding: 56px 0 14px 0;
+	width: 310px;
+	padding: 56px 10px 14px 10px;
 }
 
 
@@ -229,7 +223,7 @@ button {
 .chatlist-profile-link {
 	position: absolute;
 	width: 66px;
-	right: 0px;
+	right: 10px;
 	top: 21px;
 	font-size: 12px;
 	padding-right: 12px;
@@ -247,34 +241,82 @@ button {
 
 .chatlist {
 	display: block;
-	/*width: 510px;*/
+	width: 310px;
 }
 
 .chatlist-item {
 	position: relative;
+	display: flex;
 	width: 100%;
 	height: 71px;
-	border-top: 1px solid #EAEAEA;
 	text-align: left;
-	padding: 12px 10px 12px 67px;
+	padding: 12px 10px 12px 10px;
 }
 
 .chatlist-item:before {
-	content: '';
 	position: absolute;
-	top: 12px;
-	left: 0px;
-	width: 47px;
-	height: 47px;
-	border-radius: 50%;
-	background-color: #EFEFEF;
+	top: 0;
+	left: 10px;
+	width: 290px;
+	border-top: 1px solid #EAEAEA;
+	content: '';
 }
 
+.chatlist-item-icon {
+	width: 47px;
+	height: 47px;
+}
 
+.chatlist-item-icon span {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
 
-.chatlist-preview {
-	display: block;
-	float: left;
+.chatlist-item-icon span img {
+	width: 47px;
+	height: 47px;
+	background-color: #EFEFEF;
+	border-radius: 50%;
+}
+
+.chatlist-item-info {
+	width: 100%;
+	position: relative;
+	padding-left: 10px;
+	padding-right: 50px;
+}
+
+.chatlist-info-name {
+	font-weight: 600;
+	color: #1E1E1E;
+}
+
+.chatlist-info-preview {
+	font-size: 12px;
+}
+
+.chatlist-info-time {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 9px;
+}
+
+.chatlist-info-unread {
+	position: absolute;
+	right: 0;
+	bottom: 4px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #3369F3;
+	padding: 3px 6px;
+	color: #fff;
+}
+
+.chatlist .chosen {
+	background: #E4EDFD;
 }
 
 
@@ -322,13 +364,13 @@ button {
 }
 
 .chat-menu {
-	border: 1px solid black;
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
 	position: absolute;
 	right: 10px;
 	top: 14.5px;
+	padding: 4px 10px 5px 10px;
 }
 
 .show-menu {
@@ -345,7 +387,7 @@ button {
 	display: flex;
 	flex-direction: column;
 	right: 140px;
-	top: 50px;
+	top: 30px;
 	width: 210px;
 	border-radius: 12px;
 	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
@@ -377,6 +419,14 @@ button {
 	height: 100%;
 }
 
+.chat-menu:hover {
+	background-color: #F5F5F5;
+}
+
+.chat-menu:hover>svg circle {
+	fill: #3369F3;
+}
+
 .chat-menu:hover .show-menu {
 	display: block;
 }
@@ -389,6 +439,7 @@ button {
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
+	padding-bottom: 30px;
 }
 
 .chat-body-item {
@@ -405,9 +456,17 @@ button {
 
 .chat-message {
 	display: inline-block;
+	flex-direction: column;
 	min-width: 114px;
 	max-width: 402px;
 	padding: 11px;
+}
+
+.chat-message-info {
+	float: right;
+	display: flex;
+	position: relative;
+	font-size: 9px;
 }
 
 .chat-left-message {
@@ -416,11 +475,43 @@ button {
 	border-radius: 0 25px 25px 25px;
 }
 
+.chat-left-message .chat-message-info {
+	color: #999999;
+}
+
 .chat-right-message {
 	float: right;
 	background-color: #E4EDFD;
 	border-radius: 25px 25px 0 25px;
 }
+
+.chat-right-message .chat-message-info {
+	color: #3369F3;
+	top: 4px;
+}
+
+.chat-message-status {
+	margin-right: 2px;
+}
+
+.chat-message-img {
+	display: inline-block;
+	position: relative;
+}
+
+.chat-message-img .chat-message-info {
+	position: absolute;
+	right: 11px;
+	bottom: 11px;
+	background: rgba(82, 82, 82, 0.5);
+	border-radius: 30px;
+	color: #fff;
+	padding: 2px 7px 2px 7px;
+}
+
+
+
+
 
 
 
@@ -441,7 +532,6 @@ button {
 }
 
 .chat-attach-menu {
-	border: 1px solid black;
 	position: absolute;
 	left: 0;
 	top: 11px;
@@ -451,13 +541,12 @@ button {
 }
 
 .attach-show-menu {
-	border: 1px solid red;
 	position: absolute;
 	left: 0px;
 	bottom: 0px;
 	width: 50px;
 	height: 55px;	
-/*	display: none;*/
+	display: none;
 	
 }
 
@@ -496,7 +585,7 @@ button {
 }
 
 
-.chat-attach-menu:hover .show-menu {
+.chat-attach-menu:hover .attach-show-menu {
 	display: block;
 }
 
