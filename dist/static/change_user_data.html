@@ -6,8 +6,7 @@
   <meta charset="utf-8">
 </head>
 <body>
-	<script src="./js/index.js"></script>
-	<button class="profile-return-button">
+	<a href="profile.html" class="profile-return-button">
 		<span class="profile-return-button-circle">
 			<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="13" y="6.80005" width="11" height="1.6" transform="rotate(-180 13 6.80005)" fill="white"/>
@@ -15,49 +14,47 @@
 </svg>
 
 		</span>
-	</button>
+	</a>
 
-	<div class="wrapper">
+	<main class="wrapper">
 		<div class="profile-avatar-name">
-			<a href="#" class="profile-avatar-button">
+			<button href="#" class="profile-avatar-button">
 				<img src="./img/avatar.png" class="profile-avatar-img">
-			</a>
+			</button>
 		</div>
 
 			 <form  >
 				<div class="profile-user-data">
-					<ul class="prfile-list">
-						<li class="profile-list-item">
-							Почта
-							<input type="email" name="email" value = "mail@mail.ru" class="profile-input">
-						</li>
-						<li class="profile-list-item">
-							Логин
-							<input type="text" name="login" value="MyLogin" class="profile-input">
-						</li>
-						<li class="profile-list-item">
-							Имя
-							<input type="text" name="first-name" value="Имя" class="profile-input">
-						</li>
-						<li class="profile-list-item">
-							Фамилия
-							<input type="text" name="second_name" value="Фамилия" class="profile-input">
-						</li>
-						<li class="profile-list-item">
-							Имя в чате
-							<input type="text" name="display_name" value="Имя" class="profile-input">
-						</li>
-						<li class="profile-list-item">
-							Телефон
-							<input type="tel" name="phone" value="+7 (988) 888 88 88" class="profile-input">
-						</li>
-					</ul>
+					<div class="profile-user-item">
+						Почта
+						<input type="email" name="email" value="mail@mail.ru" class="profile-input">
+					</div>
+					<div class="profile-user-item">
+						Логин
+						<input type="text" name="login" value="MyLogin" class="profile-input">
+					</div>
+					<div class="profile-user-item">
+						Имя
+						<input type="text" name="first-name" value="Имя" class="profile-input">
+					</div>
+					<div class="profile-user-item">
+						Фамилия
+						<input type="text" name="second_name" value="Фамилия" class="profile-input">
+					</div>
+					<div class="profile-user-item">
+						Имя в чате
+						<input type="text" name="display_name" value="Имя" class="profile-input">
+					</div>
+					<div class="profile-user-item">
+						Телефон
+						<input type="tel" name="phone" value="+7 (988) 888 88 88" class="profile-input">
+					</div>
 				</div>
 				<button type="submit" class="button">Сохранить</button>
 			</form>
 
 		
-	</div>
+		</main>
  <script src="./js/index.js"></script>
 </body>
 </html> 

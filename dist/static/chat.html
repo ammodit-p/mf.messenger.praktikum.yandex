@@ -8,70 +8,68 @@
 <body>
   <script src="./js/index.js"></script>
   <div class="chatlist-area">
-    <div class = "chatlist-header">
-      <a href="#" class="chatlist-profile-link">
+    <div class="chatlist-header">
+      <a href="profile.html" class="chatlist-profile-link">
         Профиль
          <svg class="chatlist-profile-link-arrow" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 9L5 5L1 1" stroke="#999999"/>
         </svg>
         </a>
 
-      <input type="search" name="search" class="chatlist-search" placeholder="Поиск">
+      <form name="search">
+        <input type="search" name="search" class="chatlist-search" placeholder="Поиск">
+      </form>
       <svg class="chatlist-search-icon" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5924 10.4138C9.16047 11.8457 6.83886 11.8457 5.40694 10.4138C3.97502 8.9819 3.97502 6.6603 5.40694 5.22837C6.83886 3.79645 9.16047 3.79645 10.5924 5.22837C12.0243 6.6603 12.0243 8.9819 10.5924 10.4138ZM11.0328 11.7968C9.07255 13.2962 6.25696 13.1495 4.46413 11.3566C2.51151 9.40401 2.51151 6.23819 4.46413 4.28556C6.41675 2.33294 9.58258 2.33294 11.5352 4.28556C13.3279 6.07831 13.4747 8.89373 11.9755 10.8539L15.5423 14.4206L14.5994 15.3635L11.0328 11.7968Z" fill="#999999"/>
       </svg>
 
     </div>
-    <div class= "chatlist-list">
-      <ul class = "chatlist">
-        <li class = "chatlist-item">
+    <aside class= "chatlist-list">
+      <ul class="chatlist">
+        <li class="chatlist-item">
           <div class="chatlist-item-icon">
             <span>
               <img src="./img/avatar.png">
             </span>
           </div>
           <div class="chatlist-item-info">
-            <ul>
-              <li class="chatlist-info-name">
+              <h2 class="chatlist-info-name">
                 Имя
-              </li>
-              <li class="chatlist-info-preview">
+              </h2>
+              <span class="chatlist-info-preview">
                 Что-то в чатике
-              </li>
-            </ul>
-            <span class="chatlist-info-time">11:11</span>
-            <span class="chatlist-info-unread">3</span>
+              </span>
+            <time class="chatlist-info-time">11:11</time>
+            <mark class="chatlist-info-unread">3</mark>
           </div>
         </li>
-        <li class = "chatlist-item chosen">
+        <li class="chatlist-item chosen">
           <div class="chatlist-item-icon">
             <span>
               <img src="./img/avatar.png">
             </span>
           </div>
           <div class="chatlist-item-info">
-            <ul>
-              <li class="chatlist-info-name">
+              <h2 class="chatlist-info-name">
                 Чатик
-              </li>
-              <li class="chatlist-info-preview">
+              </h2>
+              <span class="chatlist-info-preview">
                 Привет! Смотри, тут всплыл интересный кусок лунной...
-              </li>
-            </ul>
-            <span class="chatlist-info-time">11:11</span>
+              </span>
+            <time class="chatlist-info-time">11:11</time>
           </div>
         </li>
         </li>
-        <li class = "chatlist-item"></li>
+        <li class="chatlist-item"></li>
       </ul>
-    </div>
+    </aside>
   </div>
 
-  <div class="chat-area">
+  <main class="chat-area">
 
-  	<div class="chat-header">
+  	<header class="chat-header">
       <img src="./img/avatar.png" class="chat-avatar-img">
-      <span class="chat-name profile-name">Чатик</span>
+      <h1 class="login-header">Чатик</h1>
 
       <div  class="chat-menu">
         <svg width="3" height="16" viewBox="0 0 3 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,9 +90,9 @@
 
               </div>
               <div class="chat-menu-item-text">
-                <span>
+                <button>
                   Добавить пользователя
-                </span>
+                </button>
               </div>
             </li>
             <li class="chat-menu-item">
@@ -107,9 +105,9 @@
 
               </div>
               <div class="chat-menu-item-text">
-                <span>
+                <button>
                   Удалить пользователя
-                </span>
+                </button>
               </div>
             </li>
             <li class="chat-menu-item">
@@ -121,20 +119,20 @@
                 </svg>
               </div>
               <div class="chat-menu-item-text">
-                <span>
+                <button>
                   Удалить чат
-                </span>
+                </button>
               </div>
             </li>
           </ul>
         </div>
       </div>
-    </div>
+    </header>
 
     <div class="chat-body">
       <div class="chat-body-item">
         <div class="chat-date">
-          <span>19 июня</span>
+          <time>19 июня</time>
         </div>
       </div>
 
@@ -146,7 +144,7 @@
 Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
           </span>
           <span class="chat-message-info">
-            <span class="chat-message-time">11:56</span>
+            <time class="chat-message-time">11:56</time>
           </span>
         </div>
       </div>
@@ -155,7 +153,7 @@
         <div class="chat-message-img">
             <img class="chat-img" src="./img/photo.png">
           <span class="chat-message-info">
-            <span class="chat-message-time">11:57</span>
+            <time class="chat-message-time">11:57</time>
           </span>
         </div>
       </div>
@@ -172,7 +170,7 @@
               </svg>
 
             </span>
-            <span class="chat-message-time">12:00</span>
+            <time class="chat-message-time">12:00</time>
           </span>
         </div>
       </div>
@@ -193,49 +191,42 @@
         </svg>
 
         <div class="attach-show-menu">
-          <ul>
-            <li class="chat-attach-menu-item">
+          <div class="attach-menu">
+            <div class="chat-attach-menu-item">
               <div class="chat-attach-menu-item-icon">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1.5H18C19.3807 1.5 20.5 2.61929 20.5 4V14L14.5194 12.4052C13.5108 12.1362 12.4714 12 11.4275 12H10.5725C9.52864 12 8.48921 12.1362 7.48057 12.4052L1.5 14V4C1.5 2.61929 2.61929 1.5 4 1.5ZM0 4C0 1.79086 1.79086 0 4 0H18C20.2091 0 22 1.79086 22 4V18C22 20.2091 20.2091 22 18 22H4C1.79086 22 0 20.2091 0 18V4ZM8 6C8 7.10457 7.10457 8 6 8C4.89543 8 4 7.10457 4 6C4 4.89543 4.89543 4 6 4C7.10457 4 8 4.89543 8 6Z" fill="#3369F3"/>
                 </svg>
-
-
               </div>
-              <div class="chat-attach-menu-item-text">
-                <span>
+
+                <label class="chat-attach-menu-item-text">
                   Фото или видео
-                </span>
-              </div>
-            </li>
-            <li class="chat-attach-menu-item">
+                  <input type="file" name="photo_video">
+                </label>
+            </div>
+
+            <div class="chat-attach-menu-item">
               <div class="chat-attach-menu-item-icon">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1.5H18C19.3807 1.5 20.5 2.61929 20.5 4V12H16C13.7909 12 12 13.7909 12 16V20.5H4C2.61929 20.5 1.5 19.3807 1.5 18V4C1.5 2.61929 2.61929 1.5 4 1.5ZM12 22H4C1.79086 22 0 20.2091 0 18V4C0 1.79086 1.79086 0 4 0H18C20.2091 0 22 1.79086 22 4V12V18C22 20.2091 20.2091 22 18 22H12Z" fill="#3369F3"/>
                 </svg>
-
-
               </div>
-              <div class="chat-attach-menu-item-text">
-                <span>
+              <label class="chat-attach-menu-item-text">
                   Файл
-                </span>
-              </div>
-            </li>
-            <li class="chat-attach-menu-item">
+                  <input type="file" name="file">
+              </label>
+            </div>
+
+            <div class="chat-attach-menu-item">
               <div class="chat-attach-menu-item-icon">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 11C20.5 16.2467 16.2467 20.5 11 20.5C5.75329 20.5 1.5 16.2467 1.5 11C1.5 5.75329 5.75329 1.5 11 1.5C16.2467 1.5 20.5 5.75329 20.5 11ZM22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11ZM11 14C12.6569 14 14 12.6569 14 11C14 9.34315 12.6569 8 11 8C9.34315 8 8 9.34315 8 11C8 12.6569 9.34315 14 11 14Z" fill="#3369F3"/>
                 </svg>
+              </div>
+              <button class="chat-attach-menu-item-text">Локация</button>
+            </div>
+          </div>
 
-              </div>
-              <div class="chat-attach-menu-item-text">
-                <span>
-                  Локация
-                </span>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
 
@@ -251,7 +242,7 @@
 
       </form>
     </div>
-  </div>
+  </main>
  <script src="./js/index.js"></script>
 </body>
 </html>  

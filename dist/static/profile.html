@@ -6,40 +6,39 @@
   <meta charset="utf-8">
 </head>
 <body>
-	<script src="./js/index.js"></script>
-	<button class="profile-return-button">
+	<a href="choose_a_chat.html" class="profile-return-button">
 			<span class="profile-return-button-circle"><svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="13" y="6.80005" width="11" height="1.6" transform="rotate(-180 13 6.80005)" fill="white"/>
 <path d="M6 11L2 6L6 1" stroke="white" stroke-width="1.6"/></span>
-	</button>
+	</a>
 
-	<div class ="wrapper">
+	<main class ="wrapper">
 		<div class="profile-avatar-name">
-			<a href="#" class="profile-avatar-button">
+			<button class="profile-avatar-button">
 				<img src="./img/avatar.png" class="profile-avatar-img">
-			</a>
-			<span class="profile-name">Имя</span>
+			</button>
+			<h1 class="login-header">Имя</h1>
 		</div>
 
 		<div class="profile-user-data">
-			<ul class="profile-list">
-				<li class="profile-list-item">Почта<span id="email">mail@mail.ru</span></li>
-				<li class="profile-list-item">Логин<span id="login">MyLogin</li>
-				<li class="profile-list-item">Имя<span id="name">Имя</li>
-				<li class="profile-list-item">Фамилия<span id="surname">Фамилия</li>
-				<li class="profile-list-item">Имя в чате<span id="displayed-name">Имя</li>
-				<li class="profile-list-item">Телефон<span id="tel">+7(988)888-88-88</li>
-			</ul>
+
+			<div class="profile-user-item">Почта<span id="email">mail@mail.ru</span></div>
+			<div class="profile-user-item">Логин<span id="login">MyLogin</div>
+			<div class="profile-user-item">Имя<span id="name">Имя</div>
+			<div class="profile-user-item">Фамилия<span id="surname">Фамилия</div>
+			<div class="profile-user-item">Имя в чате<span id="displayed-name">Имя</div>
+			<div class="profile-user-item">Телефон<span id="tel">+7(988)888-88-88</div>
+
 		</div>
 
 		<div class="profile-menu">
 			<ul class="profile-list">
-				<li class="profile-list-item"><a href="./change_user_data.html">Изменить данные</a></li>
-				<li class="profile-list-item"><a href="./change_password.html">Изменить пароль</a></li>
-				<li class="profile-list-item"><a href="#" class="red-link">Выйти</a></li>
+				<div class="profile-user-item"><a href="./change_user_data.html">Изменить данные</a></div>
+				<div class="profile-user-item"><a href="./change_password.html">Изменить пароль</a></div>
+				<div class="profile-user-item"><a href="#" class="red-link">Выйти</a></div>
 			</ul>
 		</div>
-	</div>
+	</main>
  <script src="./js/index.js"></script>
 </body>
 </html> 

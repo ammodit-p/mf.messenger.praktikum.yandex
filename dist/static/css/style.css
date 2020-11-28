@@ -27,22 +27,44 @@ p {
 	margin: 0;
 }
 
-/*.flex-container {
-	display: flex;
-	width: 100%;
-	height: 100%;
-}*/
+/* h1 h2 styles */
 
-h1 {
-	font-size: 40px;
+h1, h2 {
 	margin: 0;
+}
+
+ .error-page-header {
+	font-size: 40px;
 	margin-bottom: 20px;
 }
 
-h2 {
+.error-page-subheader {
 	font-size: 20px;
-	margin: 0;
 	margin-bottom: 50px;
+}
+
+.login-header {
+	font-weight: 600;
+	font-size: 16px;
+	color: #1E1E1E;
+}
+
+.chat-no-chosen-header {
+	font-size: 12px;
+	color: #999999;
+	font-weight: 500;
+}
+
+.auth-header {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+.chatlist-info-name {
+	font-weight: 600;
+	font-size: 13px;
+	color: #1E1E1E;
+	margin-bottom: 4px;
 }
 
 a {
@@ -73,6 +95,7 @@ input {
 	font-family: 'Inter', sans-serif;
 	font-size: 13px;
 	font-weight: 500;
+	background: none;
 }
 
 .blue-input {
@@ -90,6 +113,9 @@ ul {
 
 button {
 	border: none;
+	margin: 0;
+	padding: 0;
+	background: none;
 }
 
 .button {
@@ -159,6 +185,7 @@ button {
 	top: 0;
 	border: none;
 	height: 100%;
+	width: 64px;
 	background-color: #FBFBFB;
 	border-right: 1px solid #EAEAEA;
 }
@@ -201,10 +228,9 @@ button {
 
 .profile-list {
 	display: block;
-	/*width: 510px;*/
 }
 
-.profile-list-item {
+.profile-user-item {
 	position: relative;
 	width: 100%;
 	height: 33px;
@@ -213,12 +239,12 @@ button {
 	padding: 10px 0 10px 0;
 }
 
-.profile-list-item:last-child {
+.profile-user-item:last-child {
 	border: none;
 }
 
 
-.profile-list-item span {
+.profile-user-item span {
 	float: right;
 	text-align: right;
 	color: #999999;
@@ -236,7 +262,7 @@ button {
 	border-bottom: 1px solid #EAEAEA;
 }
 
-.profile-list-item:last-child input {
+.profile-user-item:last-child input {
 	border: none;
 }
 
@@ -343,15 +369,12 @@ button {
 }
 
 .chatlist-item-info {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	position: relative;
 	padding-left: 10px;
 	padding-right: 50px;
-}
-
-.chatlist-info-name {
-	font-weight: 600;
-	color: #1E1E1E;
 }
 
 .chatlist-info-preview {
@@ -391,12 +414,6 @@ button {
 	color: #999999;
 }
 
-
-.profile-name {
-	font-weight: 600;
-	font-size: 16px;
-	color: #1E1E1E;
-}
 
 
 
@@ -613,7 +630,7 @@ button {
 	
 }
 
-.attach-show-menu ul {
+.attach-menu {
 	background-color: #fff;	
 	position: relative;
 	display: flex;
@@ -626,9 +643,29 @@ button {
 	font-size: 12px;
 }
 
+
+
+
 .chat-attach-menu-item {
 	display: flex;
 	height: 45px;
+	width: 162px;
+}
+
+.chat-attach-menu-item input[type="file"] {
+	opacity: 0;
+}
+
+
+.chat-attach-menu-item-text {
+	position: relative;
+	left: -50px;
+	display: flex; 
+	flex-direction: column; 
+	justify-content: center;
+	width: 162px;
+	margin: 0;
+	padding: 12px 0 12px 50px;
 }
 
 
@@ -639,13 +676,7 @@ button {
 
 
 
-.chat-attach-menu-item-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0;
-	padding: 12px 0 12px 0;
-}
+
 
 
 .chat-attach-menu:hover .attach-show-menu {
