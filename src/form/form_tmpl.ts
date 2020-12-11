@@ -2,7 +2,9 @@ export const form_tmpl: string =
 `<form>
 <div class = "upper-section">
     <h1 class="auth-header">Вход</h1>
-    {{>inputPartial}}
+    {{#each inputs}}
+        {{> inputPartial}}
+    {{/each}}
 </div>
 <div>
     <button type="submit" class="button">Авторизоваться</button>
