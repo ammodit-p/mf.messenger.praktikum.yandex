@@ -1,16 +1,18 @@
-export const input_loginPage_data: T = {
+export const input_loginPage_data = {
+    "header": "Вход",
     "inputs": [
         {
-            "fieldName": "login", 
+            "fieldName": "login",
             "inputType": "text",
             "class": "blue-input",
             "labelValue": "Логин"
         },
         {
-            "fieldName": "password", 
+            "fieldName": "password",
             "inputType": "password",
             "class": "blue-input",
             "labelValue": "Пароль"
         }
     ]
-}
+};
+//# sourceMappingURL=input_loginPage_data.js.map
