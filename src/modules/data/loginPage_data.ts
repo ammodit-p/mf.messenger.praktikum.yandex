@@ -5,15 +5,13 @@ export const loginPage_data: T = {
             "fieldName": "login", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Логин",
-            "value": ""
+            "labelValue": "Логин"
         },
         {
             "fieldName": "password", 
             "inputType": "password",
             "class": "blue-input",
-            "labelValue": "Пароль",
-            "value": ""
+            "labelValue": "Пароль"
         }
     ]
 }

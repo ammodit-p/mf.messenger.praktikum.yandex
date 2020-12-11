@@ -5,51 +5,44 @@ export const loginPage_data: T = {
             "fieldName": "email", 
             "inputType": "email",
             "class": "blue-input",
-            "labelValue": "Почта",
-            "value": ""
+            "labelValue": "Почта"
         },
         
         {
             "fieldName": "login", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Логин",
-            "value": ""
+            "labelValue": "Логин"
         },
         {
             "fieldName": "first_name", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Имя",
-            "value": ""
+            "labelValue": "Имя"
         },
         {
             "fieldName": "second_name", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Фамилия",
-            "value": ""
+            "labelValue": "Фамилия"
         },
         {
             "fieldName": "phone", 
             "inputType": "tel",
             "class": "blue-input",
-            "labelValue": "Телефон",
-            "value": ""
+            "labelValue": "Телефон"
         },
         {
             "fieldName": "password", 
             "inputType": "password",
             "class": "blue-input",
-            "labelValue": "Пароль",
-            "value": ""
+            "labelValue": "Пароль"
         },
         {
             "fieldName": "second_password", 
             "inputType": "password",
             "class": "blue-input",
-            "labelValue": "Пароль (еще раз)",
-            "value": ""
+            "labelValue": "Пароль (еще раз)"
         },
         
     ]

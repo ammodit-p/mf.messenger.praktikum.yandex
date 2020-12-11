@@ -5,32 +5,32 @@ export const profilePage_data: T = {
         {
             "name": "Почта", 
             "id": "email",
-            "value": "mail@mail.ru"
+            "val": "mail@mail.ru"
         },
         {
             "name": "Логин", 
             "id": "login",
-            "value": "MyLogin"
+            "val": "MyLogin"
         },
         {
             "name": "Имя", 
             "id": "name",
-            "value": "Имя"
+            "val": "Имя"
         },
         {
             "name": "Фамилия", 
             "id": "surname",
-            "value": "Фамилия"
+            "val": "Фамилия"
         },
         {
             "name": "Имя в чате", 
             "id": "displayed-name",
-            "value": "Имя"
+            "val": "Имя"
         },
         {
             "name": "Телефон", 
             "id": "tel",
-            "value": "+7(988)888-88-88t"
+            "val": "+7(988)888-88-88"
         }
     ]
 }
