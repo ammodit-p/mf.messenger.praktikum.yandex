@@ -1,4 +1,4 @@
-export const input_loginPage_data = {
+export const loginPage_data = {
     "header": "Регистрация",
     "inputs": [
         {
@@ -45,4 +45,4 @@ export const input_loginPage_data = {
         },
     ]
 };
-//# sourceMappingURL=input_signinPage_data.js.map
+//# sourceMappingURL=signinPage_data.js.map

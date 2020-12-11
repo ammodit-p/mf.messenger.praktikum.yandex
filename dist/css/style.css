@@ -81,6 +81,7 @@ button:focus {
 }
 
 .wrapper {
+	position: relative;
   min-height: 460px;
   min-width: 340px;
   margin-left: auto;
@@ -195,6 +196,7 @@ button {
 	height: 28px;
 	padding: 7px 2px;
 	border-radius: 50%;
+	background-image: url("../img/profile_btn.svg");
 	background-color: #3369F3;
 }
 
@@ -213,12 +215,13 @@ button {
 	height: 130px;
 	border-radius: 50%;
 	margin-bottom: 20px;
+	background: #EFEFEF;
 }
 
-.profile-avatar-img {
-	width: 100%;
-	height: 100%;
-	border-radius: inherit;
+.profile-avatar-button span {
+	width: inherit;
+	height: inherit;
+	background-image: url('../img/avatar.png');
 }
 
 .profile-user-data {
