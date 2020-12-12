@@ -3,6 +3,7 @@ export const profileChange_tmpl = `
 <main class ="wrapper">
 {{> profileAvatarPartial}}
 
+<form>
 <div class="profile-user-data">
 
 {{#each inputs}}
@@ -13,12 +14,7 @@ export const profileChange_tmpl = `
 
 </div>
 
-<div class="profile-menu">
-<ul class="profile-list">
-    <div class="profile-user-item"><a href="./change_user_data.html">Изменить данные</a></div>
-    <div class="profile-user-item"><a href="./change_password.html">Изменить пароль</a></div>
-    <div class="profile-user-item"><a href="index.html" class="red-link">Выйти</a></div>
-</ul>
-</div>
+<button type="submit" class="button">Сохранить</button>
+</form>
 </main>`;
 //# sourceMappingURL=profileChange_tmpl.js.map

@@ -3,17 +3,24 @@ export const profilePassChange_data = {
     "link": "profile.html",
     "inputs": [
         {
-            "fieldName": "password",
+            "fieldName": "oldPassword",
             "inputType": "password",
             "class": "profile-input",
-            "labelValue": "Пароль",
+            "labelValue": "Старый пароль",
+            "val": "1111111111"
+        },
+        {
+            "fieldName": "newPassword",
+            "inputType": "password",
+            "class": "profile-input",
+            "labelValue": "Новый пароль",
             "val": "11111"
         },
         {
-            "fieldName": "second_password",
+            "fieldName": "checkNewPassword",
             "inputType": "password",
             "class": "profile-input",
-            "labelValue": "Пароль (еще раз)",
+            "labelValue": "Повторите новый пароль",
             "val": "11111"
         },
     ]
