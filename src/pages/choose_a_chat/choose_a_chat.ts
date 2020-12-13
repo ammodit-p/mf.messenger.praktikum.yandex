@@ -4,10 +4,10 @@ import {chatListAreaPartial} from "../../modules/partials/chatListAreaPartial/ch
 import {chatHeaderPartial} from "../../modules/partials/chatHeaderPartial/chatHeaderPartial.js";
 import {chatList_data} from "../../data/chatList_data.js";
 
-import {chat_tmpl} from "./chat_tmpl.js";
+import {choose_a_chat_tmpl} from "./choose_a_chat_tmpl.js";
 chatListHeaderPartial();
 chatListAreaPartial();
 chatHeaderPartial();
 
 
-export const chat = new Block ("div", chatList_data, chat_tmpl);
+export const choose_a_chat = new Block ("div", chatList_data, choose_a_chat_tmpl);

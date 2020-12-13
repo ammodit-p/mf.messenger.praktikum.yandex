@@ -1,7 +1,7 @@
 import {render} from "../../funcs/render.js";
-import {chat} from "./chat.js";
+import {choose_a_chat} from "./choose_a_chat.js";
 
-render ("body", chat);
+render ("body", choose_a_chat);
 
 // вот это костыль из-за того что не хватает времени добавить в класс Block  возможность прописывать нужные классы элементу-обертке
 const body = document.querySelector('body div');

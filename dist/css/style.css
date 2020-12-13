@@ -270,6 +270,12 @@ button {
 
 /*Chat pages*/
 
+.chat {
+	width: 100%;
+    display: flex;
+    height: 100%;
+}
+
 .chatlist-area {
 	height: 100%;
 	width: 310px;
@@ -286,7 +292,9 @@ button {
 }
 
 
-
+form[name="search"] {
+	position:relative;
+}
 
 .chatlist-search {
 	height: 32px;
@@ -300,8 +308,11 @@ button {
 
 .chatlist-search-icon {
 	position: absolute;
-	top: 64px;
-	left: 104px;
+	top: 9px;
+    left: 95px;
+    width: 13px;
+    height: 13px;
+	background-image: url('/img/search.svg');
 }
 
 
@@ -319,9 +330,10 @@ button {
 .chatlist-profile-link-arrow{
 	position: absolute;
 	right: 0;
-	top: 4px;
-	width: 4px;
-	height: 8px;
+	top: 3px;
+    width: 6px;
+    height: 10px;
+	background-image: url("/img/arrow_grey.svg");
 }
 
 
@@ -448,6 +460,8 @@ button {
 	position: absolute;
 	right: 10px;
 	top: 14.5px;
+	background-image: url('img/menu_icon.svg');
+	background-position: center center;
 	padding: 4px 10px 5px 10px;
 }
 
@@ -481,6 +495,23 @@ button {
 .chat-menu-item-icon {
 	margin: 0;
 	padding: 12px 15px 12px 15px;
+}
+
+.add-user {
+	background-image: url("/img/add_user_icon.svg");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.delete-user {
+	background-image: url("/img/delete_user_icon.svg");
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.delete-chat {
+	background-image: url("/img/delete_icon.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 75%;
 }
 
 
