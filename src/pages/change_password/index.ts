@@ -11,7 +11,7 @@ function  isEmpty (inputs): void {
 
     for (let item of inputs) {
         if (item.type !== "submit" && !item.value) {
-            console.log("im here")
+             
             item.classList.add("blue-input-invalid");
             return
         }
@@ -19,8 +19,25 @@ function  isEmpty (inputs): void {
     }
 }
 
-const form = document.querySelector("form")
-form.addEventListener('submit',(e) =>{
+const form = document.querySelector("form");
+
+form.addEventListener('submit', (e) =>{
     e.preventDefault();
      isEmpty(form);
-})
+});
+
+function focusBlur (inputs): void {
+    console.log(inputs)
+    for (let item of inputs) {
+        item.addEventListener('blur', ()=> {
+            isEmpty(form)
+        })
+        item.addEventListener('focus', ()=> {
+            item.classList.remove("blue-input-invalid")
+        } )
+    }
+});
+
+focusBlur(inputs);
+
+

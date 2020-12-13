@@ -13,7 +13,7 @@ function  isEmpty (inputs): void {
 
     for (let item of inputs) {
         if (item.type !== "submit" && !item.value) {
-            console.log("im here")
+             
             item.classList.add("blue-input-invalid");
             return
         }
@@ -33,7 +33,7 @@ function validate (inputs: any, valdata: any): void {
         if (item.name === "password") {
             let val: string = validate.password;
             if (val !== item.value) {
-                console.log("im here")
+                 
                 item.classList.add("blue-input-invalid");
                 return
             }
@@ -46,10 +46,18 @@ form.addEventListener('submit',(e) =>{
     e.preventDefault();
      isEmpty(form);
      validate(form, valdata)
-})
+});
 
-form.addEventListener('blur', (e)=> {
-    e.preventDefault();
-    isEmpty(form);
-    validate(form, valdata)
-})
+function focusBlur (inputs): void {
+    console.log(inputs)
+    for (let item of inputs) {
+        item.addEventListener('blur', ()=> {
+            isEmpty(form)
+        })
+        item.addEventListener('focus', ()=> {
+            item.classList.remove("blue-input-invalid")
+        } )
+    }
+});
+
+focusBlur(inputs);

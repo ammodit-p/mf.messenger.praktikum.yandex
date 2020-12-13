@@ -8,7 +8,6 @@ const inputs = document.forms[0];
 function isEmpty(inputs) {
     for (let item of inputs) {
         if (item.type !== "submit" && !item.value) {
-            console.log("im here");
             item.classList.add("blue-input-invalid");
             return;
         }
@@ -26,7 +25,6 @@ function validate(inputs, valdata) {
         if (item.name === "password") {
             let val = validate.password;
             if (val !== item.value) {
-                console.log("im here");
                 item.classList.add("blue-input-invalid");
                 return;
             }
@@ -39,9 +37,17 @@ form.addEventListener('submit', (e) => {
     isEmpty(form);
     validate(form, valdata);
 });
-form.addEventListener('blur', (e) => {
-    e.preventDefault();
-    isEmpty(form);
-    validate(form, valdata);
-});
+function focusBlur(inputs) {
+    console.log(inputs);
+    for (let item of inputs) {
+        item.addEventListener('blur', () => {
+            isEmpty(form);
+        });
+        item.addEventListener('focus', () => {
+            item.classList.remove("blue-input-invalid");
+        });
+    }
+}
+;
+focusBlur(inputs);
 //# sourceMappingURL=index.js.map

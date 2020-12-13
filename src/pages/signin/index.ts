@@ -31,7 +31,7 @@ function validate (inputs: any, valdata: any): void {
         if (item.name === "email") {
             let reg: RegExp = valdata.email;
             if (!reg.test(item.value)) {
-                console.log("im here")
+                 
                 item.classList.add("blue-input-invalid");
                 return
             }
@@ -44,9 +44,18 @@ form.addEventListener('submit',(e) =>{
     e.preventDefault();
      isEmpty(form);
      validate(form, valdata)
-})
-form.addEventListener('blur', (e)=> {
-    e.preventDefault();
-    isEmpty(form);
-    validate(form, valdata)
-})
+});
+
+function focusBlur (inputs): void {
+    console.log(inputs)
+    for (let item of inputs) {
+        item.addEventListener('blur', ()=> {
+            isEmpty(form)
+        })
+        item.addEventListener('focus', ()=> {
+            item.classList.remove("blue-input-invalid")
+        } )
+    }
+});
+
+focusBlur(inputs);
