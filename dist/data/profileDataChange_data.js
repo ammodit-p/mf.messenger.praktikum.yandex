@@ -7,7 +7,7 @@ export const profileDataChange_data = {
             "inputType": "email",
             "class": "profile-input",
             "labelValue": "Почта",
-            "val": "mail@mail.ru"
+            "val": "mail@mail.ru",
         },
         {
             "fieldName": "login",

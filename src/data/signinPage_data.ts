@@ -5,44 +5,44 @@ export const signinPage_data: T = {
             "fieldName": "email", 
             "inputType": "email",
             "class": "blue-input",
-            "labelValue": "Почта"
+            "labelValue": "Почта" 
         },
         
         {
             "fieldName": "login", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Логин"
+            "labelValue": "Логин" 
         },
         {
             "fieldName": "first_name", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Имя"
+            "labelValue": "Имя" 
         },
         {
             "fieldName": "second_name", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Фамилия"
+            "labelValue": "Фамилия" 
         },
         {
             "fieldName": "phone", 
             "inputType": "tel",
             "class": "blue-input",
-            "labelValue": "Телефон"
+            "labelValue": "Телефон" 
         },
         {
             "fieldName": "password", 
             "inputType": "password",
             "class": "blue-input",
-            "labelValue": "Пароль"
+            "labelValue": "Пароль" 
         },
         {
             "fieldName": "second_password", 
             "inputType": "password",
             "class": "blue-input",
-            "labelValue": "Пароль (еще раз)"
+            "labelValue": "Пароль (еще раз)" 
         },
         
     ]
