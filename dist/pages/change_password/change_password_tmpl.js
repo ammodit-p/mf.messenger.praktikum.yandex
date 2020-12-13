@@ -14,7 +14,7 @@ export const change_password_tmpl = `
 
 </div>
 
-<button type="submit" class="button">Сохранить</button>
+<div class = "for-button"></div>
 </form>
 </main>`;
 //# sourceMappingURL=change_password_tmpl.js.map

@@ -14,7 +14,7 @@ export const change_user_data_tmpl = `
 
 </div>
 
-<button type="submit" class="button">Сохранить</button>
+<div class = "for-button"></div>
 </form>
 </main>`;
 //# sourceMappingURL=change_user_data_tmpl.js.map
