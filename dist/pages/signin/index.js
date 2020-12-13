@@ -8,7 +8,6 @@ const inputs = document.forms[0];
 function isEmpty(inputs) {
     for (let item of inputs) {
         if (item.type !== "submit" && !item.value) {
-            console.log('tel is not correct');
             item.classList.add("blue-input-invalid");
             return;
         }
@@ -19,7 +18,6 @@ function validate(inputs, valdata) {
         if (item.name === "phone") {
             let reg = valdata.tel;
             if (!reg.test(item.value)) {
-                console.log("im here");
                 item.classList.add("blue-input-invalid");
                 return;
             }
@@ -36,6 +34,11 @@ function validate(inputs, valdata) {
 }
 const form = document.querySelector("form");
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    isEmpty(form);
+    validate(form, valdata);
+});
+form.addEventListener('blur', (e) => {
     e.preventDefault();
     isEmpty(form);
     validate(form, valdata);

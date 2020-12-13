@@ -47,3 +47,9 @@ form.addEventListener('submit',(e) =>{
      isEmpty(form);
      validate(form, valdata)
 })
+
+form.addEventListener('blur', (e)=> {
+    e.preventDefault();
+    isEmpty(form);
+    validate(form, valdata)
+})
