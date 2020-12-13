@@ -15,6 +15,6 @@ export const change_user_data_tmpl: string =
 
 </div>
 
-<button type="submit" class="button">Сохранить</button>
+<div class = "for-button"></div>
 </form>
 </main>`

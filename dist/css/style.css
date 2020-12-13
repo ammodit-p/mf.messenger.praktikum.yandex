@@ -89,6 +89,10 @@ button:focus {
   text-align: center;
 }
 
+.wrapper>div {
+	height: 100%;
+}
+
 input {
 	margin: 0;
 	border: none;

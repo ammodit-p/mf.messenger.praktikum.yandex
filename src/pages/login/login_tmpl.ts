@@ -6,8 +6,8 @@ export const login_tmpl: string =
         {{> inputPartial}}
     {{/each}}
 </div>
-<div>
-    <button type="submit" class="button">Авторизоваться</button>
+<div class = "bottom-section">
+    <div class = "for-button"></div>
     <a href='signin.html'  >Нет аккаунта?</a>
 </div>
  </form>`
