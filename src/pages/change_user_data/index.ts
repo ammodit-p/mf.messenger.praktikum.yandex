@@ -56,6 +56,6 @@ function focusBlur (inputs): void {
             item.classList.remove("blue-input-invalid")
         } )
     }
-});
+};
 
 focusBlur(inputs);

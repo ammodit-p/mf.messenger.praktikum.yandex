@@ -3,13 +3,6 @@ export class Block {
     constructor(tagName = "div", props = {}, tmpl) {
         this._element = null;
         this._meta = null;
-        this.setProps = nextProps => {
-            if (!nextProps) {
-                return;
-            }
-            Object.assign(this.props, nextProps);
-            this.eventBus().emit(Block.EVENTS.FLOW_CDU);
-        };
         const eventBus = new EventBus();
         this._meta = {
             tagName,
@@ -43,7 +36,7 @@ export class Block {
         this.componentDidMount();
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
-    componentDidMount(oldProps) { }
+    componentDidMount() { }
     _componentDidUpdate(oldProps, newProps) {
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
         const response = this.componentDidUpdate(oldProps, newProps);
@@ -51,6 +44,14 @@ export class Block {
     componentDidUpdate(oldProps, newProps) {
         return true;
     }
+    setProps(nextProps) {
+        if (!nextProps) {
+            return;
+        }
+        Object.assign(this._meta.props, nextProps);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU);
+    }
+    ;
     _render() {
         const block = this.render();
         this._element.innerHTML = block;
