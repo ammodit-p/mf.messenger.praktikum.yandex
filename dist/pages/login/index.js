@@ -16,14 +16,14 @@ function isEmpty(inputs) {
 function validate(inputs, valdata) {
     for (let item of inputs) {
         if (item.name === "login") {
-            let val = validate.login;
+            let val = valdata.login;
             if (val !== item.value) {
                 item.classList.add("blue-input-invalid");
                 return;
             }
         }
         if (item.name === "password") {
-            let val = validate.password;
+            let val = valdata.password;
             if (val !== item.value) {
                 item.classList.add("blue-input-invalid");
                 return;

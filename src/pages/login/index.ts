@@ -24,14 +24,14 @@ function  isEmpty (inputs): void {
 function validate (inputs: any, valdata: any): void {
     for (let item of inputs) {
         if (item.name === "login") {
-            let val: string = validate.login;
+            let val: string = valdata.login;
             if (val !== item.value) {
                 item.classList.add("blue-input-invalid");
                 return
             }
         }
         if (item.name === "password") {
-            let val: string = validate.password;
+            let val: string = valdata.password;
             if (val !== item.value) {
                  
                 item.classList.add("blue-input-invalid");
@@ -58,6 +58,6 @@ function focusBlur (inputs): void {
             item.classList.remove("blue-input-invalid")
         } )
     }
-});
+};
 
 focusBlur(inputs);

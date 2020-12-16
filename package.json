@@ -1,0 +1,17 @@
+{
+    "name": "mf.messenger.praktikum.yandex",
+    "version": "1.0.0",
+    "private": true,
+    "devDependencies": {
+        "express": "4.17.1",
+        "handlebars": "4.7.6"
+    },
+    "scripts": {
+        "tsc": "tsc",
+        "start": "node ./server.js"
+    },
+    "engines": {
+        "node": "12.16.0",
+        "npm": "6.13.4"
+    }
+}
