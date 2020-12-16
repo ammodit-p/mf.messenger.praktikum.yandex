@@ -38,7 +38,6 @@ form.addEventListener('submit', (e) => {
     validate(form, valdata);
 });
 function focusBlur(inputs) {
-    console.log(inputs);
     for (let item of inputs) {
         item.addEventListener('blur', () => {
             isEmpty(form);

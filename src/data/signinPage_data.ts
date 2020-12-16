@@ -1,4 +1,4 @@
-export const signinPage_data: T = {
+export const signinPage_data: {} = {
     "header": "Регистрация",
     "inputs": [
         {

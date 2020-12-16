@@ -1,4 +1,4 @@
-export const chatList_data: T = {
+export const chatList_data: {} = {
     "list": [
         {
             "imgSrc": "./img/avatar.png", 

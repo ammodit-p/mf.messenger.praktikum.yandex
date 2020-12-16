@@ -1,7 +1,7 @@
 import {Block} from "./classBlock.js";
 
 export class Button extends Block {
-    constructor(props, tmpl) {
+    constructor(props: {}, tmpl: string) {
       super("button", props, tmpl);
     }
   

@@ -1,7 +1,7 @@
 import {EventBus} from "./eventBus.js";
 
 export class Block {
-  eventBus: any,
+  eventBus: any
   EVENTS: {
     INIT: string;
     FLOW_CDM: string;
@@ -16,8 +16,8 @@ export class Block {
     FLOW_CDU: "flow:component-did-update",
   };
 
-  _element = null;
-  _meta = null;
+  _element: any;
+  _meta: any;
 
 
   constructor(tagName: string = "div", props: {} = {}, tmpl: string) {
@@ -36,7 +36,7 @@ export class Block {
 
   
 
-  _registerEvents(eventBus) {
+  _registerEvents(eventBus: any) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -47,12 +47,12 @@ export class Block {
     return this._element;
   }
 
-  _createResources(): void {
-    this._element = this._createDocumentElement(this._meta.tagName);
+  _createResources(tagName: string): void {
+    this._element = this._createDocumentElement(tagName);
   }
 
-  _createDocumentElement(tagName): void {
-
+  _createDocumentElement(tagName: string): void {
+    this._meta.tagName = tagName
     return document.createElement(this._meta.tagName);
   }
 
@@ -69,14 +69,15 @@ export class Block {
 
   componentDidMount(): void {}
 
-  _componentDidUpdate(oldProps, newProps): void {
+  _componentDidUpdate(oldProps:any, newProps: any): void {
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
     const response = this.componentDidUpdate(oldProps, newProps);
   }
 
-  componentDidUpdate(oldProps, newProps): boolean {
-    return true;
+  componentDidUpdate(oldProps: any, newProps: any): boolean {
+      return true;
   }
+
 
   setProps (nextProps: any): void {
     if (!nextProps) {
@@ -89,19 +90,19 @@ export class Block {
 
  
 
-  _render(): void {
+  _render(): any {
     const block = this.render();
 
     this._element.innerHTML = block;
   }
 
 
-  render(): void {
+  render(): any {
     const template: any = Handlebars.compile(this._meta.tmpl)
     return template (this._meta.props);
   }
 
-  getContent(): void {
+  getContent(): any {
     return this.element;
   }
  

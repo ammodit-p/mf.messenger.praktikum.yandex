@@ -1,4 +1,4 @@
-export const profileDataChange_data: T = {
+export const profileDataChange_data: {} = {
     "name": "Имя",
     "link": "profile.html",
     "inputs": [

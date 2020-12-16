@@ -8,7 +8,7 @@ render (".for-button", signinButton);
 
 const inputs: any  = document.forms[0];
 
-function  isEmpty (inputs): void {
+function  isEmpty (inputs: any): void {
 
     for (let item of inputs) {
         if (item.type !== "submit" && !item.value) {
@@ -39,14 +39,14 @@ function validate (inputs: any, valdata: any): void {
     }
 }
 
-const form = document.querySelector("form")
-form.addEventListener('submit',(e) =>{
+const form: any = document.querySelector("form")
+form.addEventListener('submit',(e: any) =>{
     e.preventDefault();
      isEmpty(form);
      validate(form, valdata)
 });
 
-function focusBlur (inputs): void {
+function focusBlur (inputs: any): void {
     console.log(inputs)
     for (let item of inputs) {
         item.addEventListener('blur', ()=> {

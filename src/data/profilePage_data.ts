@@ -1,4 +1,4 @@
-export const profilePage_data: T = {
+export const profilePage_data: {} = {
     "name": "Имя",
     "link": "choose_a_chat.html",
     "user-item": [

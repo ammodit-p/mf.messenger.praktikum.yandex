@@ -1,4 +1,4 @@
-export const loginPage_data: T = {
+export const loginPage_data: {} = {
     "header": "Вход",
     "inputs": [
         {
