@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars';
+/// <reference path="./../../node_modules/handlebars/types/index.d.ts" />
 import {EventBus} from "./eventBus.js";
 
 type Indexed<T = unknown> = {
