@@ -1,1 +1,0 @@
-{"version":3,"file":"valData.js","sourceRoot":"","sources":["../../src/data/valData.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,OAAO,GAAO;IACvB,KAAK,EAAE,MAAM,CAAC,iFAAiF,CAAC;IAChG,OAAO,EAAE,MAAM,CAAC,6CAA6C,CAAC;IAC9D,OAAO,EAAE,OAAO;IAChB,UAAU,EAAE,OAAO;CACtB,CAAA"}
