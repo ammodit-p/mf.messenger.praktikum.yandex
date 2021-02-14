@@ -1,4 +1,5 @@
 import { EventBus } from "./eventBus.js";
+import * as Handlebars from 'handlebars';
 export class Block {
     constructor(tagName = "div", props = {}, tmpl) {
         const eventBus = new EventBus();
@@ -7,7 +8,7 @@ export class Block {
             props,
             tmpl
         };
-        this.eventBus = () => eventBus;
+        this.eventBus = eventBus;
         this._registerEvents(eventBus);
         eventBus.emit(Block.EVENTS.INIT);
     }
@@ -20,7 +21,8 @@ export class Block {
     get element() {
         return this._element;
     }
-    _createResources(tagName) {
+    _createResources() {
+        const { tagName } = this._meta;
         this._element = this._createDocumentElement(tagName);
     }
     _createDocumentElement(tagName) {
@@ -29,26 +31,29 @@ export class Block {
     }
     init() {
         this._createResources();
-        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+        this.eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
     _componentDidMount() {
         this.componentDidMount();
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
     componentDidMount() { }
     _componentDidUpdate(oldProps, newProps) {
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
-        const response = this.componentDidUpdate(oldProps, newProps);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
+        this.componentDidUpdate(oldProps, newProps);
     }
     componentDidUpdate(oldProps, newProps) {
-        return true;
+        if (oldProps && newProps) {
+            return true;
+        }
+        return false;
     }
     setProps(nextProps) {
         if (!nextProps) {
             return;
         }
         Object.assign(this._meta.props, nextProps);
-        this.eventBus().emit(Block.EVENTS.FLOW_CDU);
+        this.eventBus.emit(Block.EVENTS.FLOW_CDU);
     }
     ;
     _render() {

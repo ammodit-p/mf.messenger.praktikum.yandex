@@ -1,7 +1,17 @@
 import {EventBus} from "./eventBus.js";
+import * as Handlebars from 'handlebars';
 
+type Indexed<T = unknown> = {
+  [key in string]: T  | string
+}
+
+interface Meta {
+  tagName: string;
+  props: Indexed;
+  tmpl: string
+}
 export class Block {
-  eventBus: any
+  eventBus: EventBus;
   EVENTS: {
     INIT: string;
     FLOW_CDM: string;
@@ -16,11 +26,11 @@ export class Block {
     FLOW_CDU: "flow:component-did-update",
   };
 
-  _element: any;
-  _meta: any;
+  _element: HTMLElement;
+  _meta: Meta;
 
 
-  constructor(tagName: string = "div", props: {} = {}, tmpl: string) {
+  constructor(tagName: string = "div", props: Indexed = {}, tmpl: string) {
     const eventBus = new EventBus();
     this._meta = {
       tagName,
@@ -28,7 +38,7 @@ export class Block {
       tmpl
     };
 
-    this.eventBus = () => eventBus;
+    this.eventBus =  eventBus;
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
@@ -36,22 +46,23 @@ export class Block {
 
   
 
-  _registerEvents(eventBus: any) {
+  _registerEvents(eventBus: EventBus) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  get element(): void {
+  get element(): HTMLElement {
     return this._element;
   }
 
-  _createResources(tagName: string): void {
+  _createResources(): void {
+    const { tagName }: Meta = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
 
-  _createDocumentElement(tagName: string): void {
+  _createDocumentElement(tagName: string): HTMLElement {
     this._meta.tagName = tagName
     return document.createElement(this._meta.tagName);
   }
@@ -59,23 +70,26 @@ export class Block {
 
   init(): void {
     this._createResources();
-    this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+    this.eventBus.emit(Block.EVENTS.FLOW_CDM);
   }
 
   _componentDidMount(): void {
     this.componentDidMount();
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+    this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
   }
 
   componentDidMount(): void {}
 
   _componentDidUpdate(oldProps:any, newProps: any): void {
-    this.eventBus().emit(Block.EVENTS.FLOW_RENDER)
-    const response = this.componentDidUpdate(oldProps, newProps);
+    this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
+    this.componentDidUpdate(oldProps, newProps);
   }
 
   componentDidUpdate(oldProps: any, newProps: any): boolean {
+    if(oldProps && newProps) {
       return true;
+    }
+    return false
   }
 
 
@@ -85,33 +99,33 @@ export class Block {
     }
 
     Object.assign(this._meta.props, nextProps);
-    this.eventBus().emit(Block.EVENTS.FLOW_CDU)
+    this.eventBus.emit(Block.EVENTS.FLOW_CDU)
   };
 
  
 
-  _render(): any {
+  _render(): void {
     const block = this.render();
 
     this._element.innerHTML = block;
   }
 
 
-  render(): any {
-    const template: any = Handlebars.compile(this._meta.tmpl)
+  render(): string {
+    const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
     return template (this._meta.props);
   }
 
-  getContent(): any {
+  getContent(): HTMLElement {
     return this.element;
   }
  
 
-  show(): any {
+  show(): void {
     this.getContent().style.display = "block";
   }
 
-  hide(): any {
+  hide(): void {
     this.getContent().style.display = "none";
   }
 }
