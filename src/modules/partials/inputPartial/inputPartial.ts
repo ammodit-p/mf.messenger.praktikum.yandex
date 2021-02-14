@@ -1,5 +1,4 @@
-
-import * as Handlebars from 'handlebars';
+import Handlebars from 'handlebars';;
 import {input_tmpl} from "./input_tmpl.js";
 
 export function inputPartial(): void {

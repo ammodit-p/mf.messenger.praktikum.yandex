@@ -1,5 +1,5 @@
+import Handlebars from 'handlebars';
 import {EventBus} from "./eventBus.js";
-import * as Handlebars from 'handlebars';
 
 type Indexed<T = unknown> = {
   [key in string]: T  | string

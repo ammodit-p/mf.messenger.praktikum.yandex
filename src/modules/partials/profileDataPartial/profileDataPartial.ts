@@ -1,5 +1,4 @@
-
-import * as Handlebars from 'handlebars';
+import Handlebars from 'handlebars';;
 import {profile_data_tmpl} from "./profile_data_tmpl.js";
 
 export function profileDataPartial(): void {

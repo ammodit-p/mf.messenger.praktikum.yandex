@@ -1,5 +1,4 @@
-
-import * as Handlebars from 'handlebars';
+import Handlebars from 'handlebars';;
 import {chatHeaderPartial_tmpl} from "./chatHeaderPartial_tmpl.js";
 
 export function chatHeaderPartial(): void {
