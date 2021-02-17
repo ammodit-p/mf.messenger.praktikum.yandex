@@ -9,8 +9,7 @@
       "alwaysStrict": true,
       "removeComments": true,
       "sourceMap": true,
-      "module": "es2015",
-      "target": "es6",
+      "target": "ES2017",
       "outDir": "./dist",
       "types": [
         "handlebars"
@@ -18,7 +17,6 @@
     },
     "include": [
       "src/**/*",
-      "node_modules/handlebars/types"
     ],
     
     "exclude": [
