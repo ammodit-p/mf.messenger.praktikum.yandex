@@ -1,6 +1,6 @@
-import {StringObj} from "../types";
-import {Options} from "../types";
-import {queryString} from './../funcs/queryString'
+import {StringObj} from "../types.js";
+import {Options} from "../types.js";
+import {queryString} from './../funcs/queryString.js'
 
 export class Fetch {
     url: string

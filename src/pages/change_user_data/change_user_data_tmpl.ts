@@ -15,6 +15,8 @@ export const change_user_data_tmpl: string =
 
 </div>
 
-<div class = "for-button"></div>
+<div class = "for-button">
+    {{>buttonPartial}}
+</div>
 </form>
 </main>`

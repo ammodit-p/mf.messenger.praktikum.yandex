@@ -5,7 +5,7 @@ export const loginPage_data: {} = {
             "fieldName": "login", 
             "inputType": "text",
             "class": "blue-input",
-            "labelValue": "Логин" 
+            "labelValue": "Логин"
         },
         {
             "fieldName": "password", 
@@ -13,5 +13,6 @@ export const loginPage_data: {} = {
             "class": "blue-input",
             "labelValue": "Пароль" 
         }
-    ]
+    ],
+    "text": "Авторизоваться"
 }

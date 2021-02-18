@@ -1,10 +1,9 @@
 import {render} from "../../funcs/render.js";
 import {login} from "./login.js";
-import {loginButton} from "../../modules/button/loginButton.js"
 import { valdata } from "../../data/valData.js";
 
 render (".wrapper", login);
-render(".for-button", loginButton)
+
 
 
 const inputs: any  = document.forms[0];

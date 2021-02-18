@@ -1,10 +1,9 @@
 import {render} from "../../funcs/render.js";
 import {change_user_data} from "./change_user_data.js";
-import {saveButton} from "../../modules/button/saveButton.js";
 import {valdata} from "../../data/valData.js";
 
 render (".wrapper", change_user_data);
-render(".for-button", saveButton)
+
 
 const inputs: any  = document.forms[0];
 

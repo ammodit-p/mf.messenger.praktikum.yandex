@@ -1,5 +1,5 @@
-import {isEqual} from "../funcs/isEqual";
-import {render} from "../funcs/render";
+import {isEqual} from "../funcs/isEqual.js";
+import {render} from "../funcs/render.js";
 
 export class Route {
     _pathname: string;
@@ -33,7 +33,7 @@ export class Route {
 
     render() {
       if (!this._block) {
-        this._block = new this._blockClass();
+        this._block = this._blockClass;
         render(this._props.rootQuery, this._block);
         return;
       }

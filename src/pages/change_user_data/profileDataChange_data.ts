@@ -1,6 +1,7 @@
 export const profileDataChange_data: {} = {
     "name": "Имя",
     "link": "profile.html",
+    "text": "Сохранить",
     "inputs": [
         {
             "fieldName": "email", 

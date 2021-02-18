@@ -1,10 +1,10 @@
 import {render} from "../../funcs/render.js";
 import {signin} from "./signin.js";
-import {signinButton} from "../../modules/button/signinButton.js"
+
 import {valdata} from "../../data/valData.js"
 
 render (".wrapper", signin);
-render (".for-button", signinButton);
+
 
 const inputs: any  = document.forms[0];
 

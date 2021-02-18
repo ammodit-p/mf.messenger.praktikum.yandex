@@ -7,7 +7,9 @@ export const signin_tmpl: string =
     {{/each}}
 </div>
 <div class = "bottom-section">
-    <div class = "for-button"></div>
+    <div class = "for-button">
+        {{>buttonPartail}}
+    </div>
     <a href='signin.html'  >Нет аккаунта?</a>
 </div>
  </form>`

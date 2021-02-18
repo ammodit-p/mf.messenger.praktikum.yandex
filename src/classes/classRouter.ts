@@ -1,5 +1,5 @@
-import {Route} from "./classRoute";
-import {Block} from "./classBlock";
+import {Route} from "./classRoute.js";
+import {Block} from "./classBlock.js";
 
 export class Router {
     static __instance: any;

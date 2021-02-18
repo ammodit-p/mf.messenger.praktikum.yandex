@@ -7,7 +7,9 @@ export const login_tmpl: string =
     {{/each}}
 </div>
 <div class = "bottom-section">
-    <div class = "for-button"></div>
+    <div class = "for-button">
+        {{>buttonPartial}}
+    </div>
     <a href='signin.html'  >Нет аккаунта?</a>
 </div>
  </form>`

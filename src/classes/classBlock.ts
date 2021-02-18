@@ -6,6 +6,7 @@ interface Meta {
   tagName: string;
   props: Indexed;
   tmpl: string
+  child?: any[] | null;
 }
 export class Block {
   eventBus: EventBus;
@@ -27,12 +28,13 @@ export class Block {
   _meta: Meta;
 
 
-  constructor(tagName: string = "div", props: Indexed = {}, tmpl: string) {
+  constructor(tagName: string = "div", props: Indexed = {}, tmpl: string, child?: any[]) {
     const eventBus = new EventBus();
     this._meta = {
       tagName,
       props,
-      tmpl
+      tmpl,
+      child
     };
 
     this.eventBus =  eventBus;
@@ -103,7 +105,6 @@ export class Block {
 
   _render(): void {
     const block = this.render();
-
     this._element.innerHTML = block;
   }
 

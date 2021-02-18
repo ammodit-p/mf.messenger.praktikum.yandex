@@ -1,9 +1,9 @@
 import {Block} from "../../classes/classBlock.js";
-import {profileLinkPartial} from "../../modules/partials/profileLinkPartial/profileLinkPartial.js";
-import {profileAvatarPartial} from "../../modules/partials/profileAvatarPartial/profileAvatarPartial.js";
-import {profileDataPartial} from "../../modules/partials/profileDataPartial/profileDataPartial.js";
-import {profileMenuPartial} from "../../modules/partials/profileMenuPartial/profileMenuPartial.js";
-import {profilePage_data} from "../../data/profilePage_data.js"
+import {profileLinkPartial} from "../../modules/profileLinkPartial/profileLinkPartial.js";
+import {profileAvatarPartial} from "../../modules/profileAvatarPartial/profileAvatarPartial.js";
+import {profileDataPartial} from "../../modules/profileDataPartial/profileDataPartial.js";
+import {profileMenuPartial} from "../../modules/profileMenuPartial/profileMenuPartial.js";
+import {profilePage_data} from "./profilePage_data.js"
 import {profile_tmpl} from "./profile_tmpl.js";
 profileDataPartial();
 profileLinkPartial();
