@@ -1,4 +1,6 @@
-export   function render(query: string, block: any): void {
+import { Block } from "../classes/classBlock";
+
+export   function render(query: string, block: Block): void {
     const root: any = document.querySelector(query);
     root.appendChild(block.getContent());
     return root;

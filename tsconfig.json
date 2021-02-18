@@ -9,7 +9,7 @@
       "alwaysStrict": true,
       "removeComments": true,
       "sourceMap": true,
-      "target": "ES2017",
+      "target": "ES2019",
       "outDir": "./dist",
       "types": [
         "handlebars"

@@ -23,7 +23,7 @@ function getKey(key: string, parentKey?: string) {
 function getParams(data: Indexed | [], parentKey?: string) {
     const result: [string, string][] = [];
 
-    for(const [key, value] of Object.entries(data)) {
+    for(const [key, value] of Object.entries(data)) { //я не знаю почему он тут ругается на entries. Собиорается вроде без этой ошибки. target стоит правильный. но не помогает
         if (isArrayOrObject(value)) {
             result.push(...getParams(value, getKey(key, parentKey)));
         } else {

@@ -8,5 +8,5 @@
 
     export interface Options{
         headers: StringObj;
-        data: any;
+        data?: any;
     }

@@ -1,9 +1,6 @@
 /// <reference path="./../../node_modules/handlebars/types/index.d.ts" />
 import {EventBus} from "./eventBus.js";
-
-type Indexed<T = unknown> = {
-  [key in string]: T  | string
-}
+import {Indexed} from "../types";
 
 interface Meta {
   tagName: string;
