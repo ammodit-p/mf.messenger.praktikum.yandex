@@ -12,4 +12,10 @@ profileLinkPartial();
 profileAvatarPartial();
 
 
-export const change_user_data = new Block ("div", profileDataChange_data, change_user_data_tmpl);
+export class Change_user_data extends Block {
+    constructor () {
+        super("div", profileDataChange_data, change_user_data_tmpl);
+    }
+
+    addEvents() {}
+}

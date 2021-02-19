@@ -1,9 +1,7 @@
-import {render} from "../../funcs/render.js";
-import {signin} from "./signin.js";
+
 
 import {valdata} from "../../data/valData.js"
 
-render (".wrapper", signin);
 
 
 const inputs: any  = document.forms[0];

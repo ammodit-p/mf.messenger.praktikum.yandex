@@ -6,4 +6,12 @@ import {buttonPartial} from "../../modules/button/buttonPartial.js";
 inputPartial();
 buttonPartial();
 
-export const signin = new Block ("div", signinPage_data, signin_tmpl);
+
+export class Signin extends Block {
+    constructor () {
+        super("div", signinPage_data, signin_tmpl);
+    }
+
+    addEvents() {}
+}
+

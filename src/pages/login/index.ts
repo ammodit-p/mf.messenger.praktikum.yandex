@@ -1,8 +1,8 @@
-import {render} from "../../funcs/render.js";
-import {login} from "./login.js";
+// import {render} from "../../funcs/render.js";
+// import {login} from "./login.js";
 import { valdata } from "../../data/valData.js";
 
-render (".wrapper", login);
+// render (".wrapper", login);
 
 
 

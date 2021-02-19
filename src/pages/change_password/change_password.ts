@@ -13,4 +13,10 @@ profileAvatarPartial();
 buttonPartial();
 
 
-export const change_password = new Block ("div", profilePassChange_data, change_password_tmpl);
+export class Change_password extends Block {
+    constructor () {
+        super("div", profilePassChange_data, change_password_tmpl);
+    }
+
+    addEvents() {}
+}

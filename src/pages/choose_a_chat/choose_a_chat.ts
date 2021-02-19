@@ -10,4 +10,10 @@ chatListAreaPartial();
 chatHeaderPartial();
 
 
-export const choose_a_chat = new Block ("div", chatList_data, choose_a_chat_tmpl);
+export class Choose_a_cha extends Block {
+    constructor () {
+        super("div", chatList_data, choose_a_chat_tmpl);
+    }
+
+    addEvents() {}
+}

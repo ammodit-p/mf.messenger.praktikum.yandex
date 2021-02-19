@@ -1,8 +1,6 @@
-import {render} from "../../funcs/render.js";
-import {change_user_data} from "./change_user_data.js";
+
 import {valdata} from "../../data/valData.js";
 
-render (".wrapper", change_user_data);
 
 
 const inputs: any  = document.forms[0];

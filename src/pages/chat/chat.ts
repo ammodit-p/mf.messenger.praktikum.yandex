@@ -9,5 +9,10 @@ chatListHeaderPartial();
 chatListAreaPartial();
 chatHeaderPartial();
 
+export class Chat extends Block {
+    constructor () {
+        super("div", chatList_data, chat_tmpl);
+    }
 
-export const chat = new Block ("div", chatList_data, chat_tmpl);
+    addEvents() {}
+}

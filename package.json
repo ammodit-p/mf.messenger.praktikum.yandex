@@ -12,7 +12,7 @@
         "tsc": "tsc",
         "start": "node ./server.js",
         "dev": "tsc -w & npm run html & npm run css & npm run start & browser-sync start --proxy 'localhost:4000' --files 'dist'",
-        "clean": "rm -rf dist/**",
+        "clean": "rm -rf dist/",
         "fix-js": "find ./dist -name \"*.js\" -exec sed -i '' -E 's|(import .+ from ['\\''\"]\\.?\\./.+[^.][^j][^s])(['\\''\"])|\\1.js\\2|g' {} +",
         "html": "find ./src/ -name \"*.html\" -type f -exec copyfiles -u 1 {} ./dist \\;",
         "css": "find ./src/ -name \"*.css\" -type f -exec copyfiles -u 1 {} ./dist \\;",

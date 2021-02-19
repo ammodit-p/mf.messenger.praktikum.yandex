@@ -10,4 +10,11 @@ profileLinkPartial();
 profileAvatarPartial();
 profileMenuPartial();
 
-export const profile = new Block ("div", profilePage_data, profile_tmpl);
+
+export class Profile extends Block {
+    constructor () {
+        super("div", profilePage_data, profile_tmpl);
+    }
+
+    addEvents() {}
+}

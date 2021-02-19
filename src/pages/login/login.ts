@@ -7,4 +7,10 @@ import {loginPage_data} from "./loginPage_data.js";
 inputPartial();
 buttonPartial();
 
-export const login = new Block ("div", loginPage_data, login_tmpl);
+export class Login extends Block {
+    constructor () {
+        super("div", loginPage_data, login_tmpl);
+    }
+
+    addEvents() {}
+}

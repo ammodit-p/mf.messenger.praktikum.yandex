@@ -1,5 +1,4 @@
 import {Route} from "./classRoute.js";
-import {Block} from "./classBlock.js";
 
 export class Router {
     static __instance: any;
@@ -21,7 +20,8 @@ export class Router {
         Router.__instance = this;
     }
 
-    use(pathname: string, block: Block) {
+    //тут у блока тип any потому что каждая страница - это новый класс расширяющий Block. Из-за этого надо ковыряться и искать как определчть типы чтоб TS не ругался, а у меня пока не хватает времени.
+    use(pathname: string, block: any) {
         const route = new Route(pathname, block, {rootQuery: this._rootQuery});
         this.routes.push(route);
       return this
