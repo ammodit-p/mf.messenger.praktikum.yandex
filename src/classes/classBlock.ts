@@ -40,12 +40,6 @@ export class Block {
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
   }
-
-  setMeta (tagName: string = "div", props: Indexed = {}, tmpl: string): void {
-    this._meta.tagName = tagName;
-    this._meta.props = props;
-    this._meta.tmpl = tmpl
-  }
   
 
   _registerEvents(eventBus: EventBus) {
@@ -59,6 +53,11 @@ export class Block {
     return this._element;
   }
 
+  init(): void {
+    this._createResources();
+    this.eventBus.emit(Block.EVENTS.FLOW_CDM);
+  }
+
   _createResources(): void {
     const { tagName }: Meta = this._meta;
     this._element = this._createDocumentElement(tagName);
@@ -70,11 +69,6 @@ export class Block {
   }
 
 
-  init(): void {
-    this._createResources();
-    this.eventBus.emit(Block.EVENTS.FLOW_CDM);
-  }
-
   _componentDidMount(): void {
     this.componentDidMount();
     this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
@@ -82,16 +76,18 @@ export class Block {
 
   componentDidMount(): void {}
 
-  _componentDidUpdate(oldProps:any, newProps: any): void {
+  _componentDidUpdate(_oldProps:any, _newProps: any): void {
     this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
-    this.componentDidUpdate(oldProps, newProps);
+    this.componentDidUpdate(_oldProps, _newProps);
   }
 
   componentDidUpdate(_oldProps: any, _newProps: any): any | void {
     this.addEvents()
   }
 
-  addEvents() {}
+  addEvents() {
+    return
+  }
 
   setProps (nextProps: any): void {
     if (!nextProps) {
@@ -126,5 +122,9 @@ export class Block {
 
   hide(): void {
     this.getContent().style.display = "none";
+  }
+
+  delete (): void {
+
   }
 }

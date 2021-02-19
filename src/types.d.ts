@@ -6,6 +6,10 @@
         [k in string]: string
     }
 
+    export type RegObj = {
+        [key in string]: RegExp
+    }
+
     export interface Options{
         headers: StringObj;
         data?: any;

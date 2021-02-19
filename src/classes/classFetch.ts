@@ -7,25 +7,25 @@ export class Fetch {
     constructor (url: string) {
         this.url = 'https://www.ya-praktikum.tech/api/v2' + url
     }
-    get(url: string, options:Options = {"headers": {}}): Promise<void | XMLHttpRequest> {
+    get(url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> {
         const {data} = options
         url = this.url + url + queryString(data)
-    return this.request(url, options, 'GET').catch((e)=> {console.log(e)});
+    return this.request(url, options, 'GET');
     };
 
-    put = (url: string, options:Options = {"headers": {}}): Promise<void | XMLHttpRequest> => {
+    put = (url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> => {
         url = this.url + url
-        return this.request(url, options, "PUT").catch((e)=> {console.log(e)});
+        return this.request(url, options, "PUT");
       }
 
-    post = (url: string, options:Options = {"headers": {}}): Promise<void | XMLHttpRequest> => {
+    post = (url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> => {
         url = this.url + url
-    return this.request(url, options, "POST").catch((e)=> {console.log(e)});
+    return this.request(url, options, "POST");
     }
 
-    delete = (url: string, options:Options = {"headers": {}}): Promise<void | XMLHttpRequest> => {
+    delete = (url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> => {
         url = this.url + url
-    return this.request(url, options, "DELETE").catch((e)=> {console.log(e)});
+    return this.request(url, options, "DELETE");
     }
 
 

@@ -10,6 +10,6 @@ export const login_tmpl: string =
     <div class = "for-button">
         {{>buttonPartial}}
     </div>
-    <a href='signin.html'  >Нет аккаунта?</a>
+    <a class = "signin"  >Нет аккаунта?</a>
 </div>
  </form>`
