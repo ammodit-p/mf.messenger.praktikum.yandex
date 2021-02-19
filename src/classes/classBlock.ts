@@ -125,6 +125,6 @@ export class Block {
   }
 
   delete (): void {
-
+    this.getContent().remove()
   }
 }
