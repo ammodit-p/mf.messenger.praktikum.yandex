@@ -1,5 +1,7 @@
 
-import {Indexed} from "../types.js"
+import {Indexed} from "../types.js";
+import {State} from "../store/Store.js";
+import {router} from "../initialaze.js";
 export class apiController {
     static __instance: any;
     _apis: Indexed;
@@ -20,12 +22,12 @@ export class apiController {
         return this
     }
 
-    getApi (apiName: string) {
+    _getApi (apiName: string) {
         return this._apis[apiName]
     }
 
-    canIGo(apiName: string, data: any): boolean | void {
-        const api = this.getApi(apiName);
+    canIGo(apiName: string, data: any, go:string): boolean | void {
+        const api = this._getApi(apiName);
         if (!api) {
             return false
         }
@@ -34,14 +36,36 @@ export class apiController {
         this._currentApi.request(data)
             .then((res: any) => {
                 if(res.status === 200) {
-                    return true
+                    router.go(go)
                 }
                 console.log(res)
-                return false
+                
             })
             .catch((e: any) => {
                 console.log(e)
-                return false
+            
+            })
+    }
+
+    create(apiName: string, data: any, go: string): void {
+        const api = this._getApi(apiName);
+        if (!api) {
+            return
+        }
+
+        this._currentApi = api
+        this._currentApi.create(data)
+            .then((res: any) => {
+                if(res.status === 200) {
+                    State.set(apiName, res.response);
+                    router.go(go)
+                }
+                console.log(res)
+                
+            })
+            .catch((e: any) => {
+                console.log(e)
+                
             })
     }
 
