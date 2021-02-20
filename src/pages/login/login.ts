@@ -6,8 +6,14 @@ import {loginPage_data} from "./loginPage_data.js";
 import {checkEmptyForm} from "../../funcs/checkEmpty.js";
 import {validate} from "../../funcs/validate.js";
 import { valdata } from "../../data/valData.js";
-import {authApi} from "./auth_api.js";
-import {Router} from "../../classes/classRouter.js"
+import {router} from "../../initialaze.js"
+import {focusBlur} from "../../funcs/focusBlur.js";
+import {authApi} from './auth_api.js'
+import {api} from "../../initialaze.js";
+import {objFromForm} from "../../funcs/objFromForm.js"
+
+api.use("auth", authApi)
+
 
 inputPartial();
 buttonPartial();
@@ -21,24 +27,27 @@ export class Login extends Block {
 
     addEvents() {
         const form: any = document.forms[0]
+            focusBlur(form)
             form.addEventListener("submit", (e: any) => {
             e.preventDefault();
+            checkEmptyForm(form)
 
-            const isEmpty = checkEmptyForm(form)
-            if (isEmpty === true) {return}
             const validated = validate(form, valdata)
             if(validated === false) {return}
-
             const formData: FormData = new FormData(form);
+            const data = objFromForm(formData)
 
-            const api = new authApi (formData)
-            api.result()
+            const canIGo = api.canIGo("auth", data)
+            if(canIGo === true) {
+                router.go("/chats")
+            }
+            
             })
+        
         
         const signin: any = document.querySelector(".signin")
         signin.addEventListener('click', (e: any) => {
             e.preventDefault()
-            const router = new Router(".wrapper") 
             router.go('/signin')
         })
     }

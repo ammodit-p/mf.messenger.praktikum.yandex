@@ -1,4 +1,4 @@
 export const valdata: {} = {
-    "login": /[^\p{L}\p{N}\p{P}\p{S}\p{Z}]/,
-    "password": /[^\p{L}\p{N}\p{P}\p{S}\p{Z}]/
+    "login": /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/,
+    "password": /^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/
 }

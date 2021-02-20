@@ -5,7 +5,7 @@ import {queryString} from './../funcs/queryString.js'
 export class Fetch {
     url: string
     constructor (url: string) {
-        this.url = 'https://www.ya-praktikum.tech/api/v2' + url
+        this.url = 'https://ya-praktikum.tech/api/v2' + url
     }
     get(url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> {
         const {data} = options
