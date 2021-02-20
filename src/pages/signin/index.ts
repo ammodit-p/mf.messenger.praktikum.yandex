@@ -1,6 +1,6 @@
 
 
-import {valdata} from "../../data/valData.js"
+import {valdata} from "../../funcs/checkFrorms/valData.js"
 
 
 

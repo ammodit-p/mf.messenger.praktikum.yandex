@@ -1,6 +1,7 @@
-import {RegObj} from "../types";
 
-export function validate (form: any, valdata: RegObj) {
+import {valdata} from "./valData.js";
+
+export function validate (form: any) {
     for (let item of form) {
         if (Object.keys(valdata).includes(item.name)) {
             let name: string = item.name
