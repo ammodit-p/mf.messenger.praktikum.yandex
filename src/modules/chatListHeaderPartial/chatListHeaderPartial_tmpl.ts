@@ -1,6 +1,6 @@
 export const chatListHeaderPartial_tmpl: string = 
 `<div class="chatlist-header">
-<a href="profile.html" class="chatlist-profile-link">
+<a  class="profile chatlist-profile-link">
   Профиль
    <span class="chatlist-profile-link-arrow"></span>
   </a>

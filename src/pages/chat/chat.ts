@@ -4,6 +4,7 @@ import {chatListAreaPartial} from "../../modules/chatListAreaPartial/chatListAre
 import {chatHeaderPartial} from "../../modules/chatHeaderPartial/chatHeaderPartial.js";
 import {chatList_data} from "./chatList_data.js";
 
+
 import {chat_tmpl} from "./chat_tmpl.js";
 chatListHeaderPartial();
 chatListAreaPartial();
@@ -14,5 +15,7 @@ export class Chat extends Block {
         super("div", chatList_data, chat_tmpl);
     }
 
-    addEvents() {}
+    addEvents() {
+    
+    }
 }

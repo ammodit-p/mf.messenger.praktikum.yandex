@@ -3,17 +3,22 @@ import {chatListHeaderPartial} from "../../modules/chatListHeaderPartial/chatLis
 import {chatListAreaPartial} from "../../modules/chatListAreaPartial/chatListAreaPartial.js";
 import {chatHeaderPartial} from "../../modules/chatHeaderPartial/chatHeaderPartial.js";
 import {chatList_data} from "./chatList_data.js";
-
+import {router} from "../../initialaze.js"
 import {choose_a_chat_tmpl} from "./choose_a_chat_tmpl.js";
 chatListHeaderPartial();
 chatListAreaPartial();
 chatHeaderPartial();
 
 
-export class Choose_a_cha extends Block {
+export class Choose_a_chat extends Block {
     constructor () {
         super("div", chatList_data, choose_a_chat_tmpl);
     }
 
-    addEvents() {}
+    addEvents() {
+        const signin: any = document.querySelector(".profile")
+        signin.addEventListener('click', (e: any) => {
+            e.preventDefault()
+            router.go('/profile')})
+    }
 }
