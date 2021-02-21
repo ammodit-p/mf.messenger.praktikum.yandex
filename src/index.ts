@@ -8,7 +8,7 @@ import {Change_password} from "./pages/change_password/change_password.js"
 
 
 
-const router: Router = new Router ('.wrapper');
+const router: Router = new Router ('.app');
 
 router
     .use('/', Login)

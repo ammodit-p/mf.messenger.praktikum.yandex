@@ -1,42 +1,61 @@
 import {Block} from "../../classes/classBlock.js";
+import {Button} from "../../modules/button/classButton.js"
+import {button_tmpl} from "../../modules/button/button_tmpl.js";
 import {signin_tmpl} from "./signin_tmpl.js";
-import {inputPartial} from "../../modules/inputPartial/inputPartial.js";
+import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
 import {signinPage_data} from "./signinPage_data.js";
-import {buttonPartial} from "../../modules/button/buttonPartial.js";
-import {router} from "../../initialaze.js";
-import {focusBlur} from "../../funcs/forms/focusBlur.js";
-import {checkForms} from "../../funcs/forms/checkForms.js";
-import {api} from '../../initialaze.js';
-import {objFromForm} from "../../funcs/objFromForm.js"
+import {render} from "../../funcs/render.js"
+import {events} from "./eventListeners.js"
+
 
 inputPartial();
-buttonPartial();
+
 
 export class Signin extends Block {
+    className: string
     constructor () {
-        super("div", signinPage_data, signin_tmpl);
+        super("div", {
+            data :signinPage_data,
+            events: events,
+            button: new Button ("button", {"text": "Зарегистрироваться"}, button_tmpl)
+        }, signin_tmpl);
+        this.className = ".wrapper"
     }
+    _createDocumentElement(tagName: string): HTMLElement {
+        const el = document.createElement(tagName);
+        el.classList.add(this.className)
+        return el;
+      }
 
-    addEvents() {
-        const form: any = document.forms[0]
-            focusBlur(form)
-            form.addEventListener("submit", (e: any) => {
-                e.preventDefault();
-                
-                const checked: boolean = checkForms(form);
-                if(checked === false) {return}; 
+      _render(): void {
+        const block = this.render();
 
-                const formData: FormData = new FormData(form);
-                const data: {} = objFromForm(formData)
-                api.create('auth', data, "/chat")
+        this._removeEvents()
 
-            });
+        this._element.innerHTML = block;
+        const {button} = this.props
+        render('.for-button', button)
 
-        const signin: any = document.querySelector(".auth")
-        signin.addEventListener('click', (e: any) => {
-            e.preventDefault()
-            router.go('/')
-        })
+        this._addEvents()
+      }
+      render(): string {
+          const {data} = this.props
+        const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this.props.tmpl)
+        return template (data);
+      }
+
+      _addEvents() {
+        const {events = {}} = this.props;
+          this._element.onsubmit = events.submit;
+          this._element.onblur = events.blur;
+          this._element.onfocus = events.focus;
+
+}
+
+    _removeEvents() {
+        this._element.onsubmit = null
+          this._element.onblur = null
+          this._element.onfocus = null
     }
 }
 

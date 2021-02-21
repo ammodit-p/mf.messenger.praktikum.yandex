@@ -16,7 +16,7 @@ export class Login extends Block {
     constructor () {
         super("div", {
             data :loginPage_data,
-            events = events,
+            events: events,
             button: new Button ("button", {"text": "Авторизоваться"}, button_tmpl)
         }, login_tmpl);
         this.className = ".wrapper"
@@ -57,27 +57,4 @@ export class Login extends Block {
           this._element.onblur = null
           this._element.onfocus = null
     }
-
-// addEvents() {
-//     const form: any = document.forms[0]
-//         focusBlur(form)
-//         form.addEventListener("submit", (e: any) => {
-//         e.preventDefault();
-        
-//         const checked: boolean = checkForms(form);
-//         if(checked === false) {return}; 
-
-//         const formData: FormData = new FormData(form);
-//         const data: {} = objFromForm(formData)
-
-//         api.canIGo("auth", data, "/chat")
-        
-//         })
-    
-    
-//     const signin: any = document.querySelector(".signin")
-//     signin.addEventListener('click', (e: any) => {
-//         e.preventDefault()
-//         router.go('/signin')
-//     })
-// }
+}
