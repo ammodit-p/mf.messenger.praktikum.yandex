@@ -7,9 +7,7 @@ export const login_tmpl: string =
     {{/each}}
 </div>
 <div class = "bottom-section">
-    <div class = "for-button">
-        
-    </div>
+
     <a class = "signin"  >Нет аккаунта?</a>
 </div>
 `

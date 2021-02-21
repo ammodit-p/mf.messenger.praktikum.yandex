@@ -11,18 +11,16 @@ import {events} from "./eventListeners.js"
 inputPartial();
 
 export class Login extends Block {
-    className: string
     constructor () {
         super("form", {
             data :loginPage_data,
             events: events,
-            button: new Button ("button", {"text": "Авторизоваться"}, button_tmpl)
-        }, login_tmpl);
-        this.className = ".wrapper"
+            button: new Button ("div", {"text": "Авторизоваться"}, button_tmpl, ".button")
+        }, login_tmpl, ".wrapper");
     }
     _createDocumentElement(tagName: string): HTMLElement {
         const el = document.createElement(tagName);
-        el.classList.add(this.className)
+        el.classList.add(this._meta.className)
         return el;
       }
 
@@ -46,17 +44,19 @@ export class Login extends Block {
 
       _addEvents() {
 
-          this._element.onsubmit = this.props.events.submit;
-          this._element.onblur = this.props.events.blur;
-          this._element.onfocus = this.props.events.focus;
-          this._element.onclick = this.props.events.signin
+        const {events = {}} = this.props;
+
+        Object.keys(events).forEach(eventName => {
+          this._element.addEventListener(eventName, events[eventName]);
+        });
 
 }
 
     _removeEvents() {
-        this._element.onsubmit = null
-          this._element.onblur = null
-          this._element.onfocus = null
-          this._element.onclick = null
+      const {events = {}} = this.props;
+
+      Object.keys(events).forEach(eventName => {
+        this._element.removeEventListener(eventName, events[eventName]);
+      });
     }
 }

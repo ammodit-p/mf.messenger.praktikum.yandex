@@ -11,18 +11,16 @@ inputPartial();
 
 
 export class Signin extends Block {
-    className: string
     constructor () {
-        super("div", {
+        super("form", {
             data :signinPage_data,
             events: events,
-            button: new Button ("button", {"text": "Зарегистрироваться"}, button_tmpl)
-        }, signin_tmpl);
-        this.className = ".wrapper"
+            button: new Button ("button", {"text": "Зарегистрироваться"}, button_tmpl, ".button")
+        }, signin_tmpl, ".wrapper");
     }
     _createDocumentElement(tagName: string): HTMLElement {
         const el = document.createElement(tagName);
-        el.classList.add(this.className)
+        el.classList.add(this._meta.className)
         return el;
       }
 
@@ -45,18 +43,19 @@ export class Signin extends Block {
 
       _addEvents() {
         const {events = {}} = this.props;
-          this._element.onsubmit = events.submit;
-          this._element.onblur = events.blur;
-          this._element.onfocus = events.focus;
-          this._element.onclick = events.auth
+
+        Object.keys(events).forEach(eventName => {
+          this._element.addEventListener(eventName, events[eventName]);
+        });
 
 }
 
     _removeEvents() {
-        this._element.onsubmit = null
-          this._element.onblur = null
-          this._element.onfocus = null
-          this._element.onclick = null
+      const {events = {}} = this.props;
+
+      Object.keys(events).forEach(eventName => {
+        this._element.removeEventListener(eventName, events[eventName]);
+      });
     }
 }
 

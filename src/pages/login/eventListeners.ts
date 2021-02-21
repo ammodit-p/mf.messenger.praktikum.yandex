@@ -11,30 +11,20 @@ export const events = {
             if(checked === false) {return}; 
             router.go('./chat')
     },
+
     
-    blur: function onBlur (event: any) {
-        if (event.target == document.querySelector('input')) {
-            const form: any = document.forms[0]
-            for (let item of form) {
-                if(!item.value) {
-                    item.classList.add("blue-input-invalid")
-                }
-            }
-        }
-    },
     
-    focus: function onFocus (event: any) {
-        if(event.target == document.querySelector('input')) {
-            const form: any = document.forms[0]
-            for (let item of form) {
-
-                    item.classList.remove("blue-input-invalid")
-
-            }
+    focusout: function(event:any) {
+        if (!event.target.value) {
+            event.target.classList.add('blue-input-invalid');
         }
-    },
+      },
+    
+    focusin: function(event: any) {
+        event.target.classList.remove('blue-input-invalid');
+      },
 
-    signin: function goSignin (event: any) {
+    click: function goSignin (event: any) {
         if (event.target == document.querySelector('.signin')) {
             event.preventDefault()
             router.go('/signin')

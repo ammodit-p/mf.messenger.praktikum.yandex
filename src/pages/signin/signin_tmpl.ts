@@ -1,5 +1,5 @@
 export const signin_tmpl: string = 
-`<form>
+`
 <div class = "upper-section">
     <h1 class="auth-header">{{header}}</h1>
     {{#each inputs}}
@@ -12,4 +12,4 @@ export const signin_tmpl: string =
     </div>
     <a class = "auth"  >Нет аккаунта?</a>
 </div>
- </form>`
+`

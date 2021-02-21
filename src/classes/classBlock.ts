@@ -6,7 +6,8 @@ import {merge} from "../funcs/merge.js"
 interface Meta {
   tagName: string;
   props: Indexed;
-  tmpl: string
+  tmpl: string;
+  className: string
 }
 export class Block {
   eventBus: EventBus;
@@ -27,14 +28,16 @@ export class Block {
   _element: HTMLElement;
   _meta: Meta;
   props: any
+  className: string
 
 
-  constructor(tagName: string = "div", props: Indexed = {}, tmpl: string) {
+  constructor(tagName: string = "div", props: Indexed = {}, tmpl: string, className: string) {
     const eventBus = new EventBus();
     this._meta = {
       tagName,
       props,
-      tmpl
+      tmpl,
+      className
     };
     this.props = this._makePropsProxy(this._meta.props)
     this.eventBus =  eventBus;
