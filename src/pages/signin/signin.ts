@@ -4,7 +4,7 @@ import {button_tmpl} from "../../modules/button/button_tmpl.js";
 import {signin_tmpl} from "./signin_tmpl.js";
 import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
 import {signinPage_data} from "./signinPage_data.js";
-import {events} from "./eventListeners.js"
+import {events} from "./signin_events.js"
 
 
 inputPartial();

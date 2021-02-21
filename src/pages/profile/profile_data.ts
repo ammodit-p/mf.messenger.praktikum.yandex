@@ -36,18 +36,20 @@ export const profile_data: {} = {
 
     "menu": [
         {
-            "class": "profile-user-item user-data",
-            "link": "./change_user_data.html",
-            "value": "Изменить данные"
+            "class": "profile-user-item",
+            "link": "",
+            "value": "Изменить данные",
+            "linkClass": "user-data"
         },
         {
             "class": "profile-user-item user-pass",
-            "link": "./change_password.html",
-            "value": "Изменить пароль"
+            "link": "",
+            "value": "Изменить пароль",
+            "linkClass": "user-pass"
         },
         {
             "class": "profile-user-item",
-            "link": "index.html",
+            "link": "",
             "value": "Выйти",
             "linkClass": "red-link"
         }

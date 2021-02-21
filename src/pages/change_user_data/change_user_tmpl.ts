@@ -1,8 +1,8 @@
-export const change_user_data_tmpl: string = 
+export const change_user_tmpl: string = 
 `
-<a href={{link}} class="profile-return-button">
+<button class="profile-return-button">
 <span class="profile-return-button-circle"></span>
-</a>
+</button>
 
 <main class ="wrapper">
 <div class="profile-avatar-name">
@@ -23,8 +23,5 @@ export const change_user_data_tmpl: string =
 
 </div>
 
-<div class = "for-button">
-    {{>buttonPartial}}
-</div>
 </form>
 </main>`

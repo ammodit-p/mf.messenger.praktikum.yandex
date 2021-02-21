@@ -5,7 +5,7 @@ import {button_tmpl} from "../../modules/button/button_tmpl.js";
 import {login_tmpl} from "./login_tmpl.js";
 import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
 import {loginPage_data} from "./loginPage_data.js";
-import {events} from "./eventListeners.js"
+import {events} from "./login_events.js"
 
 
 inputPartial();

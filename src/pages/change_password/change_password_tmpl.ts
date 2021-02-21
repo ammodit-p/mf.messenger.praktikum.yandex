@@ -1,6 +1,6 @@
 export const change_password_tmpl: string = 
 `
-<a href={{link}} class="profile-return-button">
+<button class="profile-return-button">
 <span 
 <main class ="wrapper">
 <div class="profile-avatar-name">
@@ -21,8 +21,6 @@ export const change_password_tmpl: string =
 
 </div>
 
-<div class = "for-button">
-    {{>buttonPartial}}
-</div>
+
 </form>
 </main>`

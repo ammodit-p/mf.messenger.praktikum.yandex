@@ -12,7 +12,7 @@ chatHeaderPartial();
 
 export class Choose_a_chat extends Block {
     constructor () {
-        super("div", chatList_data, choose_a_chat_tmpl);
+        super("div", chatList_data, choose_a_chat_tmpl, ".wrapper");
     }
 
     addEvents() {

@@ -1,4 +1,4 @@
-export const profilePassChange_data: {} = {
+export const change_password_data: {} = {
     "name": "Имя",
     "link": "profile.html",
      "text": "Сохранить",

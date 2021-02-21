@@ -12,7 +12,7 @@ chatHeaderPartial();
 
 export class Chat extends Block {
     constructor () {
-        super("div", chatList_data, chat_tmpl);
+        super("div", chatList_data, chat_tmpl, ".wrapper");
     }
 
     addEvents() {

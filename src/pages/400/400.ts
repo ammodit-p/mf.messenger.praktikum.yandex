@@ -4,7 +4,7 @@ import {fourHundred_tmpl} from "./400_tmpl.js";
 export class FourHundred extends Block {
     className: string
     constructor (className: string) {
-        super("div", {}, fourHundred_tmpl);
+        super("div", {}, fourHundred_tmpl, ".wrapper");
         this.className = className
     }
     _createDocumentElement(tagName: string): HTMLElement {
