@@ -1,6 +1,7 @@
 /// <reference path="./../../node_modules/handlebars/types/index.d.ts" />
 import {EventBus} from "./eventBus.js";
 import {Indexed} from "../types";
+import {merge} from "../funcs/merge.js"
 
 interface Meta {
   tagName: string;
@@ -25,6 +26,7 @@ export class Block {
 
   _element: HTMLElement;
   _meta: Meta;
+  props: any
 
 
   constructor(tagName: string = "div", props: Indexed = {}, tmpl: string) {
@@ -34,7 +36,7 @@ export class Block {
       props,
       tmpl
     };
-
+    this.props = this._makePropsProxy(this._meta.props)
     this.eventBus =  eventBus;
 
     this._registerEvents(eventBus);
@@ -49,10 +51,6 @@ export class Block {
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  get element(): HTMLElement {
-    return this._element;
-  }
-
   init(): void {
     this._createResources();
     this.eventBus.emit(Block.EVENTS.FLOW_CDM);
@@ -64,8 +62,7 @@ export class Block {
   }
 
   _createDocumentElement(tagName: string): HTMLElement {
-    this._meta.tagName = tagName
-    return document.createElement(this._meta.tagName);
+    return document.createElement(tagName);
   }
 
 
@@ -76,54 +73,71 @@ export class Block {
 
   componentDidMount(): void {}
 
-  _componentDidUpdate(_oldProps:any, _newProps: any): void {
-    this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
-    this.componentDidUpdate(_oldProps, _newProps);
-  }
-
-  componentDidUpdate(_oldProps: any, _newProps: any): any | void {
-    this.addEvents()
-  }
-
-  addEvents() {
-    return
-  }
-
-  setProps (nextProps: any): void {
-    if (!nextProps) {
-      return;
-    }
-
-    Object.assign(this._meta.props, nextProps);
-    this.eventBus.emit(Block.EVENTS.FLOW_CDU)
-  };
-
- 
 
   _render(): void {
     const block = this.render();
     this._element.innerHTML = block;
   }
-
-
   render(): string {
     const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
     return template (this._meta.props);
   }
 
+
+  _makePropsProxy (props: Indexed) {
+
+    return new Proxy(props, {
+      get(target, prop: string) {
+        return target[prop]
+      },
+      ownKeys(target) {
+        return Object.keys(target)
+    },
+      getOwnPropertyDescriptor(target, name) {
+        const proxy = this;
+        return { get value() { return proxy.get(target, name); }, configurable: true, enumerable: true };
+      },
+      set(target, prop: string, value) {
+        target[prop] = value
+        this.eventBus.emit(Block.EVENTS.FLOW_CDU)
+        return true
+      }
+    })
+  }
+
+
+  setProps (nextProps: Indexed): void {
+    if (!nextProps) {
+      return;
+    }
+
+    merge(this._meta.props, nextProps);
+  };
+
+  _componentDidUpdate(_oldProps:Indexed, _newProps: Indexed): void {
+    this.componentDidUpdate(_oldProps, _newProps);
+    this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
+  }
+
+  componentDidUpdate(_oldProps: Indexed, _newProps: Indexed): any | void {}
+
+
+
   getContent(): HTMLElement {
     return this.element;
   }
+  get element(): HTMLElement {
+    return this._element;
+  }
  
+
 
   show(): void {
     this.getContent().style.display = "block";
   }
-
   hide(): void {
     this.getContent().style.display = "none";
   }
-
   delete (): void {
     this.getContent().remove()
   }
