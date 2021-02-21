@@ -1,7 +1,7 @@
 export const profile_tmpl: string = 
-`<a href={{link}} class="profile-return-button">
+`<button class="profile-return-button">
 <span class="profile-return-button-circle"></span>
-</a>
+</button>
 
 <div class="profile-avatar-name">
 <button class="profile-avatar-button">
@@ -13,13 +13,13 @@ export const profile_tmpl: string =
 <div class="profile-user-data">
 
 {{#each user-item}}
-    {{> profileDataPartial}}
+    {{> profile_fields_partial}}
 {{/each}}
 
 </div>
 
 <div class="profile-menu">
  {{# each menu}}
- {{> profileMenuPartial}}
+ {{> profile_menu_partial}}
  {{/each}}
 </div>`

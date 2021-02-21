@@ -1,8 +1,8 @@
-import {Block} from "../../classes/classBlock.js";
+import {Block} from "../../../classes/classBlock.js";
 import {profileDataChange_data} from "./profileDataChange_data.js"
 import {change_user_data_tmpl} from "./change_user_data_tmpl.js";
 
-import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
+import {inputPartial} from "../../../handlebars_partials/inputPartial/inputPartial.js";
 
 inputPartial();
 

@@ -1,4 +1,4 @@
-export const profilePage_data: {} = {
+export const profile_data: {} = {
     "name": "Имя",
     "link": "choose_a_chat.html",
     "user-item": [
@@ -36,12 +36,12 @@ export const profilePage_data: {} = {
 
     "menu": [
         {
-            "class": "profile-user-item",
+            "class": "profile-user-item user-data",
             "link": "./change_user_data.html",
             "value": "Изменить данные"
         },
         {
-            "class": "profile-user-item",
+            "class": "profile-user-item user-pass",
             "link": "./change_password.html",
             "value": "Изменить пароль"
         },

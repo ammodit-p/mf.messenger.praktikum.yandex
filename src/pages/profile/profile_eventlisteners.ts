@@ -1,0 +1,20 @@
+
+import {router} from "../../initialaze.js";
+    
+export const events = {
+    click: function (event: any) {
+        if(event.target === document.querySelector('.profile-return-button')) {
+            event.preventDefault()
+            router.go('./chat')
+        }
+        if(event.target === document.querySelector('.user-data')) {
+            event.preventDefault()
+            router.go('./profile/change-user-data')
+        }
+        if(event.target === document.querySelector('.user-pass')) {
+            event.preventDefault()
+            router.go('./profile/change-password')
+        }
+    }
+}
+
