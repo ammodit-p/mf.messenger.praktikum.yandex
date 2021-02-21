@@ -8,7 +8,7 @@ export const login_tmpl: string =
 </div>
 <div class = "bottom-section">
     <div class = "for-button">
-        {{>buttonPartial}}
+        
     </div>
     <a class = "signin"  >Нет аккаунта?</a>
 </div>
