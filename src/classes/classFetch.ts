@@ -44,6 +44,7 @@ export class Fetch {
             
             const xhr = new XMLHttpRequest();
             xhr.open(method, url);
+            xhr.withCredentials = true;
             setHeaders(headers);
             xhr.onload = function() {
             resolve(xhr);

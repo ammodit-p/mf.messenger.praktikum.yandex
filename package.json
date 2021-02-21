@@ -3,10 +3,18 @@
     "version": "1.0.0",
     "private": true,
     "devDependencies": {
+        "@types/chai": "^4.2.15",
         "@types/handlebars": "^4.1.0",
+        "@types/mocha": "^8.2.1",
+        "chai": "^4.3.0",
+        "chai-http": "^4.3.0",
         "copyfiles": "^2.4.1",
         "express": "4.17.1",
-        "handlebars": "^4.7.6"
+        "handlebars": "^4.7.6",
+        "mocha": "^8.3.0",
+        "jsdom": "^16.4.0",
+        "jsdom-global": "^3.0.2",
+        "ts-node": "^9.1.1"
     },
     "scripts": {
         "tsc": "tsc",
@@ -16,7 +24,9 @@
         "fix-js": "find ./dist -name \"*.js\" -exec sed -i '' -E 's|(import .+ from ['\\''\"]\\.?\\./.+[^.][^j][^s])(['\\''\"])|\\1.js\\2|g' {} +",
         "html": "find ./src/ -name \"*.html\" -type f -exec copyfiles -u 1 {} ./dist \\;",
         "css": "find ./src/ -name \"*.css\" -type f -exec copyfiles -u 1 {} ./dist \\;",
-        "build": "npm run clean && npm run tsc && npm run html && npm run css"
+        "build": "npm run clean && npm run tsc && npm run html && npm run css",
+        "test": "mocha -r ts-node/register -r ignore-styles -r jsdom-global/register src/**/*.spec.ts",
+        "test-w": "mocha --watch -r ts-node/register -r ignore-styles -r jsdom-global/register src/**/*.spec.ts"
     },
     "dependencies": {
         "typescript": "4.1.2"

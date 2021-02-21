@@ -8,11 +8,8 @@ export class authApi {
     }
     request(data: any) {
         const body: string = JSON.stringify(data)
-        authApiInstance.post('/signin', {"data": body, "headers": {"content-type": "application/json"}})
-            .then((res:any)=> {
-                res = new Response
-                return res
-            }).catch((e) => {console.log(e)})
+        return authApiInstance.post('/signin', {"data": body, "headers": {"content-type": "application/json"}})
+
     }
 
     create(data: any) {
