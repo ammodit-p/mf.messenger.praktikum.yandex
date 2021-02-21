@@ -28,5 +28,12 @@ export const events = {
                 item.classList.remove("blue-input-invalid")
             }
         }
+    },
+
+    signin: function goSignin (event: any) {
+        if (event.target == document.querySelector('.signin')) {
+            event.preventDefault()
+            router.go('/signin')
+        }
     }
 }

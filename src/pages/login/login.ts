@@ -49,6 +49,7 @@ export class Login extends Block {
           this._element.onsubmit = events.submit;
           this._element.onblur = events.blur;
           this._element.onfocus = events.focus;
+          this._element.onclick = events.signin
 
 }
 
@@ -56,5 +57,6 @@ export class Login extends Block {
         this._element.onsubmit = null
           this._element.onblur = null
           this._element.onfocus = null
+          this._element.onclick = null
     }
 }

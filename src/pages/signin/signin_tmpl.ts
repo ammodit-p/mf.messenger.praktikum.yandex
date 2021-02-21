@@ -10,6 +10,6 @@ export const signin_tmpl: string =
     <div class = "for-button">
         
     </div>
-    <a class = "auth"'  >Нет аккаунта?</a>
+    <a class = "auth"  >Нет аккаунта?</a>
 </div>
  </form>`

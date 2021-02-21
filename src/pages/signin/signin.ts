@@ -39,7 +39,7 @@ export class Signin extends Block {
         this._addEvents()
       }
       render(): string {
-          const {data} = this.props
+        const {data} = this.props
         const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this.props.tmpl)
         return template (data);
       }
@@ -49,6 +49,7 @@ export class Signin extends Block {
           this._element.onsubmit = events.submit;
           this._element.onblur = events.blur;
           this._element.onfocus = events.focus;
+          this._element.onclick = events.auth
 
 }
 
@@ -56,6 +57,7 @@ export class Signin extends Block {
         this._element.onsubmit = null
           this._element.onblur = null
           this._element.onfocus = null
+          this._element.onclick = null
     }
 }
 
