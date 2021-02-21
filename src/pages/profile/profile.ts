@@ -1,5 +1,5 @@
 import {Block} from "../../classes/classBlock.js";
-import {profileDataPartial} from "../../modules/profileDataPartial/profileDataPartial.js";
+import {profileDataPartial} from "../../handlebars_partials/profileDataPartial/profileDataPartial.js";
 import {profileMenuPartial} from "./profileMenuPartial.js";
 import {profilePage_data} from "./profilePage_data.js"
 import {profile_tmpl} from "./profile_tmpl.js";

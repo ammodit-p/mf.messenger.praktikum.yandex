@@ -4,7 +4,6 @@ import {button_tmpl} from "../../modules/button/button_tmpl.js";
 import {signin_tmpl} from "./signin_tmpl.js";
 import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
 import {signinPage_data} from "./signinPage_data.js";
-import {render} from "../../funcs/render.js"
 import {events} from "./eventListeners.js"
 
 
@@ -33,16 +32,16 @@ export class Signin extends Block {
         this._removeEvents()
 
         this._element.innerHTML = block;
-        const {button} = this.props
-        render('.for-button', button)
+        this._element.appendChild(this.props.button.getContent())
 
         this._addEvents()
       }
       render(): string {
         const {data} = this.props
-        const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this.props.tmpl)
+        const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
         return template (data);
       }
+
 
       _addEvents() {
         const {events = {}} = this.props;

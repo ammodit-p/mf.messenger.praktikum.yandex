@@ -1,6 +1,5 @@
 export const signinPage_data: {} = {
     "header": "Регистрация",
-    "text": "Зарегистрировать",
     "inputs": [
         {
             "fieldName": "email", 

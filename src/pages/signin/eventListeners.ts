@@ -33,7 +33,7 @@ export const events = {
     auth: function goAuth (event: any) {
         if (event.target == document.querySelector('.auth')) {
             event.preventDefault()
-            router.go('/auth')
+            router.go('/')
         }
     }
 }
