@@ -9,7 +9,7 @@ export const events = {
             const form: any = document.forms[0]
             const checked: boolean = checkForms(form);
             if(checked === false) {return}; 
-            router.go('./chat')
+            router.go('/chat')
     },
 
     

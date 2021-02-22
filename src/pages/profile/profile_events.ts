@@ -5,15 +5,15 @@ export const events = {
     click: function (event: any) {
         if(event.target === document.querySelector('.profile-return-button')) {
             event.preventDefault()
-            router.go('./chat')
+            router.go('/chat')
         }
         if(event.target === document.querySelector('.user-data')) {
             event.preventDefault()
-            router.go('./change-user-data')
+            router.go('/change-user-data')
         }
         if(event.target === document.querySelector('.user-pass')) {
             event.preventDefault()
-            router.go('./change-password')
+            router.go('/change-password')
         }
     }
 }

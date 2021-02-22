@@ -1,6 +1,5 @@
 import {Block} from "../../classes/classBlock.js";
-import {Button} from "../../modules/button/classButton.js"
-import {button_tmpl} from "../../modules/button/button_tmpl.js";
+import {Change_user_form} from "./change_user_form/change_user_form.js"
 import {change_user_data} from "./change_user_data.js"
 import {change_user_tmpl} from "./change_user_tmpl.js";
 import {events} from "./change_user_events.js"
@@ -17,7 +16,7 @@ export class Change_user extends Block {
         {
             data: change_user_data,
             events: events,
-            button: new Button ("button", {"text": "Сохранить"}, button_tmpl, ".button")
+            children:{form: new Change_user_form ()}
         }, change_user_tmpl, "change_user");
     }
 
@@ -33,8 +32,10 @@ export class Change_user extends Block {
         this._removeEvents()
 
         this._element.innerHTML = block;
-        this._element.appendChild(this.props.button.getContent())
-
+        const {children = {}} = this.props
+        Object.keys(children).forEach(childName => {
+            this.element.appendChild(children[childName].getContent())
+        })
         this._addEvents()
       }
       render(): string {
