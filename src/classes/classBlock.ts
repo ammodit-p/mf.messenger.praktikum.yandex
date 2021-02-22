@@ -117,12 +117,14 @@ export class Block {
     merge(this._meta.props, nextProps);
   };
 
-  _componentDidUpdate(_oldProps:Indexed, _newProps: Indexed): void {
-    this.componentDidUpdate(_oldProps, _newProps);
+  _componentDidUpdate(): void {
+    this.componentDidUpdate();
     this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
   }
 
-  componentDidUpdate(_oldProps: Indexed, _newProps: Indexed): any | void {}
+  componentDidUpdate(): any | void {
+    this.delete()
+  }
 
 
 

@@ -1,0 +1,24 @@
+export const chats_tmpl: string = 
+`
+<div class="chatlist-area">
+    
+    <div class="chatlist-header">
+        <a  class="profile chatlist-profile-link">
+        Профиль
+        <span class="chatlist-profile-link-arrow"></span>
+        </a>
+
+        <form name="search">
+        <input type="search" name="search" class="chatlist-search" placeholder="Поиск">
+        <span class="chatlist-search-icon"></span>
+        </form>
+
+    </div>
+   
+    
+</div>
+
+  <main class="chat-area">
+
+  </main>
+`

@@ -1,5 +1,5 @@
 export const chatListAreaPartial_tmpl: string = 
-`<aside class= "chatlist-list">
+`
   <ul class="chatlist">
 
     {{#each list}}
@@ -24,4 +24,4 @@ export const chatListAreaPartial_tmpl: string =
 
     
   </ul>
-</aside>`
+`

@@ -1,6 +1,6 @@
 
-import {router} from "../../../initialaze.js";
-import {checkForms} from "../../../funcs/forms/checkForms.js";
+import {router} from "../../initialaze.js";
+import {checkForms} from "../../funcs/forms/checkForms.js";
     
 export const events = {
     submit: function (event: any) {

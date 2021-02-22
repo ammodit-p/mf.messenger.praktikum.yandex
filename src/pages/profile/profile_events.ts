@@ -9,11 +9,11 @@ export const events = {
         }
         if(event.target === document.querySelector('.user-data')) {
             event.preventDefault()
-            router.go('./profile/change-user-data')
+            router.go('./change-user-data')
         }
         if(event.target === document.querySelector('.user-pass')) {
             event.preventDefault()
-            router.go('./profile/change-password')
+            router.go('./change-password')
         }
     }
 }
