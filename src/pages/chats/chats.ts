@@ -28,14 +28,13 @@ export class Chats extends Block {
                                 "chatName": "Чатик",
                                 "chatMessage": "Привет! Смотри, тут всплыл интересный кусок лунной...",
                                 "time": "11:50",
-                                "isUnread": "chatlist-info-unread",
                                 "unread": "3",
                                 "chosen": "chosen"
                             }
                         ],
                     }
-                }, chat_list_tmpl, "chatlist-list"),
-                chat_body: new Chat_not_chosen('div', {}, chat_not_chosen_tmpl, 'chat-no-chosen')
+                }, chat_list_tmpl, "chatlist_list"),
+                chat_body: new Chat_not_chosen('main', {}, chat_not_chosen_tmpl, 'chat_area')
             },
             data: {}
         }, chats_tmpl, 'chats')

@@ -1,15 +1,10 @@
 export const signin_tmpl: string = 
 `
-<div class = "upper-section">
-    <h1 class="auth-header">{{header}}</h1>
+<div class = "signin_section">
+    <h1 class="signin_header">{{header}}</h1>
     {{#each inputs}}
         {{> inputPartial}}
     {{/each}}
 </div>
-<div class = "bottom-section">
-    <div class = "for-button">
-        
-    </div>
-    <a class = "auth"  >Войти</a>
-</div>
+<a class ="signin_link blue_link" id="auth" >Войти</a>
 `

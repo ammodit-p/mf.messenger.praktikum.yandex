@@ -1,0 +1,32 @@
+@use '../../css/variables';
+.form_input {
+	width: 285px;
+	height: 27px;
+	margin-bottom: 16px;
+}
+
+.input_label {
+	float: left;
+	font-size: 9px;
+	color: variables.$grey-color;
+}
+
+.blue_input {
+    border-bottom: 1px solid variables.$blue-color;
+}
+
+.profile_input {
+	height: 31px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-align: right;
+	color: variables.$grey-color;
+	height: inherit;
+	padding: inherit;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+.invalid {
+    border-bottom-color: variables.$red-color;
+}

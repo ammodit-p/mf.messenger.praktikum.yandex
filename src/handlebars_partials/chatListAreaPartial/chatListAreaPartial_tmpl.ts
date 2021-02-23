@@ -1,23 +1,23 @@
 export const chatListAreaPartial_tmpl: string = 
 `
-  <ul class="chatlist">
+  <ul>
 
     {{#each list}}
-    <li class="chatlist-item {{chosen}}">
-    <div class="chatlist-item-icon">
+    <li class="chatlist_list_item {{chosen}}">
+    <div class="chatlist_list_item_icon">
       <span>
         <img src={{imgSrc}}>
       </span>
     </div>
-    <div class="chatlist-item-info">
-        <h2 class="chatlist-info-name">
+    <div class="chatlist_list_item_info">
+        <h2 class="chatlist_list_item_info_name black">
           {{chatName}}
         </h2>
-        <span class="chatlist-info-preview">
+        <span class="chatlist_list_item_info_preview grey">
           {{chatMessage}}
         </span>
-      <time class="chatlist-info-time">{{time}}</time>
-      <mark class={{isUnread}}>{{unread}}</mark>
+      <time class="chatlist_list_item_info_time">{{time}}</time>
+      <mark class="chatlist_list_item_info_mark blue">{{unread}}</mark>
     </div>
   </li>
     {{/each}}

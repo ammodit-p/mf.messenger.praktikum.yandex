@@ -1,0 +1,26 @@
+@forward "../../handlebars_partials/inputPartial/input";
+@forward '../../modules/button/button';
+@use "../../css/variables";
+@use "../../css/extends";
+
+.login_form {
+    @extend %auth-form-style;
+    height: 460px;
+    
+}
+
+.login_section {
+    height: 60%;
+}
+
+.auth_header {
+    @extend %font-base;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.login_link {
+    position: absolute;
+    bottom: 30px;
+    left: 131px;
+}

@@ -6,7 +6,7 @@ export function validate (form: any) {
         if (Object.keys(valdata).includes(item.name)) {
             let name: string = item.name
                 if (valdata[name].test(item.value) === false){
-                item.classList.add("blue-input-invalid");
+                item.classList.add("invalid");
                 return false
             }
         }

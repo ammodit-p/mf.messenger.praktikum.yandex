@@ -1,0 +1,29 @@
+
+@use "../../css/variables";
+@use "../../css/extends";
+
+.signin_form {
+    @extend %auth-form-style;
+    height: 615px;
+    input {
+        width: 285px;
+        height: 27px;
+        margin-bottom: 16px;
+    }
+}
+
+.signin_section {
+    height: 80%;
+}
+
+.signin_header {
+    @extend %font-base;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.signin_link {
+    position: absolute;
+    bottom: 30px;
+    left: 154px;
+}

@@ -4,44 +4,44 @@ export const signinPage_data: {} = {
         {
             "fieldName": "email", 
             "inputType": "email",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Почта" 
         },
         
         {
             "fieldName": "login", 
             "inputType": "text",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Логин" 
         },
         {
             "fieldName": "first_name", 
             "inputType": "text",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Имя" 
         },
         {
             "fieldName": "second_name", 
             "inputType": "text",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Фамилия" 
         },
         {
             "fieldName": "phone", 
             "inputType": "tel",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Телефон" 
         },
         {
             "fieldName": "password", 
             "inputType": "password",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Пароль" 
         },
         {
             "fieldName": "second_password", 
             "inputType": "password",
-            "class": "blue-input",
+            "class": "from_input blue_input",
             "labelValue": "Пароль (еще раз)" 
         },
         

@@ -4,13 +4,13 @@ export const loginPage_data: {} = {
         {
             "fieldName": "login", 
             "inputType": "text",
-            "class": "blue-input",
+            "class": "form_input blue_input",
             "labelValue": "Логин"
         },
         {
             "fieldName": "password", 
             "inputType": "password",
-            "class": "blue-input",
+            "class": "form_input blue_input",
             "labelValue": "Пароль" 
         }
     ],

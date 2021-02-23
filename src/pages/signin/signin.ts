@@ -16,7 +16,7 @@ export class Signin extends Block {
             data :signinPage_data,
             events: events,
             button: new Button ("button", {"text": "Зарегистрироваться"}, button_tmpl, ".button")
-        }, signin_tmpl, ".wrapper");
+        }, signin_tmpl, "signin_form");
     }
     _createDocumentElement(tagName: string): HTMLElement {
         const el = document.createElement(tagName);

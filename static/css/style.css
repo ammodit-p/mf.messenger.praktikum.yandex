@@ -1,37 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
 
-
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
-html {
-	height: 100%;
-}
-
-body {
-	display: flex;
-	align-items: center;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	font-family: 'Inter', sans-serif;
-	font-weight: 500;
-	font-size: 12px;
-	color: #1E1E1E;
-	background: #fff;
-}
-
-p {
-	padding: 0;
-	margin: 0;
-}
-
-/* h1 h2 styles */
-
-h1, h2 {
-	margin: 0;
-}
 
  .error-page-header {
 	font-size: 40px;
@@ -55,10 +22,7 @@ h1, h2 {
 	font-weight: 500;
 }
 
-.auth-header {
-	font-weight: 500;
-	font-size: 20px;
-}
+
 
 .chatlist-info-name {
 	font-weight: 600;
@@ -67,112 +31,21 @@ h1, h2 {
 	margin-bottom: 4px;
 }
 
-a {
-	text-decoration: none;
-	color: #3369F3;
-	font-size: 11px;
-	margin: 0;
-}
 
-input:focus,
-a:focus,
-button:focus {
-  outline: none;
-}
+
+
 
 .wrapper {
-  min-height: 460px;
-  min-width: 340px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 50px 30px 30px 30px;
-  text-align: center;
-}
-
-input {
-	margin: 0;
-	border: none;
-	font-family: 'Inter', sans-serif;
-	font-size: 13px;
-	font-weight: 500;
-	background: none;
-}
-
-.blue-input {
-	width: 100%;
-	height: 27px;
-	margin-bottom: 16px;
-	border-bottom: 1px solid #3369F3;
-}
-
-ul {
-	list-style: none;
-  padding: 0px;
-  margin: 0px;
-}
-
-button {
-	border: none;
-	margin: 0;
-	padding: 0;
-	background: none;
-}
-
-.button {
-	width: 280px;
-	height: 37px;
-	border-radius: 8px;
-	background-color: #3369F3;
-	color: #fff;
-	text-align: center;
-	margin-bottom: 15px;
-	font-size: 13px;
-}
+    min-height: 460px;
+    min-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 30px 30px 30px;
+    text-align: center;
+  }
 
 
 /*login & signin*/
-
-.login-form {
-	width: 340px;
-	height: 460px;
-	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
-}
-
-.login-form form {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.login-form form label {
-	float: left;
-	font-size: 9px;
-	color: #999999;
-}
-
-.login-form form input {
-	margin-bottom: 30px;
-}
-
-.signin-form {
-	width: 340px;
-	height: 615px;
-	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
-}
-
-.signin-form form {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.signin-form form label {
-	float: left;
-	font-size: 9px;
-	color: #999999;
-}
 
 
 /*Profile pages*/
@@ -250,169 +123,13 @@ button {
 	color: #999999;
 }
 
-.profile-input {
-	height: 31px;
-	position: absolute;
-	right: 0;
-	top: 0;
-	text-align: right;
-	color: #999999;
-	height: inherit;
-	padding: inherit;
-	border-bottom: 1px solid #EAEAEA;
-}
 
 .profile-user-item:last-child input {
 	border: none;
 }
 
-.red-link {
-	color: #FF0000;
-}
 
 /*Chat pages*/
-
-.chatlist-area {
-	height: 100%;
-	width: 310px;
-	background-color: #FBFBFB;
-	border-right: 1px solid #EAEAEA;
-	color: #999999;
-}
-
-.chatlist-header {
-	position: relative;
-	height: 102px;
-	width: 310px;
-	padding: 56px 10px 14px 10px;
-}
-
-
-
-
-.chatlist-search {
-	height: 32px;
-	width: 100%;
-	background-color: #EFEFEF;
-	border-radius: 5px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	text-align: center;
-}
-
-.chatlist-search-icon {
-	position: absolute;
-	top: 64px;
-	left: 104px;
-}
-
-
-
-.chatlist-profile-link {
-	position: absolute;
-	width: 66px;
-	right: 10px;
-	top: 21px;
-	font-size: 12px;
-	padding-right: 12px;
-	color: #999999;
-}
-
-.chatlist-profile-link-arrow{
-	position: absolute;
-	right: 0;
-	top: 4px;
-	width: 4px;
-	height: 8px;
-}
-
-
-.chatlist {
-	display: block;
-	width: 310px;
-}
-
-.chatlist-item {
-	position: relative;
-	display: flex;
-	width: 100%;
-	height: 71px;
-	text-align: left;
-	padding: 12px 10px 12px 10px;
-}
-
-.chatlist-item:before {
-	position: absolute;
-	top: 0;
-	left: 10px;
-	width: 290px;
-	border-top: 1px solid #EAEAEA;
-	content: '';
-}
-
-.chatlist-item-icon {
-	width: 47px;
-	height: 47px;
-}
-
-.chatlist-item-icon span {
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-}
-
-.chatlist-item-icon span img {
-	width: 47px;
-	height: 47px;
-	background-color: #EFEFEF;
-	border-radius: 50%;
-}
-
-.chatlist-item-info {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	position: relative;
-	padding-left: 10px;
-	padding-right: 50px;
-}
-
-.chatlist-info-preview {
-	font-size: 12px;
-}
-
-.chatlist-info-time {
-	position: absolute;
-	right: 0;
-	top: 0;
-	font-size: 9px;
-}
-
-.chatlist-info-unread {
-	position: absolute;
-	right: 0;
-	bottom: 4px;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background-color: #3369F3;
-	padding: 3px 6px;
-	color: #fff;
-}
-
-.chatlist .chosen {
-	background: #E4EDFD;
-}
-
-
-.chat-no-chosen {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #999999;
-}
 
 
 

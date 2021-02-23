@@ -16,12 +16,12 @@ export const events = {
 
     focusout: function(event:any) {
         if (!event.target.value) {
-            event.target.classList.add('blue-input-invalid');
+            event.target.classList.add('invalid');
         }
     },
 
     focusin: function(event: any) {
-        event.target.classList.remove('blue-input-invalid');
+        event.target.classList.remove('invalid');
     },
 
     click: function (event: any) {

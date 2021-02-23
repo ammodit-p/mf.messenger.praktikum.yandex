@@ -6,21 +6,21 @@ export const change_password_data: {} = {
         {
             "fieldName": "oldPassword", 
             "inputType": "password",
-            "class": "profile-input",
+            "class": "profile_input",
             "labelValue": "Старый пароль",
             "val": "1111111111" 
         },
         {
             "fieldName": "newPassword", 
             "inputType": "password",
-            "class": "profile-input",
+            "class": "profile_input",
             "labelValue": "Новый пароль",
             "val": "11111" 
         },
         {
             "fieldName": "checkNewPassword", 
             "inputType": "password",
-            "class": "profile-input",
+            "class": "profile_input",
             "labelValue": "Повторите новый пароль",
             "val": "11111" 
         },

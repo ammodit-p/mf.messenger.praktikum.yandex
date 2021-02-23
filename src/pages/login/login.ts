@@ -16,7 +16,7 @@ export class Login extends Block {
             data :loginPage_data,
             events: events,
             button: new Button ("div", {"text": "Авторизоваться"}, button_tmpl, ".button")
-        }, login_tmpl, ".wrapper");
+        }, login_tmpl, "login_form");
     }
     _createDocumentElement(tagName: string): HTMLElement {
         const el = document.createElement(tagName);

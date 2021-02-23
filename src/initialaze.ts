@@ -6,4 +6,4 @@ export const api = new apiController();
 api
     .use("auth", authApi);
 
-export const router = new Router(".wrapper")
+export const router = new Router(".app")
