@@ -1,0 +1,17 @@
+@use "../../css/variables.scss";
+@import "../../handlebars_partials/inputPartial/input";
+
+
+.profile_user_item {
+    height: 31px;
+}
+
+.profile-user-data {
+    margin-bottom: 60px;
+}
+
+.form {
+    button{
+        margin-left: 75/510*100%;
+    }
+}

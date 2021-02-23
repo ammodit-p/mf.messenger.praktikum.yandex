@@ -3,7 +3,7 @@ import {router} from "../../initialaze.js";
     
 export const events = {
     click: function (event: any) {
-        if(event.target === document.querySelector('.profile-return-button')) {
+        if(event.target === document.querySelector('#chats')) {
             event.preventDefault()
             router.go('/chat')
         }

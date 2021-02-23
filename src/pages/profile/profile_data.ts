@@ -1,6 +1,7 @@
 export const profile_data: {} = {
     "name": "Имя",
-    "link": "choose_a_chat.html",
+    "link": "",
+    "src": "./img/avatar.png",
     "user-item": [
         {
             "name": "Почта", 
@@ -36,22 +37,22 @@ export const profile_data: {} = {
 
     "menu": [
         {
-            "class": "profile-user-item",
+            "class": "profile_menu_item",
             "link": "",
             "value": "Изменить данные",
-            "linkClass": "user-data"
+            "linkClass": "blue_link user-data"
         },
         {
-            "class": "profile-user-item user-pass",
+            "class": "profile_menu_item",
             "link": "",
             "value": "Изменить пароль",
-            "linkClass": "user-pass"
+            "linkClass": "blue_link user-pass"
         },
         {
-            "class": "profile-user-item",
+            "class": "profile_menu_item",
             "link": "",
             "value": "Выйти",
-            "linkClass": "red-link"
+            "linkClass": "red_link"
         }
     ]
 }

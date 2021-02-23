@@ -1,0 +1,95 @@
+@use "../../css/variables.scss";
+@use "../../css/extends";
+
+.profile {
+    display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+    align-self: center;
+    width: 510px;
+}
+
+.profile_return_button {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: none;
+	height: 100%;
+	width: 64px;
+	background-color: variables.$white-color;
+	border-right: 1px solid #EAEAEA;
+}
+
+.profile_return_button_circle {
+    width: 28px;
+	height: 28px;
+	padding: 7px 2px;
+	border-radius: 50%;
+	background-color: variables.$blue-color;
+}
+
+.profile_header {
+    text-align: center;
+}
+
+.profile_header_button {
+    display: block;
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile_header_login {
+    margin-bottom: 60px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.profile_header_img {
+    width: 130px;
+	height: 130px;
+    border-radius: inherit;
+    background-color: variables.$light-grey-color;
+}
+
+.profile_user_data {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.profile_user_data_item {
+    position: relative;
+	width: 100%;
+	height: 33px;
+	border-bottom: 1px solid #EAEAEA;
+	text-align: left;
+    padding: 10px 0 10px 0;
+}
+
+.profile_user_data_item_text {
+    float: right;
+    text-align: right;
+    color: variables.$grey-color;
+}
+
+.profile_user_data_item:last-child input {
+	border: none;
+}
+
+.profile_menu_item {
+    @extend .profile_user_data_item;
+    span {
+        float: left;
+    }
+}
+
+.profile_menu_item:last-child {
+    border: none;
+}
+

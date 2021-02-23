@@ -13,7 +13,7 @@ export class Profile extends Block {
         super("div", {
             data: profile_data,
             events: events
-        }, profile_tmpl, ".wrapper");
+        }, profile_tmpl, "profile");
     }
 
     _createDocumentElement(tagName: string): HTMLElement {

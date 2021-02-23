@@ -11,7 +11,7 @@ export class Change_password extends Block {
             data: change_password_data,
             events: events,
             children: {form: new Change_password_form ()}
-        }, change_password_tmpl, '.wrapper');
+        }, change_password_tmpl, 'profile');
     }
 
 

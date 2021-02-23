@@ -17,7 +17,7 @@ export class Change_user extends Block {
             data: change_user_data,
             events: events,
             children:{form: new Change_user_form ()}
-        }, change_user_tmpl, "change_user");
+        }, change_user_tmpl, "profile");
     }
 
     _createDocumentElement(tagName: string): HTMLElement {

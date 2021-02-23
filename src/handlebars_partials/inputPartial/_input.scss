@@ -1,4 +1,5 @@
 @use '../../css/variables';
+@use "../../css/extends";
 .form_input {
 	width: 285px;
 	height: 27px;
@@ -6,9 +7,13 @@
 }
 
 .input_label {
-	float: left;
-	font-size: 9px;
-	color: variables.$grey-color;
+	@extend %label;
+}
+
+.black_label {
+	@extend %label;
+	color: variables.$black-color;
+	font-size: 13px
 }
 
 .blue_input {

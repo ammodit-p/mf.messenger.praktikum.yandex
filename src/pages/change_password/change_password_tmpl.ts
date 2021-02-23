@@ -1,11 +1,11 @@
 export const change_password_tmpl: string = 
 `
-<button class="profile-return-button">
-    <span class="profile-return-button-circle"></span>
+<button class="profile_return_button"  id="profile">
+    <span class="profile_return_button_circle"></span>
 </button>
-    <div class="profile-avatar-name">
-        <button class="profile-avatar-button">
-            <span></span>
+    <div class="profile_header">
+        <button class="profile_header_button">
+            <img class="profile_header_img" src={{src}}></span>
         </button>
-        <h1 class="login-header">{{name}}</h1>
+        <h1 class="profile_header_login">{{name}}</h1>
     </div>`

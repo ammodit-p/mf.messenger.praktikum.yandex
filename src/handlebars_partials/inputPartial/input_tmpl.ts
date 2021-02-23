@@ -1,3 +1,3 @@
 export const input_tmpl: string = 
-`<label for={{fieldName}} class = "input_label">{{labelValue}}</label>
+`<label for={{fieldName}} class = "{{inputClass}}">{{labelValue}}</label>
 <input id={{fieldName}} name={{fieldName}} type ={{inputType}} class="{{class}}" value={{val}} >`

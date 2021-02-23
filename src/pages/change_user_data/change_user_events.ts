@@ -25,7 +25,7 @@ export const events = {
     },
 
     click: function (event: any) {
-        if (event.target == document.querySelector('.profile-return-button')) {
+        if (event.target == document.querySelector('#profile')) {
             event.preventDefault()
             router.go('/profile')
         }

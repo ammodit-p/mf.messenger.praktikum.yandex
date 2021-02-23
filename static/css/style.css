@@ -49,98 +49,12 @@
 
 
 /*Profile pages*/
-.profile-return-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	left: 0;
-	top: 0;
-	border: none;
-	height: 100%;
-	width: 64px;
-	background-color: #FBFBFB;
-	border-right: 1px solid #EAEAEA;
-}
-
-.profile-return-button-circle {
-	width: 28px;
-	height: 28px;
-	padding: 7px 2px;
-	border-radius: 50%;
-	background-color: #3369F3;
-}
-
-.profile-avatar-name {
-	position: relative;
-	min-height: 130px;
-	width: 130px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 60px;
-}
-
-.profile-avatar-button {
-	display: block;
-	width: 130px;
-	height: 130px;
-	border-radius: 50%;
-	margin-bottom: 20px;
-}
-
-.profile-avatar-img {
-	width: 100%;
-	height: 100%;
-	border-radius: inherit;
-}
-
-.profile-user-data {
-	width: 510px;
-	margin-bottom: 40px;
-}
-
-.profile-list {
-	display: block;
-}
-
-.profile-user-item {
-	position: relative;
-	width: 100%;
-	height: 33px;
-	border-bottom: 1px solid #EAEAEA;
-	text-align: left;
-	padding: 10px 0 10px 0;
-}
-
-.profile-user-item:last-child {
-	border: none;
-}
 
 
-.profile-user-item span {
-	float: right;
-	text-align: right;
-	color: #999999;
-}
-
-
-.profile-user-item:last-child input {
-	border: none;
-}
 
 
 /*Chat pages*/
 
-
-
-
-.chat-area {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	padding: 0 20px 0 20px;
-	width: 100%;
-}
 
 .chat-header {
 	position: relative;
