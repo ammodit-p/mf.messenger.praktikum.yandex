@@ -1,6 +1,6 @@
 export const chats_tmpl: string = 
 `
-<div class="chatlist_area grey">
+<div class="chatlist grey">
     
     <div class="chatlist_header">
         <a  class="chatlist_profile_link" id="profile">

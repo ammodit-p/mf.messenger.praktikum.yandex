@@ -8,7 +8,6 @@ export const change_user_data: {} = {
             "class": "profile_input",
             "inputClass": "input_label black_label",
             "labelValue": "Почта",
-            "val": "mail@mail.ru",
         },
         
         {
@@ -17,7 +16,6 @@ export const change_user_data: {} = {
             "class": "profile_input",
             "inputClass": "input_label black_label",
             "labelValue": "Логин",
-            "val": "MyLogin"
         },
         {
             "fieldName": "first_name", 
@@ -25,7 +23,6 @@ export const change_user_data: {} = {
             "class": "profile_input",
             "inputClass": "input_label black_label",
             "labelValue": "Имя",
-            "val": "Имя"
         },
         {
             "fieldName": "second_name", 
@@ -33,7 +30,6 @@ export const change_user_data: {} = {
             "class": "profile_input",
             "inputClass": "input_label black_label",
             "labelValue": "Фамилия",
-            "val": "Фамилия"
         },
         {
             "fieldName": "display_name", 
@@ -41,7 +37,6 @@ export const change_user_data: {} = {
             "class": "profile_input",
             "labelValue": "Имя в чате",
             "inputClass": "input_label black_label",
-            "val": "Имя"
         },
         {
             "fieldName": "phone", 
@@ -49,7 +44,6 @@ export const change_user_data: {} = {
             "class": "profile_input",
             "labelValue": "Телефон",
             "inputClass": "input_label black_label",
-            "val": "+7(988)888-88-88"
         }
         
     ]

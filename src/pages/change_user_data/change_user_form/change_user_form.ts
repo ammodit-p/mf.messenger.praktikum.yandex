@@ -13,29 +13,6 @@ export class Change_user_form extends Block {
             data: change_user_data,
             events: {},
             children:{button: new Button ("button", {"text": "Сохранить"}, button_tmpl, ".button")}
-        }, change_user_form_tmpl, "form")
-    }
-
-    _createDocumentElement(tagName: string): HTMLElement {
-        const el = document.createElement(tagName);
-        el.classList.add(this._meta.className)
-        return el;
-      }
-
-      _render(): void {
-        const block = this.render();
-
-
-        this._element.innerHTML = block;
-        const {children = {}} = this.props
-        Object.keys(children).forEach(childName => {
-            this.element.appendChild(children[childName].getContent())
-        })
-
-      }
-      render(): string {
-        const {data} = this.props
-        const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
-        return template (data);
-      }
+        }, change_user_form_tmpl, "user_form")}
+  
 }

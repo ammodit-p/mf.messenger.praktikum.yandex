@@ -1,13 +1,9 @@
-import {Indexed} from "../../types"
+
 import {Block} from "../../classes/classBlock.js";
+import {chat_not_chosen_tmpl} from "./chat_not_chosen_tmpl.js"
 
 export class Chat_not_chosen extends Block {
-    constructor(tagName: string, props: Indexed, tmpl: string, className: string) {
-        super(tagName, props, tmpl, className)
+    constructor() {
+        super('main', {}, chat_not_chosen_tmpl, 'chat_area')
     }
-    _createDocumentElement(tagName: string): HTMLElement {
-        const el = document.createElement(tagName);
-        el.classList.add(this._meta.className)
-        return el;
-      }
 }

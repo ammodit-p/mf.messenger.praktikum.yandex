@@ -1,11 +1,8 @@
 import {Block} from "../../classes/classBlock.js";
-import {profile_fields_partial} from "./profile_fields_partial.js";
-import {profile_menu_partial} from "./profile_menu_partial.js";
 import {profile_data} from "./profile_data.js"
 import {profile_tmpl} from "./profile_tmpl.js";
 import {events} from "./profile_events.js"
-profile_fields_partial();
-profile_menu_partial();
+
 
 
 export class Profile extends Block {

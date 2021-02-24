@@ -9,15 +9,25 @@
     height: 100%;
 }
 
-.chatlist_area {
-    width: 310px;
-    height: 100%;
+.chatlist {
+	position: relative;
+	width: 310px;
+    height: 102px;
     background-color: variables.$white-color;
 	border-right: 1px solid variables.$light-grey-color;   
 }
 
+.chatlist_area {
+	position:absolute;
+	top: 102px;
+	left: 0;
+    width: 310px;
+	height: 100%;
+	border-right: 1px solid variables.$light-grey-color;
+}
+
 .chat_area {
-	display: flex;
+		display: flex;
 	flex-direction: column;
     height: 100%;
 	width: 100%;

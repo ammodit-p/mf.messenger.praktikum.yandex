@@ -2,6 +2,7 @@
 import {EventBus} from "./eventBus.js";
 import {Indexed} from "../types";
 import {merge} from "../funcs/merge.js"
+import {store} from "../store/Store.js"
 
 interface Meta {
   tagName: string;
@@ -27,8 +28,8 @@ export class Block {
 
   _element: HTMLElement;
   _meta: Meta;
-  props: any
-  className: string
+  props: any;
+  className: string;
 
 
   constructor(tagName: string = "div", props: Indexed = {}, tmpl: string, className: string) {
@@ -39,8 +40,11 @@ export class Block {
       tmpl,
       className
     };
-    this.props = this._makePropsProxy(this._meta.props)
+
+    this.props = this._meta.props
+
     this.eventBus =  eventBus;
+    this.componentDidUpdate = this.componentDidUpdate.bind(this)
 
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
@@ -65,7 +69,9 @@ export class Block {
   }
 
   _createDocumentElement(tagName: string): HTMLElement {
-    return document.createElement(tagName);
+    const el = document.createElement(tagName);
+    el.classList.add(this._meta.className)
+    return el;
   }
 
 
@@ -79,33 +85,25 @@ export class Block {
 
   _render(): void {
     const block = this.render();
+
+    this._removeEvents()
+
     this._element.innerHTML = block;
-  }
-  render(): string {
-    const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
-    return template (this._meta.props);
-  }
-
-
-  _makePropsProxy (props: Indexed) {
-
-    return new Proxy(props, {
-      get(target, prop: string) {
-        return target[prop]
-      },
-      ownKeys(target) {
-        return Object.keys(target)
-    },
-      getOwnPropertyDescriptor(target, name) {
-        const proxy = this;
-        return { get value() { return proxy.get(target, name); }, configurable: true, enumerable: true };
-      },
-      set(target, prop: string, value) {
-        target[prop] = value
-        this.eventBus.emit(Block.EVENTS.FLOW_CDU)
-        return true
-      }
+    const {children = {}} = this.props
+    Object.keys(children).forEach(childName => {
+        this.element.appendChild(children[childName].getContent())
     })
+
+    this._addEvents()
+  }
+
+  render(): string {
+    const name: any = store.get(this._meta.className)
+    this.setProps(name)
+    store.setStoreObserver(name, this.componentDidUpdate)
+    const {data} = this._meta.props
+    const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
+    return template (data);
   }
 
 
@@ -118,13 +116,30 @@ export class Block {
   };
 
   _componentDidUpdate(): void {
-    this.componentDidUpdate();
     this.eventBus.emit(Block.EVENTS.FLOW_RENDER)
   }
 
   componentDidUpdate(): any | void {
     this.delete()
+    this._componentDidUpdate()
   }
+
+  _addEvents() {
+    const {events = {}} = this.props;
+
+    Object.keys(events).forEach(eventName => {
+      this._element.addEventListener(eventName, events[eventName]);
+    });
+
+}
+
+_removeEvents() {
+  const {events = {}} = this.props;
+
+  Object.keys(events).forEach(eventName => {
+    this._element.removeEventListener(eventName, events[eventName]);
+  });
+}
 
 
 

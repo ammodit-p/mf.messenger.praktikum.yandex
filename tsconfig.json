@@ -6,7 +6,7 @@
       "noUnusedLocals": true, 
       "noUnusedParameters": true,
       "strictNullChecks": true,
-      "alwaysStrict": true,
+      "alwaysStrict": false,
       "removeComments": true,
       "sourceMap": true,
       "target": "ES2019",

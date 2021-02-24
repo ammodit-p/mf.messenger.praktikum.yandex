@@ -1,48 +1,32 @@
-import {Indexed} from "../../types"
+
 import {Block} from "../../classes/classBlock.js";
 import {chatListAreaPartial} from "../../handlebars_partials/chatListAreaPartial/chatListAreaPartial.js"
+import {chat_list_tmpl} from "./chat_list_tmpl.js"
 chatListAreaPartial()
 
 export class Chat_list extends Block {
-    constructor(tagName: string, props: Indexed, tmpl: string, className: string) {
-        super(tagName, props, tmpl, className)
-    }
-    _createDocumentElement(tagName: string): HTMLElement {
-        const el = document.createElement(tagName);
-        el.classList.add(this._meta.className)
-        return el;
-      }
-
-      _render(): void {
-        const block = this.render();
-
-        this._removeEvents()
-
-        this._element.innerHTML = block;
-
-        this._addEvents()
-      }
-      render(): string {
-        const {data} = this.props
-        const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
-        return template (data);
-      }
-
-
-      _addEvents() {
-        const {events = {}} = this.props;
-
-        Object.keys(events).forEach(eventName => {
-          this._element.addEventListener(eventName, events[eventName]);
-        });
-
-}
-
-    _removeEvents() {
-      const {events = {}} = this.props;
-
-      Object.keys(events).forEach(eventName => {
-        this._element.removeEventListener(eventName, events[eventName]);
-      });
+    constructor() {
+        super("aside", {
+          data: {
+              "list": [
+                  {
+                      "avatar": "./img/avatar.png", 
+                      "title": "Имя",
+                      "chatMessage": "Будет потом",
+                      "time": "нет пока",
+                      "id": "1",
+                      "unread_count": "0"
+                  },
+                  {
+                      "avatar": "./img/avatar.png", 
+                      "title": "Чатик",
+                      "chatMessage": "Будет потом",
+                      "time": "нет пока",
+                      "id": "2",
+                      "unread_count": "0"
+                  }
+              ],
+          }
+      }, chat_list_tmpl, "chatlist_area")
     }
 }

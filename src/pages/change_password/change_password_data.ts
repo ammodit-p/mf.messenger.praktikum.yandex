@@ -10,7 +10,6 @@ export const change_password_data: {} = {
             "class": "profile_input",
             "inputClass": "input_label black_label",
             "labelValue": "Старый пароль",
-            "val": "1111111111" 
         },
         {
             "fieldName": "newPassword", 
@@ -18,7 +17,6 @@ export const change_password_data: {} = {
             "class": "profile_input",
             "inputClass": "input_label black_label",
             "labelValue": "Новый пароль",
-            "val": "11111" 
         },
         {
             "fieldName": "checkNewPassword", 
@@ -26,7 +24,6 @@ export const change_password_data: {} = {
             "inputClass": "input_label black_label",
             "class": "profile_input",
             "labelValue": "Повторите новый пароль",
-            "val": "11111" 
         },
     ]
 }

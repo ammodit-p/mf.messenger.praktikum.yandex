@@ -14,7 +14,7 @@ export class Change_password_form extends Block {
         super("form", {
             data: change_password_data,
             children:{button: new Button ("button", {"text": "Сохранить"}, button_tmpl, ".button")}
-        }, change_pass_form_tmpl, 'form');
+        }, change_pass_form_tmpl, 'pass_form');
     }
 
 

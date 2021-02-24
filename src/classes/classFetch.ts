@@ -1,11 +1,11 @@
-import {StringObj} from "../types.js";
+import {Indexed} from "../types.js";
 import {Options} from "../types.js";
 import {queryString} from './../funcs/queryString.js'
 
 export class Fetch {
     url: string
-    constructor (url: string) {
-        this.url = 'https://ya-praktikum.tech/api/v2' + url
+    constructor () {
+        this.url = 'https://ya-praktikum.tech/api/v2'
     }
     get(url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> {
         const {data} = options
@@ -36,7 +36,7 @@ export class Fetch {
 
         return new Promise((resolve,reject) => {
                         
-            function setHeaders (headers: StringObj) {
+            function setHeaders (headers: Indexed) {
                 for (let key in headers) {
                     xhr.setRequestHeader(key, headers[key])
                 }

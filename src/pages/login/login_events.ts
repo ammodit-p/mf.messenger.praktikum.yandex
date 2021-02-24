@@ -1,6 +1,8 @@
 
 import {router} from "../../initialaze.js";
 import {checkForms} from "../../funcs/forms/checkForms.js";
+import objFromForm from "../../funcs/objFromForm.js"
+import login_controller from "./login_controller.js"
     
 export const events = {
     submit: function onSubmit (event: any) {
@@ -9,7 +11,12 @@ export const events = {
             const form: any = document.forms[0]
             const checked: boolean = checkForms(form);
             if(checked === false) {return}; 
-            router.go('/chat')
+
+            const formdata = new FormData(form)
+            const data= objFromForm(formdata)
+            const json = JSON.stringify(data)
+            login_controller.send(json)
+
     },
 
     

@@ -1,9 +1,9 @@
-    export type Indexed <T = unknown> = {
-        [k in string]: T
+    export type Indexed  = {
+        [k in string]: any
     }
 
     export type StringObj = {
-        [k in string]: string
+        [k in string]: string | boolean
     }
 
     export type RegObj = {
@@ -11,6 +11,6 @@
     }
 
     export interface Options{
-        headers: StringObj;
+        headers: Indexed;
         data?: any;
     }

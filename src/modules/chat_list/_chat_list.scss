@@ -6,9 +6,11 @@
 	left: 0;
 	display: flex;
 	width: 310px;
-	ul{
-		display: block
-	}
+}
+
+.chatlist_lists {
+	display: block;
+	width: 100%;
 }
 
 .chatlist_list_item {
