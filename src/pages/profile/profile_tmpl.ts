@@ -13,33 +13,33 @@ export const profile_tmpl: string =
 <div class="profile_user_data">
 
     <div class="profile_user_data_item">
-        {{Почта}}
-        <span class = "profile_user_data_item_text" id={{id}}>{{email}}</span>
+        Почта
+        <span class = "profile_user_data_item_text">{{email}}</span>
     </div>
 
     <div class="profile_user_data_item">
-        {{Логин}}
-        <span class = "profile_user_data_item_text" id={{id}}>{{login}}</span>
+        Логин
+        <span class = "profile_user_data_item_text">{{login}}</span>
     </div>
 
     <div class="profile_user_data_item">
-        {{Имя}}
-        <span class = "profile_user_data_item_text" id={{id}}>{{first_name}}</span>
+        Имя
+        <span class = "profile_user_data_item_text">{{first_name}}</span>
     </div>
 
     <div class="profile_user_data_item">
-        {{Фамилия}}
-        <span class = "profile_user_data_item_text" id={{id}}>{{second_name}}</span>
+        Фамилия
+        <span class = "profile_user_data_item_text">{{second_name}}</span>
     </div>
 
     <div class="profile_user_data_item">
-        {{Имя в чате}}
-        <span class = "profile_user_data_item_text" id={{id}}>{{display_name}}</span>
+        Имя в чате
+        <span class = "profile_user_data_item_text">{{display_name}}</span>
     </div>
 
     <div class="profile_user_data_item">
-        {{Телефон}}
-        <span class = "profile_user_data_item_text" id={{id}}>{{phone}}</span>
+        Телефон
+        <span class = "profile_user_data_item_text">{{phone}}</span>
     </div>
 
 </div>

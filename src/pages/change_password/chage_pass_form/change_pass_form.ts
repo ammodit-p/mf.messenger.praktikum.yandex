@@ -13,31 +13,7 @@ export class Change_password_form extends Block {
     constructor () {
         super("form", {
             data: change_password_data,
-            children:{button: new Button ("button", {"text": "Сохранить"}, button_tmpl, ".button")}
+            children:{button: new Button ("div", {data: {"text": "Сохранить"}}, button_tmpl, ".button")}
         }, change_pass_form_tmpl, 'pass_form');
     }
-
-
-    _createDocumentElement(tagName: string): HTMLElement {
-        const el = document.createElement(tagName);
-        el.classList.add(this._meta.className)
-        return el;
-      }
-    
-      _render(): void {
-        const block = this.render();
-
-
-        this._element.innerHTML = block;
-        const {children = {}} = this.props
-        Object.keys(children).forEach(childName => {
-            this.element.appendChild(children[childName].getContent())
-        })
-
-      }
-      render(): string {
-        const {data} = this.props
-        const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
-        return template (data);
-      }
 }

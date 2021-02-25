@@ -1,5 +1,5 @@
 import {Controller} from "../../classes/classController.js"
-import login_api from "./login_api.js";
+import signin_api from "./signin_api.js";
 
 class LoginController extends Controller {
     constructor() {
@@ -7,22 +7,20 @@ class LoginController extends Controller {
     }
 
     async send (data?: any) {
-        const name = "signin";
-        const res = await login_api.signin(data)
-        this.handle(res, name)
-    }
-
-    async get (data?: any) {
-        const name = "getUserInfo"
-        const res = await login_api.getUserInfo(data)
-        this.handle(res, name)
+        const name = "signup";
+        const res = await signin_api.signup(data)
+        this.handle(res, name, data)
     }
 
 
-    handle(res: any, name: string) {
-        if (name === "signin") {
+
+    handle(res: any, name: string, data: any) {
+        if (name === "signup") {
             if(res.status === 200) {
-                this.get()
+                if(res.responseType === 'json') {
+                    const val = JSON.parse(data)
+                    this.set('profile.data', val)
+                }
             }
             if(res.status === 401) {
                 alert('Неверный логин/пароль')
@@ -38,7 +36,9 @@ class LoginController extends Controller {
 
         if (name === "getUserInfo") {
             if(res.status === 200) {
-                this.set('profile.data', res.response)
+                if(res.responseType === 'json') {
+                    this.set('profile.data', res.response)
+                }
             }
             if(res.status === 401) {
                 this.go('/')

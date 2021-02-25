@@ -1,5 +1,6 @@
 import {Indexed} from "../types";
 import {merge} from "../funcs/merge.js";
+import {arrToObject} from "../funcs/arrToObject.js"
 
 class Store { 
     static _instance: any
@@ -31,12 +32,15 @@ class Store {
         return result;
     }
 
-    set(name: string, data: Indexed): void {
-        if(!this._props[name]) {
-            const value = this.get(name)
-            this._props = merge (value, data)
-            this._emitObserver(name)
-        }
+    set(path: string, data: any): void {
+        if (typeof path !== 'string') {
+            throw new Error ('path must be string')
+          }
+          
+          const pathArr: Array<string|number> = path.split('.');
+          pathArr.push(data)
+          let pathObj: Indexed = arrToObject(pathArr)
+          this._props = merge (this._props, pathObj)
     }
 
     setStoreObserver (name: string, callback: any) {

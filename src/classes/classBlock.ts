@@ -98,9 +98,9 @@ export class Block {
   }
 
   render(): string {
-    const name: any = store.get(this._meta.className)
-    this.setProps(name)
-    store.setStoreObserver(name, this.componentDidUpdate)
+    const propFromStore: any = store.get(this._meta.className)
+    this.setProps(propFromStore)
+    store.setStoreObserver(this._meta.className, this.componentDidUpdate)
     const {data} = this._meta.props
     const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl)
     return template (data);

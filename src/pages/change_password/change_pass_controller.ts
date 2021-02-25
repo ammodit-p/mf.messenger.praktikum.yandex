@@ -1,31 +1,36 @@
-import {Controller} from "../../classes/classController.js"
-import login_api from "./login_api.js";
+import {Controller} from "../../classes/classController.js";
+import change_pass_api from "./change_pass_api.js";
 
-class LoginController extends Controller {
+class ChangePassController extends Controller {
     constructor() {
         super()
     }
 
-    async send (data?: any) {
-        const name = "signin";
-        const res = await login_api.signin(data)
+    async get () {
+        const name = "getuser";
+        const res = await change_pass_api.get()
         this.handle(res, name)
     }
 
-    async get (data?: any) {
-        const name = "getUserInfo"
-        const res = await login_api.getUserInfo(data)
+    async put (data: any) {
+        const name = "change";
+        const res = await change_pass_api.put(data)
         this.handle(res, name)
     }
+
 
 
     handle(res: any, name: string) {
-        if (name === "signin") {
+        if (name === "getuser") {
             if(res.status === 200) {
-                this.get()
+                if(res.responseType === 'json') {
+                    const val = JSON.parse(res.response)
+                    this.set('profile.data', val)
+                }
+                
             }
             if(res.status === 401) {
-                alert('Неверный логин/пароль')
+                this.go('/')
             }
             if(res.status === 400) {
                 alert("Что-то пошло не так")
@@ -36,9 +41,9 @@ class LoginController extends Controller {
             }
         }
 
-        if (name === "getUserInfo") {
+        if (name === "change") {
             if(res.status === 200) {
-                this.set('profile.data', res.response)
+                this.go('/profile')
             }
             if(res.status === 401) {
                 this.go('/')
@@ -57,6 +62,6 @@ class LoginController extends Controller {
 
 
 
-const login_controller = new LoginController();
+const change_pass_controller = new ChangePassController();
 
-export default login_controller
+export default change_pass_controller;

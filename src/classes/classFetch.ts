@@ -9,7 +9,9 @@ export class Fetch {
     }
     get(url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> {
         const {data} = options
-        url = this.url + url + queryString(data)
+        if(data) {
+            url = this.url + url + queryString(data)
+        }
     return this.request(url, options, 'GET');
     };
 
@@ -44,6 +46,9 @@ export class Fetch {
             
             const xhr = new XMLHttpRequest();
             xhr.open(method, url);
+            xhr.withCredentials = true;
+            
+            
             setHeaders(headers);
             xhr.onload = function() {
             resolve(xhr);

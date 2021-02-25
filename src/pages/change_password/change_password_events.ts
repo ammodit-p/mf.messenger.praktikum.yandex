@@ -1,6 +1,6 @@
-
-import {router} from "../../initialaze.js";
+import change_pass_controller from "./change_pass_controller.js"
 import {checkForms} from "../../funcs/forms/checkForms.js";
+import objFromForm from "../../funcs/objFromForm.js"
     
 export const events = {
     submit: function (event: any) {
@@ -9,7 +9,11 @@ export const events = {
         const form: any = document.forms[0]
         const checked: boolean = checkForms(form);
         if(checked === false) {return}; 
-        router.go('/profile')
+        const formdata = new FormData(form)
+        const obj = objFromForm(formdata)
+        const json = JSON.stringify(obj)
+
+        change_pass_controller.put(json)
 },
 
 
@@ -27,7 +31,7 @@ export const events = {
     click: function (event: any) {
         if (event.target == document.querySelector('#profile')) {
             event.preventDefault()
-            router.go('/profile')
+            change_pass_controller.go('/profile')
         }
     }
 }

@@ -12,7 +12,7 @@ export class Change_user_form extends Block {
         {
             data: change_user_data,
             events: {},
-            children:{button: new Button ("button", {"text": "Сохранить"}, button_tmpl, ".button")}
+            children:{button: new Button ("div", {data: {"text": "Сохранить"}}, button_tmpl, "button")}
         }, change_user_form_tmpl, "user_form")}
   
 }
