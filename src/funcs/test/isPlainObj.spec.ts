@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import isPlainObj from "../funcs/isPlainObj"
+import isPlainObj from "../isPlainObj"
 
 
 describe ("isPlainObj positive", function () {
@@ -42,6 +42,22 @@ describe ("isPlainObj negative", function () {
 
     it('simple negative test', function () {
         expect(isPlainObj(1)).to.be.equal(false)
+    })
+
+    it('try with null', function () {
+        expect(isPlainObj(null)).to.be.equal(false)
+    })
+
+    it('try with array', function () {
+        expect(isPlainObj([1])).to.be.equal(false)
+    })
+
+    it('try with function', function () {
+        expect(isPlainObj(function f() {console.log('im function')})).to.be.equal(false)
+    })
+
+    it('try with undefined', function () {
+        expect(isPlainObj(undefined)).to.be.equal(false)
     })
 
 })
