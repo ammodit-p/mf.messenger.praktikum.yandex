@@ -1,6 +1,6 @@
 import {router} from "../../initialaze.js";
 import chat_controller from "./chat_controller.js";
-import objFromForm from "../../funcs/objFromForm.js";
+import jsonify from "../../funcs/jsonify.js";
 import {checkForms} from "../../funcs/forms/checkForms.js"
 
 export const events = {
@@ -30,8 +30,8 @@ export const events = {
             if(checked === false) {return}; 
 
             const formdata = new FormData(form)
-            const data= objFromForm(formdata)
-            const json = JSON.stringify(data)
+            
+            const json = jsonify (formdata)
             chat_controller.post(json)
             event.target.classList.remove('show')
         }

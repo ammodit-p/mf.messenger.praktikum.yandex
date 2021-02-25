@@ -1,6 +1,6 @@
 import change_pass_controller from "./change_pass_controller.js"
 import {checkForms} from "../../funcs/forms/checkForms.js";
-import objFromForm from "../../funcs/objFromForm.js"
+import jsonify from "../../funcs/jsonify.js"
     
 export const events = {
     submit: function (event: any) {
@@ -10,8 +10,8 @@ export const events = {
         const checked: boolean = checkForms(form);
         if(checked === false) {return}; 
         const formdata = new FormData(form)
-        const obj = objFromForm(formdata)
-        const json = JSON.stringify(obj)
+        
+        const json = jsonify (formdata)
 
         change_pass_controller.put(json)
 },

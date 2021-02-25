@@ -1,7 +1,7 @@
 import {router} from "../../initialaze.js";
 import {checkForms} from "../../funcs/forms/checkForms.js";
 import login_controller from "./signin_controller.js";
-import objFromForm from '../../funcs/objFromForm.js'
+import jsonify from '../../funcs/jsonify.js'
     
 export const events = {
     submit: function (event: any) {
@@ -12,9 +12,7 @@ export const events = {
         if(checked === false) {return}; 
         
         const formdata = new FormData(form)
-        const obj = objFromForm(formdata)
-        const json = JSON.stringify(obj)
-
+        const json = jsonify (formdata)
         login_controller.post(json)
 },
 
