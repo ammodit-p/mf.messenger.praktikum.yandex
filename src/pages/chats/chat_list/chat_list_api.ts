@@ -1,4 +1,4 @@
-import{Fetch} from "../../classes/classFetch.js"
+import{Fetch} from "../../../classes/classFetch.js"
 
 
 const api = new Fetch()

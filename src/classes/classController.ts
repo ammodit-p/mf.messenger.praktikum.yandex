@@ -12,4 +12,12 @@ export class Controller {
     go(path: string) {
         router.go(path)
     }
+
+    delete (path: string) {
+        store.delete(path)
+    }
+
+    get (path: string): any {
+        store.get(path)
+    }
 }

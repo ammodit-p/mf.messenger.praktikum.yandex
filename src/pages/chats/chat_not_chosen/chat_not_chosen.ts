@@ -1,5 +1,5 @@
 
-import {Block} from "../../classes/classBlock.js";
+import {Block} from "../../../classes/classBlock.js";
 import {chat_not_chosen_tmpl} from "./chat_not_chosen_tmpl.js"
 
 export class Chat_not_chosen extends Block {

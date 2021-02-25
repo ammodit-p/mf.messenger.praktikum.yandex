@@ -1,6 +1,6 @@
 
-import {Block} from "../../classes/classBlock.js";
-import {chatListAreaPartial} from "../../handlebars_partials/chatListAreaPartial/chatListAreaPartial.js"
+import {Block} from "../../../classes/classBlock.js";
+import {chatListAreaPartial} from "../../../handlebars_partials/chatListAreaPartial/chatListAreaPartial.js"
 import {chat_list_tmpl} from "./chat_list_tmpl.js";
 import chat_list_controller from "./chat_list_controller.js"
 chatListAreaPartial()

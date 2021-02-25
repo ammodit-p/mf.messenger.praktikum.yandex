@@ -1,5 +1,5 @@
-import {Indexed} from "../../types"
-import {Block} from "../../classes/classBlock.js";
+import {Indexed} from "../../../types"
+import {Block} from "../../../classes/classBlock.js";
 
 export class Chat_body extends Block {
     constructor(tagName: string, props: Indexed, tmpl: string, className: string) {

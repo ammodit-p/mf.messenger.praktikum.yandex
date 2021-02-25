@@ -43,6 +43,24 @@ class Store {
           this._props = merge (this._props, pathObj)
     }
 
+    delete(path: string) {
+        const keys = path.split('.'); 
+
+        let result: any = this._props; 
+        for (let key of keys) {
+            const value = result[key]; 
+
+            if (!value) {
+            delete result[key];       
+            return
+            }
+
+            result = value; 
+        }
+
+        return;
+    }
+
     setStoreObserver (name: string, callback: any) {
         if (this.stroreObservers[name]) {
             return

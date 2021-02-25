@@ -1,10 +1,10 @@
 import {Router} from "./classes/classRouter.js";
-import {Login} from "./pages/login/login.js";
-import {Chats} from "./pages/chats/chats.js"
-import {Signin} from "./pages/signin/signin.js";
-import{Profile} from "./pages/profile/profile.js"
-import{Change_user} from "./pages/change_user_data/change_user.js";
-import {Change_password} from "./pages/change_password/change_password.js"
+import {Login} from "./pages/LOGIN/login.js";
+import {Chats} from "./pages/CHATS/chats.js"
+import {Signin} from "./pages/SIGNIN/signin.js";
+import{Profile} from "./pages/PROFILE/profile.js"
+import{Change_user} from "./pages/CHANGE_USER_DATA/change_user.js";
+import {Change_password} from "./pages/CHANGE_PASSWORD/change_password.js"
 import {FourHundred} from "./pages/400/400.js";
 import {FiveHundred} from "./pages/500/500.js"
 

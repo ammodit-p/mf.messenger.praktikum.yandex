@@ -1,4 +1,4 @@
-import {Controller} from "../../classes/classController.js";
+import {Controller} from "../../../classes/classController.js";
 import chat_list_api from "./chat_list_api.js";
 
 class ChatListController extends Controller {
