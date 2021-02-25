@@ -6,11 +6,11 @@ class LoginController extends Controller {
         super()
     }
 
-    async send (data?: any) {
+    async post (data?: any) {
         const name = "signup";
         const res = await signin_api.signup(data)
         this.handle(res, name, data)
-    }
+    }  
 
 
 
@@ -20,6 +20,7 @@ class LoginController extends Controller {
                 if(res.responseType === 'json') {
                     const val = JSON.parse(data)
                     this.set('profile.data', val)
+                    this.go('/chat')
                 }
             }
             if(res.status === 401) {
