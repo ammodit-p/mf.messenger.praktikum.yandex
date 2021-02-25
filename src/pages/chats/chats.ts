@@ -27,7 +27,7 @@ export class Chats extends Block {
                         form_class: "add_chat_form"
                     },
                     children: {
-                        button: new Button ('div', {data: {'text': 'Добавить'}}, button_tmpl, 'button')
+                        button: new Button ('div', {data: {'text': 'Добавить'}}, button_tmpl, 'add_chat_button popup_form_button')
                     }
                     
                 }, popup_form_tmpl, 'popup')

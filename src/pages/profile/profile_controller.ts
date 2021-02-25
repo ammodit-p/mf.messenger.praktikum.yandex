@@ -12,6 +12,12 @@ class ProfileController extends Controller {
         this.handle(res, name)
     }
 
+    async post () {
+        const name = "logout";
+        const res = await profile_api.post()
+        this.handle(res, name)
+    }
+
 
 
     handle(res: any, name: string) {
@@ -34,6 +40,18 @@ class ProfileController extends Controller {
                 this.go('/500')
             }
         }
+
+        if (name === "logout") {
+            if(res.status === 200) {
+                this.go('/')
+                
+            }
+            if(res.status === 500) {
+                this.go('/500')
+            }
+        }
+
+
     }
             
 }

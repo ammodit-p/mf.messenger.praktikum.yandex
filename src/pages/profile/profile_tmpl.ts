@@ -47,5 +47,5 @@ export const profile_tmpl: string =
 <div class="profile_menu">
     <div class="profile_menu_item}"><span class="blue_link user-data">Изменить данные</span></div>
     <div class="profile_menu_item"><span class="blue_link user-pass">Изменить пароль</span></div>
-    <div class="profile_menu_item"><span class="red_link">Выйти</span></div>
+    <div class="profile_menu_item"><span class="red_link logout">Выйти</span></div>
 </div>`

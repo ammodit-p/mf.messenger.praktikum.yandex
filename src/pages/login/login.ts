@@ -15,7 +15,7 @@ export class Login extends Block {
         super("form", {
             data :loginPage_data,
             events: events,
-            children: {button: new Button ("div", {data: {"text": "Авторизоваться"}}, button_tmpl, "button")}
+            children: {button: new Button ("div", {data: {"text": "Авторизоваться"}}, button_tmpl, "login_form_button")}
         }, login_tmpl, "login_form");
     }
 }

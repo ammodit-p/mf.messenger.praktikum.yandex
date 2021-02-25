@@ -15,7 +15,7 @@ export class Signin extends Block {
         super("form", {
             data :signinPage_data,
             events: events,
-            children: {button: new Button ("button", {data:{"text": "Зарегистрироваться"}}, button_tmpl, "button")}
+            children: {button: new Button ("button", {data:{"text": "Зарегистрироваться"}}, button_tmpl, "signin_form_button")}
         }, signin_tmpl, "signin_form");
     }
 }

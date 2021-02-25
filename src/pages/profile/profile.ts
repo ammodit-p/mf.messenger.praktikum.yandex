@@ -1,7 +1,7 @@
 import {Block} from "../../classes/classBlock.js";
 import {profile_tmpl} from "./profile_tmpl.js";
 import {events} from "./profile_events.js"
-// import profile_controller from "./profile_controller.js"
+import profile_controller from "./profile_controller.js"
 
 
 export class Profile extends Block {
@@ -13,6 +13,6 @@ export class Profile extends Block {
     }
 
     componentDidMount () {
-        // profile_controller.get()
+        profile_controller.get()
     }
 }

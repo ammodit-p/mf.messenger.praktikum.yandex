@@ -25,7 +25,7 @@ export const events = {
         if (event.target === document.querySelector(".add_chat_form")) {
             event.preventDefault();
     
-            const form: any = document.forms[0]
+            const form: any = document.querySelector('.popup')
             const checked: boolean = checkForms(form);
             if(checked === false) {return}; 
 
