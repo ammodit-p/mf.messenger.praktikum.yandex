@@ -1,5 +1,5 @@
 import {Indexed} from "../types";
-export function isPlainObject(value: unknown): value is Indexed {
+export default function isPlainObject(value: unknown): value is Indexed {
     return typeof value === 'object'
         && value !== null
         && value.constructor === Object

@@ -3,10 +3,15 @@
     "version": "1.0.0",
     "private": true,
     "devDependencies": {
+        "@types/chai": "^4.2.15",
         "@types/handlebars": "^4.1.0",
+        "@types/mocha": "^8.2.1",
+        "babel": "^6.23.0",
+        "chai": "^4.3.0",
         "copyfiles": "^2.4.1",
         "express": "4.17.1",
         "handlebars": "^4.7.6",
+        "mocha": "^8.3.0",
         "sass": "^1.32.8"
     },
     "scripts": {
@@ -18,7 +23,8 @@
         "html": "find ./src/ -name \"*.html\" -type f -exec copyfiles -u 1 {} ./dist \\;",
         "css": "sass src/:dist/",
         "css-w": "sass --watch src/:dist/",
-        "build": "npm run clean && npm run tsc && npm run html && npm run css"
+        "build": "npm run clean && npm run tsc && npm run html && npm run css",
+        "test": "mocha"
     },
     "dependencies": {
         "typescript": "4.1.2",

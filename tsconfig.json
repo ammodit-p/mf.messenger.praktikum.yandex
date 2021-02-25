@@ -12,7 +12,8 @@
       "target": "ES2019",
       "outDir": "./dist",
       "types": [
-        "handlebars"
+        "handlebars",
+        "mocha"
       ]
     },
     "include": [
