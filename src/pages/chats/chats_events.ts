@@ -1,7 +1,7 @@
-import {router} from "../../initialaze.js";
-import chat_controller from "./chat_controller.js";
-import jsonify from "../../funcs/jsonify.js";
-import {checkForms} from "../../funcs/forms/checkForms.js"
+import {router} from "../../initialaze";
+import chat_controller from "./chat_controller";
+import jsonify from "../../funcs/jsonify";
+import {checkForms} from "../../funcs/forms/checkForms"
 
 export const events = {
     click: function (event:any) {

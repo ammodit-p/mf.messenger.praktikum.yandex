@@ -1,6 +1,6 @@
 
-import {checkEmptyForm} from "./checkEmpty.js";
-import {validate} from "./validate.js";
+import {checkEmptyForm} from "./checkEmpty";
+import {validate} from "./validate";
 
 export function checkForms (form: any): boolean {
     checkEmptyForm(form)

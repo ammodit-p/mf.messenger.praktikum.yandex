@@ -1,7 +1,7 @@
-import {Block} from "../../classes/classBlock.js";
-import {profile_tmpl} from "./profile_tmpl.js";
-import {events} from "./profile_events.js"
-import profile_controller from "./profile_controller.js"
+import {Block} from "../../classes/classBlock";
+import {profile_tmpl} from "./profile_tmpl";
+import {events} from "./profile_events"
+import profile_controller from "./profile_controller"
 
 
 export class Profile extends Block {

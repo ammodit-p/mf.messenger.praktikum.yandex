@@ -1,7 +1,7 @@
-import escape from "./escape.js";
-import objFromForm from "./objFromForm.js"
+import escape from "./escape";
+import objFromForm from "./objFromForm"
 
-export default function jsonify (form: any) {
+export default function jsonify (form: any): string {
     const obj: any = objFromForm(form)
 
     for (let key in obj) {

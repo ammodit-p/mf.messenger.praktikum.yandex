@@ -1,5 +1,5 @@
-import {isEqual} from "../funcs/isEqual.js";
-import {render} from "../funcs/render.js";
+import {isEqual} from "../funcs/isEqual";
+import {render} from "../funcs/render";
 
 export class Route {
     _pathname: string;

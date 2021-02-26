@@ -1,5 +1,5 @@
-import {Block} from "../../classes/classBlock.js"
-import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
+import {Block} from "../../classes/classBlock"
+import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial";
 
 
 inputPartial();

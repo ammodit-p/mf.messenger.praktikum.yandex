@@ -1,7 +1,7 @@
-import {Controller} from "../../classes/classController.js"
-import signin_api from "./signin_api.js";
+import {Controller} from "../../classes/classController"
+import signin_api from "./signin_api";
 
-class LoginController extends Controller {
+class SigninController extends Controller {
     constructor() {
         super()
     }
@@ -11,8 +11,6 @@ class LoginController extends Controller {
         const res = await signin_api.signup(data)
         this.handle(res, name, data)
     }  
-
-
 
     handle(res: any, name: string, data: any) {
         if (name === "signup") {
@@ -58,6 +56,6 @@ class LoginController extends Controller {
 
 
 
-const login_controller = new LoginController();
+const signin_controller = new SigninController();
 
-export default login_controller
+export default signin_controller

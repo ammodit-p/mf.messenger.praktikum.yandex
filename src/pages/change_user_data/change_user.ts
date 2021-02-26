@@ -1,11 +1,11 @@
-import {Block} from "../../classes/classBlock.js";
-import {Change_user_form} from "./change_user_form/change_user_form.js"
-import {change_user_data} from "./change_user_data.js"
-import {change_user_tmpl} from "./change_user_tmpl.js";
-import {events} from "./change_user_events.js";
-import change_user_controller from "./change_user_controller.js"
+import {Block} from "../../classes/classBlock";
+import {Change_user_form} from "./change_user_form/change_user_form"
+import {change_user_data} from "./change_user_data"
+import {change_user_tmpl} from "./change_user_tmpl";
+import {events} from "./change_user_events";
+import change_user_controller from "./change_user_controller"
 
-import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial.js";
+import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial";
 
 inputPartial();
 

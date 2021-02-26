@@ -1,5 +1,5 @@
 
-import {valdata} from "./valData.js";
+import {valdata} from "./valData";
 
 export function validate (form: any) {
     for (let item of form) {

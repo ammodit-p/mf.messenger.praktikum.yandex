@@ -11,6 +11,12 @@
       "sourceMap": true,
       "target": "ES2019",
       "outDir": "./dist",
+      "plugins": [
+        {
+          "transform": "@zoltu/typescript-transformer-append-js-extension/output/index.js",
+          "after": true
+        }
+      ],  
       "types": [
         "handlebars",
         "mocha"
@@ -23,6 +29,7 @@
     "exclude": [
       "node_modules",
       "static",
-      "dist"
+      "dist",
+      "src/**/*.spec.ts"
     ]
 }

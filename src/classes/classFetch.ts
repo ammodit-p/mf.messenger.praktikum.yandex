@@ -1,6 +1,6 @@
-import {Indexed} from "../types.js";
-import {Options} from "../types.js";
-import {queryString} from './../funcs/queryString.js'
+import {Indexed} from "../types";
+import {Options} from "../types";
+import {queryString} from './../funcs/queryString'
 
 
 

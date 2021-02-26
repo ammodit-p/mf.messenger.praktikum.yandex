@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController.js";
-import change_pass_api from "./change_pass_api.js";
+import {Controller} from "../../classes/classController";
+import change_pass_api from "./change_pass_api";
 
 class ChangePassController extends Controller {
     constructor() {

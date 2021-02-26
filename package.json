@@ -6,6 +6,7 @@
         "@types/chai": "^4.2.15",
         "@types/handlebars": "^4.1.0",
         "@types/mocha": "^8.2.1",
+        "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
         "chai": "^4.3.0",
         "copyfiles": "^2.4.1",
         "express": "4.17.1",
@@ -15,17 +16,18 @@
         "ts-node": "^9.1.1"
     },
     "scripts": {
-        "tsc": "tsc",
+        "tsc": "ttsc",
         "start": "node ./server.js",
-        "dev": "tsc -w & npm run html & npm run css-w & npm run start & browser-sync start --proxy 'localhost:4000' --files 'dist'",
+        "dev": "ttsc -w & npm run html & npm run css-w & npm run start & browser-sync start --proxy 'localhost:4000' --files 'dist'",
         "clean": "rm -rf dist/",
         "fix-js": "find ./dist -name \"*.js\" -exec sed -i '' -E 's|(import .+ from ['\\''\"]\\.?\\./.+[^.][^j][^s])(['\\''\"])|\\1.js\\2|g' {} +",
         "html": "find ./src/ -name \"*.html\" -type f -exec copyfiles -u 1 {} ./dist \\;",
+        "remove-js": "find ./src -name \"*.ts\" -type f -exec sed -i'' -E 's/.js//g' {} \\+",
+        "remove-E": "find ./src -name \"*.ts-E\" -type f -exec rm -rf {} +",
         "css": "sass src/:dist/",
         "css-w": "sass --watch src/:dist/",
         "build": "npm run clean && npm run tsc && npm run html && npm run css",
-        "test": "mocha -r ts-node/register src/**/*.spec.ts",
-        "compile": "babel src -d lib --extensions '.ts,.tsx'"
+        "test": "mocha -r ts-node/register src/**/*.spec.ts"
     },
     "dependencies": {
         "@types/handlebars": "^4.1.0",

@@ -1,6 +1,6 @@
 import {Indexed} from "../types";
-import {merge} from "../funcs/merge.js";
-import {arrToObject} from "../funcs/arrToObject.js"
+import {merge} from "../funcs/merge";
+import {arrToObject} from "../funcs/arrToObject"
 
 class Store { 
     static _instance: any

@@ -1,6 +1,6 @@
-import {checkForms} from "../../funcs/forms/checkForms.js";
-import change_user_controller from "./change_user_controller.js"
-import jsonify from '../../funcs/jsonify.js'
+import {checkForms} from "../../funcs/forms/checkForms";
+import change_user_controller from "./change_user_controller"
+import jsonify from '../../funcs/jsonify'
     
 export const events = {
     submit: function (event: any) {

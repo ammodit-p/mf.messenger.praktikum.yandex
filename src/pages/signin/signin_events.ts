@@ -1,7 +1,7 @@
-import {router} from "../../initialaze.js";
-import {checkForms} from "../../funcs/forms/checkForms.js";
-import login_controller from "./signin_controller.js";
-import jsonify from '../../funcs/jsonify.js'
+import {router} from "../../initialaze";
+import {checkForms} from "../../funcs/forms/checkForms";
+import signin_controller from "./signin_controller";
+import jsonify from "../../funcs/jsonify";
     
 export const events = {
     submit: function (event: any) {
@@ -13,7 +13,7 @@ export const events = {
         
         const formdata = new FormData(form)
         const json = jsonify (formdata)
-        login_controller.post(json)
+        signin_controller.post(json)
 },
 
 

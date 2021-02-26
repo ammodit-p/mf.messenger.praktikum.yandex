@@ -1,4 +1,4 @@
-import{Fetch} from "../../../classes/classFetch.js"
+import{Fetch} from "../../../classes/classFetch"
 
 
 const api = new Fetch()
@@ -9,7 +9,7 @@ class ChatListApi {
     }
 
     getchats() {
-        return api.get('/chats', {headers: {"content-type": "application/json"}},)
+        return api.get('/chats', {headers: {"content-type": "applicationon"}},)
     }
 }
 

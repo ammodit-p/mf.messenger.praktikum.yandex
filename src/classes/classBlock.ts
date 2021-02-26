@@ -1,8 +1,8 @@
 /// <reference path="./../../node_modules/handlebars/types/index.d.ts" />
-import {EventBus} from "./eventBus.js";
+import {EventBus} from "./eventBus";
 import {Indexed} from "../types";
-import {merge} from "../funcs/merge.js"
-import {store} from "../store/Store.js"
+import {merge} from "../funcs/merge"
+import {store} from "../store/Store"
 
 interface Meta {
   tagName: string;

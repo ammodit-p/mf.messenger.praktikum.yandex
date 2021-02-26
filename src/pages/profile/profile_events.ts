@@ -1,5 +1,5 @@
 
-import profile_controller from "./profile_controller.js";
+import profile_controller from "./profile_controller";
     
 export const events = {
     click: function (event: any) {

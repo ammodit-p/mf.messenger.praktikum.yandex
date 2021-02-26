@@ -1,10 +1,10 @@
-import {Block} from "../../../classes/classBlock.js";
-import {Button} from "../../../modules/button/classButton.js"
-import {button_tmpl} from "../../../modules/button/button_tmpl.js";
-import {change_password_data} from "../change_password_data.js"
-import {change_pass_form_tmpl} from "./change_pass_form_tmpl.js";
+import {Block} from "../../../classes/classBlock";
+import {Button} from "../../../modules/button/classButton"
+import {button_tmpl} from "../../../modules/button/button_tmpl";
+import {change_password_data} from "../change_password_data"
+import {change_pass_form_tmpl} from "./change_pass_form_tmpl";
 
-import {inputPartial} from "../../../handlebars_partials/inputPartial/inputPartial.js";
+import {inputPartial} from "../../../handlebars_partials/inputPartial/inputPartial";
 
 inputPartial();
 

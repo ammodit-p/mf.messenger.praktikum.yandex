@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController.js";
-import profile_api from "./profile_api.js";
+import {Controller} from "../../classes/classController";
+import profile_api from "./profile_api";
 
 class ProfileController extends Controller {
     constructor() {

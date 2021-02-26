@@ -1,5 +1,5 @@
 import {Indexed} from "../types";
-import isPlainObject from "./isPlainObj.js"
+import isPlainObject from "./isPlainObj"
 
 
 function isArray(value: unknown): value is [] {

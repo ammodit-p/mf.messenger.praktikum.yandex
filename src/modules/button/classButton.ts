@@ -1,4 +1,4 @@
-import {Block} from "../../classes/classBlock.js";
+import {Block} from "../../classes/classBlock";
 
 export class Button extends Block {
   

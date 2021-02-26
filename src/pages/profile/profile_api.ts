@@ -1,5 +1,5 @@
 
-import{Fetch} from "../../classes/classFetch.js"
+import{Fetch} from "../../classes/classFetch"
 
 
 const api = new Fetch()

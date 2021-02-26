@@ -1,5 +1,5 @@
 
-import{Fetch} from "../../classes/classFetch.js"
+import{Fetch} from "../../classes/classFetch"
 
 
 const api = new Fetch()
@@ -14,7 +14,7 @@ class ChangePassApi {
     }
 
     put(data: any) {
-        return api.put('/user/password', {data: data, headers: {'content-type': 'application/json'}},)
+        return api.put('/user/password', {data: data, headers: {'content-type': 'applicationon'}},)
     }
 }
 

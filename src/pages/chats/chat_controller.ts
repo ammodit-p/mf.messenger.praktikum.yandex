@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController.js"
-import chat_api from "./chat_api.js";
+import {Controller} from "../../classes/classController"
+import chat_api from "./chat_api";
 
 class ChatsController extends Controller {
     constructor() {

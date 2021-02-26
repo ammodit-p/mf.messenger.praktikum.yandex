@@ -1,5 +1,6 @@
+/// <reference path="../../../../node_modules/handlebars/types/index.d.ts" />
 import {Indexed} from "../../../types"
-import {Block} from "../../../classes/classBlock.js";
+import {Block} from "../../../classes/classBlock";
 
 export class Chat_body extends Block {
     constructor(tagName: string, props: Indexed, tmpl: string, className: string) {

@@ -1,4 +1,4 @@
-import {Fetch} from "../../classes/classFetch.js"
+import {Fetch} from "../../classes/classFetch"
 
 const api = new Fetch()
 
@@ -8,11 +8,11 @@ class ChatApi {
     }
 
     post(data: any) {
-        return api.post('/chats', {data: data, headers: {'content-type': 'application/json'}},)
+        return api.post('/chats', {data: data, headers: {'content-type': 'applicationon'}},)
     }
 
     delete(data: any) {
-        return api.delete('/chats', {data: data, headers: {'content-type': 'application/json'}},)
+        return api.delete('/chats', {data: data, headers: {'content-type': 'applicationon'}},)
     }
 }
 

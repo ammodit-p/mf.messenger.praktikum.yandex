@@ -1,5 +1,5 @@
-import {router} from "../initialaze.js";
-import {store} from "../store/Store.js";
+import {router} from "../initialaze";
+import {store} from "../store/Store";
 
 export class Controller {
     constructor() {}

@@ -1,9 +1,9 @@
 
-import {change_user_form_tmpl} from "./change_user_form_tmpl.js";
-import {Button} from "../../../modules/button/classButton.js";
-import {button_tmpl} from "../../../modules/button/button_tmpl.js";
-import {Block} from "../../../classes/classBlock.js";
-import {change_user_data} from "../change_user_data.js"
+import {change_user_form_tmpl} from "./change_user_form_tmpl";
+import {Button} from "../../../modules/button/classButton";
+import {button_tmpl} from "../../../modules/button/button_tmpl";
+import {Block} from "../../../classes/classBlock";
+import {change_user_data} from "../change_user_data"
 
 
 export class Change_user_form extends Block {

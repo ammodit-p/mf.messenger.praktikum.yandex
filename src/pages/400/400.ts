@@ -1,6 +1,6 @@
-import {Block} from "../../classes/classBlock.js";
-import {fourHundred_tmpl} from "./400_tmpl.js";
-import {events} from "./400_events.js"
+import {Block} from "../../classes/classBlock";
+import {fourHundred_tmpl} from "./400_tmpl";
+import {events} from "./400_events"
 
 export class FourHundred extends Block {
     className: string

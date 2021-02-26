@@ -1,8 +1,8 @@
 
-import {Block} from "../../../classes/classBlock.js";
-import {chatListAreaPartial} from "../../../handlebars_partials/chatListAreaPartial/chatListAreaPartial.js"
-import {chat_list_tmpl} from "./chat_list_tmpl.js";
-import chat_list_controller from "./chat_list_controller.js"
+import {Block} from "../../../classes/classBlock";
+import {chatListAreaPartial} from "../../../handlebars_partials/chatListAreaPartial/chatListAreaPartial"
+import {chat_list_tmpl} from "./chat_list_tmpl";
+import chat_list_controller from "./chat_list_controller"
 chatListAreaPartial()
 
 export class Chat_list extends Block {

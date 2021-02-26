@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController.js"
-import login_api from "./login_api.js";
+import {Controller} from "../../classes/classController"
+import login_api from "./login_api";
 
 class LoginController extends Controller {
     constructor() {
