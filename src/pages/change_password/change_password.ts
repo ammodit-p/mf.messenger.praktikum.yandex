@@ -1,4 +1,4 @@
-import {Block} from "../../classes/classBlock";
+import Block from "../../classes/classBlock";
 import {Change_password_form} from "./chage_pass_form/change_pass_form"
 import {change_password_data} from "./change_password_data"
 import {change_password_tmpl} from "./change_password_tmpl";

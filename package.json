@@ -5,13 +5,18 @@
     "devDependencies": {
         "@types/chai": "^4.2.15",
         "@types/handlebars": "^4.1.0",
+        "@types/jsdom": "^16.2.6",
         "@types/mocha": "^8.2.1",
         "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
         "chai": "^4.3.0",
         "copyfiles": "^2.4.1",
+        "cross-env": "^7.0.3",
         "express": "4.17.1",
         "handlebars": "^4.7.6",
+        "jsdom": "^16.4.0",
+        "jsdom-global": "^3.0.2",
         "mocha": "^8.3.0",
+        "mocha-jsdom": "^2.0.0",
         "sass": "^1.32.8",
         "ts-node": "^9.1.1"
     },
@@ -27,12 +32,15 @@
         "css": "sass src/:dist/",
         "css-w": "sass --watch src/:dist/",
         "build": "npm run clean && npm run tsc && npm run html && npm run css",
-        "test": "mocha -r ts-node/register src/**/*.spec.ts"
+        "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r jsdom-global/register test/**/*.spec.ts"
     },
     "dependencies": {
         "@types/handlebars": "^4.1.0",
+        "cssstyle": "^2.3.0",
         "handlebars": "^4.7.6",
-        "typescript": "4.1.2"
+        "tough-cookie": "^4.0.0",
+        "typescript": "4.1.2",
+        "whatwg-url": "^8.4.0"
     },
     "engines": {
         "node": "12.16.0",

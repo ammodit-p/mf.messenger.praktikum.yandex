@@ -1,5 +1,5 @@
 
-import {Block} from "../../classes/classBlock";
+import Block from "../../classes/classBlock";
 import { Chat_list } from "./chat_list/chat_list";
 import {Chat_not_chosen} from "./chat_not_chosen/chat_not_chosen";
 import {PopupForm} from "../../modules/popup_form/classPopupForm";

@@ -1,4 +1,4 @@
-import {Block} from "../../classes/classBlock"
+import Block from "../../classes/classBlock"
 import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial";
 
 

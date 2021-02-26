@@ -1,5 +1,5 @@
 // 
-import {Block} from "../../classes/classBlock";
+import Block from "../../classes/classBlock";
 import {Button} from "../../modules/button/classButton"
 import {button_tmpl} from "../../modules/button/button_tmpl";
 import {login_tmpl} from "./login_tmpl";

@@ -10,7 +10,7 @@ interface Meta {
   tmpl: string;
   className: string
 }
-export class Block {
+ class Block {
   eventBus: EventBus;
   EVENTS: {
     INIT: string;
@@ -162,3 +162,5 @@ _removeEvents() {
     this.getContent().remove()
   }
 }
+
+export default Block

@@ -19,7 +19,9 @@
       ],  
       "types": [
         "handlebars",
-        "mocha"
+        "mocha",
+        "chai",
+        "jsdom"
       ]
     },
     "include": [
@@ -30,6 +32,6 @@
       "node_modules",
       "static",
       "dist",
-      "src/**/*.spec.ts"
+      "test/**/*"
     ]
 }

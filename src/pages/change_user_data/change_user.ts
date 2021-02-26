@@ -1,4 +1,4 @@
-import {Block} from "../../classes/classBlock";
+import Block from "../../classes/classBlock";
 import {Change_user_form} from "./change_user_form/change_user_form"
 import {change_user_data} from "./change_user_data"
 import {change_user_tmpl} from "./change_user_tmpl";
