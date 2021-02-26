@@ -2,6 +2,15 @@ import {Indexed} from "../types.js";
 import {Options} from "../types.js";
 import {queryString} from './../funcs/queryString.js'
 
+
+
+
+enum METHODS {
+    GET = 'GET',
+    PUT = 'PUT',
+    POST = 'POST',
+    DELETE = 'DELETE'
+    };
 export class Fetch {
     url: string
     constructor () {
@@ -12,22 +21,22 @@ export class Fetch {
         if(data) {
             url = this.url + url + queryString(data)
         }
-    return this.request(url, options, 'GET');
+    return this.request(url, options, METHODS.GET);
     };
 
     put = (url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> => {
         url = this.url + url
-        return this.request(url, options, "PUT");
+        return this.request(url, options, METHODS.PUT);
       }
 
     post = (url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> => {
         url = this.url + url
-    return this.request(url, options, "POST");
+    return this.request(url, options, METHODS.POST);
     }
 
     delete = (url: string, options:Options = {"headers": {}}): Promise<XMLHttpRequest> => {
         url = this.url + url
-    return this.request(url, options, "DELETE");
+    return this.request(url, options, METHODS.DELETE);
     }
 
 
