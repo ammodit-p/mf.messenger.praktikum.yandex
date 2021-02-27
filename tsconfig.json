@@ -24,14 +24,14 @@
         "jsdom"
       ]
     },
-    "include": [
-      "src/**/*",
-    ],
-    
     "exclude": [
+      "src/**/*.spec.ts",
       "node_modules",
       "static",
       "dist",
       "test/**/*"
+    ],
+    "include": [
+      "src/**/*.ts",
     ]
 }
