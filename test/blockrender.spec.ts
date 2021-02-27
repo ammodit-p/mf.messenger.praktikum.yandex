@@ -1,7 +1,7 @@
-require('jsdom-global')('<body></body>', {
-    url: "https://example.org/",
-    referrer: "https://example.com/",
-  })
+// require('jsdom-global')('<body></body>', {
+//     url: "https://example.org/",
+//     referrer: "https://example.com/",
+//   })
 import { expect } from "chai";
 import Block from "../src/classes/classBlock"
 import * as Handlebars from 'handlebars'

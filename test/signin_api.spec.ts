@@ -1,43 +1,33 @@
 
-const sinonChai = require ('sinon-chai')
 const chai = require('chai')
 const sinon = require ('sinon');
-import Fetch from "../src/classes/classFetch";
+const sinonChai = require('sinon-chai')
+import signin_api from "../src/pages/SIGNIN/signin_api";
 
-const expect = chai.expect
+const expect = chai.expect;
 chai.use(sinonChai);
 
-const test_api = new Fetch
 
-const test_data = {
-        "email": "a@aa.com",
-        "login": "login",
-        "first_name": "name",
-        "second_name": "surname",
-        "phone": "89011112233",
-        "password": "parole",
-        "second_password": "parole"
-}
+let server: any
+server = sinon.fakeServer.create();
+server.respondWith("POST", "/auth/signup",
+    [200, { "Content-Type": "application/json" },
+     '{id: 0}']);
 
-describe ('test api', function() {
-    const server = sinon.createFakeServer();
-
-    afterEach(function() {
-        server.restore();
-    })   
-
-    it ('should create new user', async function() {
-        server.respondWith("POST", "/auth/signup",
-            [200, { "Content-Type": "application/json" },
-             '{ "id": 0 }']);
-
-        sinon.spy(test_api, 'post')
-        test_api.post('/auth/signup', {data: test_data, headers: {"Content-Type": "application/json"}});
-        server.respond();
-
-        expect(test_api.post).to.have.been.calledWith({"id": 0})
-    })
-
-})
+describe('test_api', function() {
+    it("returns status 200", async function (done) {
     
-        
+        const test_data = {"test_data": "test_data"}
+
+        signin_api.signup(test_data).then((res) => expect(res).to.have.property("status").to.de.equal(200))
+        done()
+  });
+
+  it("returns body {id:0}", async function (done) {
+    
+    const test_data = {"test_data": "test_data"}
+
+    signin_api.signup(test_data).then((res) => expect(res).to.have.property("response").to.de.equal({id: 0}))
+    done()
+});
+})
