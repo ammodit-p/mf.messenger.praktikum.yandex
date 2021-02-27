@@ -19,12 +19,10 @@
       ],  
       "types": [
         "handlebars",
-        "mocha-jsdom",
         "mocha",
         "chai",
         "jsdom",
         "sinon",
-        "nock"
       ]
     },
     "exclude": [

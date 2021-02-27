@@ -3,7 +3,7 @@ require('jsdom-global')('<body><div class="app"></div></body>', {
   })
 import { expect } from "chai";
 
-import { router } from "../src/initialaze";
+import { router } from "../../initialaze";
 
 
 describe('router test', function() {
