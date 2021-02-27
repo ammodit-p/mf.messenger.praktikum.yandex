@@ -39,7 +39,6 @@ export class Router {
         const route = this.getRoute(pathname);
       
         if (!route) {
-          this.go('/404')
           return
         }
 
@@ -54,7 +53,6 @@ export class Router {
     go(pathname: string) {
       this.history.pushState({}, "", pathname);
       this._onRoute(pathname);
-      return this
     }
 
 

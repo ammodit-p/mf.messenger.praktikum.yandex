@@ -1,26 +1,20 @@
-const jsdom = require('mocha-jsdom')
+require('jsdom-global')('<body><div class="app"></div></body>', {
+    url: "https://example.org/",
+    referrer: "https://example.com/",
+  })
 import { expect } from "chai";
 import { router } from "../src/initialaze";
-import Block from "../src/classes/classBlock";
-import * as Handlebars from 'handlebars';
-
-
-const mock_tmpl = `<p>{{text}}</p>`;
-
 
 
 describe ('router', function() {
-    jsdom({ url: 'http://localhost:3000' });
-    global.Handlebars = Handlebars
 
     before(function () {
-        const mock_block = new Block('div', {data: {text: "тест"}}, mock_tmpl, 'mock_class')
-        router.use('/test', mock_block)
-        router.go('/test')
+        router.go('/chat')
     })
-    it('should do sth', function(){
-        expect(global.location.pathname).to.be.equal('/505')
+    it('should go to chat', function(){
+        expect(global.location.pathname).to.be.equal('/chat')
     })
+
 })
 
 
