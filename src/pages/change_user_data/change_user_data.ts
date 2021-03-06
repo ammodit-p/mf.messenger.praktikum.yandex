@@ -1,6 +1,6 @@
 export const change_user_data: {} = {
     "name": "Имя",
-    "src": "./img/avatag.png",
+    "src": "./assets/avatag.png",
     "inputs": [
         {
             "fieldName": "email", 

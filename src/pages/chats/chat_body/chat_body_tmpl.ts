@@ -1,7 +1,7 @@
 export const chat_body_tmpl: string = 
 `<main class="chat-area">
     <header class="chat-header">
-    <img src="./img/avatar.png" class="chat-avatar-img">
+    <img src="./assets/avatar.png" class="chat-avatar-img">
     <h1 class="login-header">Чатик</h1>
 
         <div  class="chat-menu">
@@ -50,7 +50,7 @@ export const chat_body_tmpl: string =
 
   <div class="chat-body-item">
     <div class="chat-message-img">
-        <img class="chat-img" src="./img/photo.png">
+        <img class="chat-img" src="./assets/photo.png">
       <span class="chat-message-info">
         <time class="chat-message-time">11:57</time>
       </span>

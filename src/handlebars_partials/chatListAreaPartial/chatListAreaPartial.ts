@@ -1,4 +1,4 @@
-/// <reference path="../../../node_modules/handlebars/types/index.d.ts" />
+import * as Handlebars from 'handlebars';
 import {chatListAreaPartial_tmpl} from "./chatListAreaPartial_tmpl";
 
 export function chatListAreaPartial(): void {

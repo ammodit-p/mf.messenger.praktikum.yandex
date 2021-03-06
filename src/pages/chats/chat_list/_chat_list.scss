@@ -1,4 +1,4 @@
-@use '../../../css/variables.scss';
+@import'../../../css/variables';
 
 .chatlist_list {
 	position: absolute;
@@ -96,5 +96,5 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: variables.$grey-color;
+	color:  $grey-color;
 }

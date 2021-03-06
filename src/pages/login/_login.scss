@@ -1,7 +1,8 @@
-@forward "../../handlebars_partials/inputPartial/input";
-@forward '../../modules/button/button';
-@use "../../css/variables";
-@use "../../css/extends";
+ @import "../../css/extends";
+@import "../../handlebars_partials/inputPartial/input";
+@import '../../modules/button/button';
+@import"../../css/variables";
+
 
 .login_form {
     @extend %auth-form-style;

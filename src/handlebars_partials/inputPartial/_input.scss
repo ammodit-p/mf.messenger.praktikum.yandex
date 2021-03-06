@@ -1,5 +1,6 @@
-@use '../../css/variables';
-@use "../../css/extends";
+ @import "../../css/extends";
+@import'../../css/variables';
+
 .form_input {
 	width: 285px;
 	height: 27px;
@@ -12,12 +13,12 @@
 
 .black_label {
 	@extend %label;
-	color: variables.$black-color;
+	color:  $black-color;
 	font-size: 13px
 }
 
 .blue_input {
-    border-bottom: 1px solid variables.$blue-color;
+    border-bottom: 1px solid  $blue-color;
 }
 
 .profile_input {
@@ -26,12 +27,12 @@
 	right: 0;
 	top: 0;
 	text-align: right;
-	color: variables.$grey-color;
+	color:  $grey-color;
 	height: inherit;
 	padding: inherit;
 	border-bottom: 1px solid #EAEAEA;
 }
 
 .invalid {
-    border-bottom-color: variables.$red-color;
+    border-bottom-color:  $red-color;
 }

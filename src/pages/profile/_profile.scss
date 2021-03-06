@@ -1,5 +1,6 @@
-@use "../../css/variables.scss";
-@use "../../css/extends";
+ @import "../../css/extends";
+@import"../../css/variables";
+
 
 .profile {
     display: flex;
@@ -19,7 +20,7 @@
 	border: none;
 	height: 100%;
 	width: 64px;
-	background-color: variables.$white-color;
+	background-color:  $white-color;
 	border-right: 1px solid #EAEAEA;
 }
 
@@ -28,7 +29,7 @@
 	height: 28px;
 	padding: 7px 2px;
 	border-radius: 50%;
-	background-color: variables.$blue-color;
+	background-color:  $blue-color;
 }
 
 .profile_header {
@@ -55,7 +56,7 @@
     width: 130px;
 	height: 130px;
     border-radius: inherit;
-    background-color: variables.$light-grey-color;
+    background-color:  $light-grey-color;
 }
 
 .profile_user_data {
@@ -75,7 +76,7 @@
 .profile_user_data_item_text {
     float: right;
     text-align: right;
-    color: variables.$grey-color;
+    color:  $grey-color;
 }
 
 .profile_user_data_item:last-child input {

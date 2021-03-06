@@ -1,9 +1,9 @@
-@import "variables";
+@import "./variables";
 
 %font-base {
-    font-family: $font-stack;
-    font-weight: $font-weight;
-    font-size: $font-size;
+    font-family:  $font-stack;
+    font-weight:  $font-weight;
+    font-size:  $font-size;
 }
 
 %zero {
@@ -31,5 +31,5 @@
 %label {
     float: left;
 	font-size: 9px;
-	color: $grey-color;
+	color:  $grey-color;
 }

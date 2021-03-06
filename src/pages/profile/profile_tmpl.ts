@@ -5,7 +5,7 @@ export const profile_tmpl: string =
 
 <div class="profile_header">
     <button class="profile_header_button">
-         <img src={{avatar}} class="profile_header_img"></img>
+         <img src={{avatar}} class="profile_header_img"></assets>
     </button>
     <h1 class="profile_header_login">{{first_name}}</h1>
 </div>

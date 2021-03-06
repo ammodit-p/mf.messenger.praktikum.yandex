@@ -5,7 +5,7 @@ export const change_user_tmpl: string =
     </button>
     <div class="profile_header">
         <button class="profile_header_button">
-            <img class="profile_header_img" src={{src}}></img>
+            <img class="profile_header_img" src={{src}}></assets>
         </button>
         <h1 class="profile_header_login">{{name}}</h1>
     </div>

@@ -1,4 +1,4 @@
-@use "../../css/variables.scss";
+@import"../../css/variables";
 @import "./chat_list/chat_list";
 @import "./chat_not_chosen/chat_not_chosen";
 @import "../../modules/popup_form/popup_form";
@@ -20,8 +20,8 @@
 	position: relative;
 	width: 310px;
     height: 102px;
-    background-color: variables.$white-color;
-	border-right: 1px solid variables.$light-grey-color;   
+    background-color:  $white-color;
+	border-right: 1px solid  $light-grey-color;   
 }
 
 .chatlist_area {
@@ -30,7 +30,7 @@
 	left: 0;
     width: 310px;
 	height: 100%;
-	border-right: 1px solid variables.$light-grey-color;
+	border-right: 1px solid  $light-grey-color;
 }
 
 .chat_area {

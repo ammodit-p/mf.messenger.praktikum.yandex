@@ -1,4 +1,4 @@
-/// <reference path="./../../node_modules/handlebars/types/index.d.ts" />
+import * as Handlebars from 'handlebars';
 import {EventBus} from "./eventBus";
 import {Indexed} from "../types";
 import {merge} from "../funcs/merge"

@@ -1,6 +1,7 @@
 
-@use "../../css/variables";
-@use "../../css/extends";
+ @import "../../css/extends";
+@import"../../css/variables";
+
 
 .signin_form {
     @extend %auth-form-style;

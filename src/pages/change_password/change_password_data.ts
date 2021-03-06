@@ -1,7 +1,7 @@
 export const change_password_data: {} = {
     "name": "Имя",
     "link": "",
-    "src": "./img/avatar.png",
+    "src": "./assets/avatar.png",
      "text": "Сохранить",
     "inputs": [
         {

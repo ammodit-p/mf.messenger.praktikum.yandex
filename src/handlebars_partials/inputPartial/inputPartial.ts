@@ -1,4 +1,4 @@
-/// <reference path="../../../node_modules/handlebars/types/index.d.ts" />
+import * as Handlebars from 'handlebars';
 import {input_tmpl} from "./input_tmpl";
 
 export function inputPartial(): void {

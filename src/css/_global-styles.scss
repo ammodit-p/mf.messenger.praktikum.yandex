@@ -1,6 +1,6 @@
-@use "variables";
+@import"./variables";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
-@import "extends";
+@import "./extends";
 
 *, *:before, *:after {
     box-sizing: border-box;
@@ -14,7 +14,7 @@
       @extend %font-base;
       @extend %zero;
       height: 100%;
-      color: variables.$black-color;
+      color:  $black-color;
       background: #fff;
     }
 
@@ -38,7 +38,7 @@ button {
 
 input {
 	@extend button;
-	font-family: variables.$font-stack;
+	font-family:  $font-stack;
 	font-size: 13px;
 	font-weight: 500;
 }
@@ -76,24 +76,24 @@ ul {
 
 
 .blue {
-    background-color: variables.$blue-color;
+    background-color:  $blue-color;
 	color: #fff;
 }
 
 .grey{	
-    color: variables.$grey-color;
+    color:  $grey-color;
 }
 
 .black {
-    color: variables.$black-color
+    color:  $black-color
 }
 
 .blue_link {
-    color: variables.$blue-color;
+    color:  $blue-color;
 }
 
 .red_link {
-    color: variables.$red-color
+    color:  $red-color
 }
 
 
