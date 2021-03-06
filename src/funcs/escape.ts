@@ -1,6 +1,6 @@
 import {S} from '../types';
 
-export default function escape(string: string) {
+export default function escape(string: string): string {
   const htmlEscapes: S = {
     '&': '&amp;',
     '<': '&lt;',

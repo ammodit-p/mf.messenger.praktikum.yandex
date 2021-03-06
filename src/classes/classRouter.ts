@@ -20,13 +20,13 @@ export class Router {
       Router.__instance = this;
     }
 
-    use(pathname: string, block: any) {
+    use(pathname: string, block: any): Router {
       const route = new Route(pathname, block, {rootQuery: this._rootQuery});
       this.routes.push(route);
       return this;
     }
 
-    start() {
+    start(): void {
       window.onpopstate = (event: any) => {
         this._onRoute(event.currentTarget.location.pathname);
       };
@@ -34,7 +34,7 @@ export class Router {
       this._onRoute(window.location.pathname);
     }
 
-    _onRoute(pathname: string) {
+    _onRoute(pathname: string): void {
       const route = this.getRoute(pathname);
 
       if (!route) {
@@ -49,17 +49,17 @@ export class Router {
       route.render();
     }
 
-    go(pathname: string) {
+    go(pathname: string): void {
       this.history.pushState({}, '', pathname);
       this._onRoute(pathname);
     }
 
 
-    back() {
+    back(): void {
       this.history.back();
     }
 
-    forward() {
+    forward(): void {
       this.history.forward();
     }
 

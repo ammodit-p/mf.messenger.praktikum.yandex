@@ -28,7 +28,7 @@ function getParams(data: Indexed | [], parentKey?: string) {
   return result;
 }
 
-export function queryString(data: any) {
+export function queryString(data: any): string {
   if (!isPlainObject(data)) {
     throw new Error('input must be an object');
   }

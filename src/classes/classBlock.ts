@@ -51,7 +51,7 @@ class Block {
   }
 
 
-  _registerEvents(eventBus: EventBus) {
+  _registerEvents(eventBus: EventBus): void {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -124,7 +124,7 @@ class Block {
     this._componentDidUpdate();
   }
 
-  _addEvents() {
+  _addEvents(): void {
     const {events = {}} = this.props;
 
     Object.keys(events).forEach((eventName) => {
@@ -132,7 +132,7 @@ class Block {
     });
   }
 
-  _removeEvents() {
+  _removeEvents(): void {
     const {events = {}} = this.props;
 
     Object.keys(events).forEach((eventName) => {
