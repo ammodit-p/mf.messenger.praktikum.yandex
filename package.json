@@ -42,6 +42,9 @@
         "sinon": "^9.2.4",
         "sinon-chai": "^3.5.0",
         "style-loader": "^2.0.0",
+        "stylelint": "^13.12.0",
+        "stylelint-config-sass-guidelines": "^8.0.0",
+        "stylelint-config-standard": "^21.0.0",
         "sugarss": "^3.0.3",
         "tough-cookie": "^4.0.0",
         "ts-loader": "^8.0.17",
@@ -54,14 +57,15 @@
     },
     "husky": {
         "hooks": {
-          "pre-commit": "npm run check"
+            "pre-commit": "npm run check"
         }
     },
     "scripts": {
+        "scss:fix": "stylelint --fix src/**/*.scss",
+        "lint:scss": "stylelint src/**/*.scss",
         "lint:ts": "eslint src/**/*.ts",
-        "lint": "npm run lint:js",
         "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",
-        "check": "npm run lint:ts && npm run test",
+        "check": "npm run lint:ts && npm run lint:scss && npm run test",
         "dev-server": "webpack serve --mode=development --progress",
         "build": "webpack",
         "dev": "webpack --watch",
