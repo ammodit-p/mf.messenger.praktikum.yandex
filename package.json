@@ -30,6 +30,7 @@
         "file-loader": "^6.2.0",
         "handlebars": "^4.7.6",
         "html-webpack-plugin": "^5.2.0",
+        "husky": "^5.1.3",
         "jsdom": "^16.4.0",
         "jsdom-global": "^3.0.2",
         "mini-css-extract-plugin": "^1.3.9",
@@ -51,8 +52,15 @@
         "webpack-dev-server": "^3.11.2",
         "whatwg-url": "^8.4.0"
     },
+    "husky": {
+        "hooks": {
+          "pre-commit": "npm run check"
+        },
     "scripts": {
-        "lint": "eslint src/**/*.ts",
+        "lint:ts": "eslint src/**/*.ts",
+        "lint": "npm run lint:js",
+        "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",
+        "check": "npm run lint:ts && npm run test",
         "dev-server": "webpack serve --mode=development --progress",
         "build": "webpack",
         "dev": "webpack --watch",
@@ -63,8 +71,7 @@
         "html": "find ./src/ -name \"*.html\" -type f -exec copyfiles -u 1 {} ./dist \\;",
         "css": "sass src/:dist/",
         "css-w": "sass --watch src/:dist/",
-        "build-tsc": "npm run clean && npm run tsc && npm run html && npm run css",
-        "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts"
+        "build-tsc": "npm run clean && npm run tsc && npm run html && npm run css"
     },
     "dependencies": {
         "@types/handlebars": "^4.1.0",
