@@ -1,13 +1,15 @@
-export default function escape(string: string) {
-    var htmlEscapes: {[k in string]: string} = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;'
-    };
+import {S} from '../types';
 
-    return string.replace(/[&<>"']/g, function(match) {
-        return htmlEscapes[match];
-    });
+export default function escape(string: string) {
+  const htmlEscapes: S = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    '\'': '&#39;',
+  };
+
+  return string.replace(/[&<>"']/g, function(match) {
+    return htmlEscapes[match];
+  });
 }

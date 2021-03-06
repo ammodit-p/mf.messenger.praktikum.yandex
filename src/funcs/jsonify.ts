@@ -1,13 +1,15 @@
-import escape from "./escape";
-import objFromForm from "./objFromForm"
+import escape from './escape';
+import objFromForm from './objFromForm';
 
-export default function jsonify (form: any): string {
-    const obj: any = objFromForm(form)
+export default function jsonify(form: any): string {
+  const obj: any = objFromForm(form);
 
-    for (let key in obj) {
-        key = escape(obj[key])
+  for (let key in obj) {
+    if (key) {
+      key = escape(obj[key]);
     }
+  }
 
-    const json = JSON.stringify(obj)
-    return json
+  const json = JSON.stringify(obj);
+  return json;
 }

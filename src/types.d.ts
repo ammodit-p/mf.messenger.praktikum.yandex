@@ -14,3 +14,7 @@
         headers: Indexed;
         data?: any;
     }
+
+    export type S = {
+        [k in string]: string
+      }

@@ -1,24 +1,24 @@
-import {isEqual} from "../funcs/isEqual";
-import render from "../funcs/render";
+import {isEqual} from '../funcs/isEqual';
+import render from '../funcs/render';
 
 export class Route {
     _pathname: string;
     _blockClass: any;
     _block: any | null;
     _props: any;
-  
+
     constructor(pathname: string, view: any, props: any) {
-        this._pathname = pathname;
-        this._blockClass = view;
-        this._block = null;
-        this._props = props;
+      this._pathname = pathname;
+      this._blockClass = view;
+      this._block = null;
+      this._props = props;
     }
 
     navigate(pathname: string) {
-        if (this.match(pathname)) {
-          this._pathname = pathname;
-          this.render();
-        }
+      if (this.match(pathname)) {
+        this._pathname = pathname;
+        this.render();
+      }
     }
 
     leave() {
@@ -28,7 +28,7 @@ export class Route {
     }
 
     match(pathname: string) {
-        return isEqual(pathname, this._pathname);
+      return isEqual(pathname, this._pathname);
     }
 
     render() {
