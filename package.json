@@ -55,7 +55,8 @@
     "husky": {
         "hooks": {
           "pre-commit": "npm run check"
-        },
+        }
+    },
     "scripts": {
         "lint:ts": "eslint src/**/*.ts",
         "lint": "npm run lint:js",
