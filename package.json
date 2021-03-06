@@ -55,11 +55,6 @@
         "webpack-dev-server": "^3.11.2",
         "whatwg-url": "^8.4.0"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run check"
-        }
-    },
     "scripts": {
         "scss:fix": "stylelint --fix src/**/*.scss",
         "lint:scss": "stylelint src/**/*.scss",
@@ -77,6 +72,11 @@
         "css": "sass src/:dist/",
         "css-w": "sass --watch src/:dist/",
         "build-tsc": "npm run clean && npm run tsc && npm run html && npm run css"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run check"
+        }
     },
     "dependencies": {
         "@types/handlebars": "^4.1.0",
