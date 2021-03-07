@@ -1,10 +1,16 @@
 import {Controller} from "../../../classes/classController";
 import chat_list_api from "./chat_list_api";
+import {Indexed} from '../../../types'
 
 class ChatListController extends Controller {
     constructor() {
         super()
-    }
+	}
+
+	_parse(value: string): Indexed {
+		const data: Indexed = {list: JSON.parse(value)}
+		return data
+	}
 
     async get () {
         const name = "chatlist";
