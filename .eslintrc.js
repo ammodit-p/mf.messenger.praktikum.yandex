@@ -16,9 +16,6 @@ module.exports = {
   },
   'plugins': [
     '@typescript-eslint',
-    'typescript-enum',
-    'promise'
-
   ],
   'rules': {
     "require-jsdoc": 0,
