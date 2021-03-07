@@ -9,7 +9,7 @@ class ChatListApi {
     }
 
     getchats() {
-        return api.get('/chats', {headers: {"content-type": "applicationon"}},)
+        return api.get('/chats', {headers: {"content-type": "application: json"}},)
     }
 }
 

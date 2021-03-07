@@ -1,4 +1,4 @@
-export const chatListAreaPartial_tmpl: string = 
+export const chatListAreaPartial_tmpl: string =
 `
   <ul class="chatlist_lists">
 
@@ -6,12 +6,12 @@ export const chatListAreaPartial_tmpl: string =
     <li class="chatlist_list_item {{chosen}}" id = "{{id}}">
     <div class="chatlist_list_item_icon">
       <span>
-        <img src={{imgSrc}}>
+        <img src={{avatar}}>
       </span>
     </div>
     <div class="chatlist_list_item_info">
         <h2 class="chatlist_list_item_info_name black">
-          {{chatName}}
+          {{title}}
         </h2>
         <span class="chatlist_list_item_info_preview grey">
           {{chatMessage}}
@@ -22,6 +22,6 @@ export const chatListAreaPartial_tmpl: string =
   </li>
     {{/each}}
 
-    
+
   </ul>
 `

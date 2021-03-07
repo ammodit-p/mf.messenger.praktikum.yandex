@@ -13,7 +13,7 @@ export class Chat_list extends Block {
       }, chat_list_tmpl, "chatlist_area")
     }
 
-    componentDidMount () {
-        chat_list_controller.get()
-    }
+	_getDataFromApi(): void {
+		chat_list_controller.get()
+	}
 }

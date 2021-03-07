@@ -20,12 +20,10 @@ class ChangeUserController extends Controller {
 
 
 
-    handle(res: any, name: string, data?: any) {
+    handle(res: any, name: string, data?: string) {
         if (name === "getuser") {
             if(res.status === 200) {
-                    const val = JSON.parse(data)
-                    this.set('profile.data', val)
-                
+                this.set('profile.data', res.response)
             }
             if(res.status === 401) {
                 this.go('/')
@@ -41,10 +39,7 @@ class ChangeUserController extends Controller {
 
         if (name === "change") {
             if(res.status === 200) {
-                if(res.responseType === 'json') {
-                    const val = JSON.parse(res.response)
-                    this.set('profile.data', val)
-                }
+				this.set('profile', data)
                 this.go('/profile')
             }
             if(res.status === 401) {
@@ -59,7 +54,7 @@ class ChangeUserController extends Controller {
             }
         }
     }
-            
+
 }
 
 

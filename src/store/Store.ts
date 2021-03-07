@@ -41,7 +41,6 @@ class Store {
 			const index = this.findMatchIndex(list, key);
 			if (index !== undefined) {
 				list[index] = [key, data];
-				this._emitObserver(key);
 			}
 			if (index) {
 				list.push([key, data]);
@@ -50,6 +49,7 @@ class Store {
 		if (!this.memory[hash(key, this.size)]) {
 			this.memory[hash(key, this.size)] = [[key, data]];
 		}
+		this._emitObserver(key);
 	}
 
 	get(key: string): Indexed | undefined {

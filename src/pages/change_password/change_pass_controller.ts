@@ -23,11 +23,7 @@ class ChangePassController extends Controller {
     handle(res: any, name: string) {
         if (name === "getuser") {
             if(res.status === 200) {
-                if(res.responseType === 'json') {
-                    const val = JSON.parse(res.response)
-                    this.set('profile.data', val)
-                }
-                
+                return
             }
             if(res.status === 401) {
                 this.go('/')
@@ -57,7 +53,7 @@ class ChangePassController extends Controller {
             }
         }
     }
-            
+
 }
 
 

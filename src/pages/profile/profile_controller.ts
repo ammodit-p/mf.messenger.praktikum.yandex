@@ -7,7 +7,7 @@ class ProfileController extends Controller {
     }
 
     async get () {
-        const name = "signup";
+        const name = "getuserinfo";
         const res = await profile_api.get()
         this.handle(res, name)
     }
@@ -21,13 +21,9 @@ class ProfileController extends Controller {
 
 
     handle(res: any, name: string) {
-        if (name === "signup") {
+        if (name === "getuserinfo") {
             if(res.status === 200) {
-                if(res.responseType === 'json') {
-                    const val = JSON.parse(res.response)
-                    this.set('profile.data', val)
-                }
-                
+				this.set('profile', res.response)
             }
             if(res.status === 401) {
                 this.go('/')
@@ -44,16 +40,13 @@ class ProfileController extends Controller {
         if (name === "logout") {
             if(res.status === 200) {
                 this.go('/')
-                
             }
             if(res.status === 500) {
                 this.go('/500')
             }
         }
-
-
     }
-            
+
 }
 
 

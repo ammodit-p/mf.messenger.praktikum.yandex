@@ -12,7 +12,7 @@ export class Profile extends Block {
         }, profile_tmpl, "profile");
     }
 
-    componentDidMount () {
-        profile_controller.get()
+    async _getDataFromApi() {
+        await profile_controller.get()
     }
 }

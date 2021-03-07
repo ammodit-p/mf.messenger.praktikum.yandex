@@ -1,5 +1,4 @@
 {
-    "compileOnSave": false,
     "compilerOptions": {
       "allowSyntheticDefaultImports": true,
       "noImplicitAny": true,

@@ -1,5 +1,6 @@
 import {Controller} from "../../classes/classController"
 import chat_api from "./chat_api";
+import chat_list_controller from './chat_list/chat_list_controller'
 
 class ChatsController extends Controller {
     constructor() {
@@ -9,7 +10,7 @@ class ChatsController extends Controller {
     async post(data?: any) {
         const name = "post";
         const res = await chat_api.post(data)
-        this.handle(res, name, data)
+        this.handle(res, name)
     }
 
     async delete (data?: any) {
@@ -19,12 +20,10 @@ class ChatsController extends Controller {
     }
 
 
-    handle(res: any, name: string, data?: any) {
+    handle(res: any, name: string) {
         if (name === "post") {
             if(res.status === 200) {
-                const val = JSON.parse(res.response)
-                const list = this.get('chats.data.list')
-                list.push(Object.assign({}, val, data))
+				chat_list_controller.get()
             }
             if(res.status === 401) {
                 this.go('/')
@@ -40,7 +39,7 @@ class ChatsController extends Controller {
 
         if (name === "delete") {
             if(res.status === 200) {
-                this.set('profile.data', res.response)
+                chat_list_controller.get()
             }
             if(res.status === 401) {
                 this.go('/')
@@ -54,7 +53,7 @@ class ChatsController extends Controller {
             }
         }
     }
-            
+
 }
 
 

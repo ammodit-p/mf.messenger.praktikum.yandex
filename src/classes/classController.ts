@@ -1,13 +1,14 @@
 import {router} from '../initialaze';
 import {store} from '../store/Store';
-import {Indexed} from '../types';
 
 export class Controller {
 	constructor() {}
 
-	set(path: string, data: Indexed): Controller {
-		store.set(path, data);
-		return this;
+	set(path: string, value?: string): void {
+		if (value !== undefined) {
+			const data =JSON.parse(value);
+			store.set(path, data);
+		}
 	}
 
 	go(path: string): void {

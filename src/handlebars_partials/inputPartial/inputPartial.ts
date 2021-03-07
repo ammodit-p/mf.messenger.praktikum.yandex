@@ -1,4 +1,4 @@
-import * as Handlebars from 'handlebars';
+// import * as Handlebars from 'handlebars';
 import {input_tmpl} from "./input_tmpl";
 
 export function inputPartial(): void {

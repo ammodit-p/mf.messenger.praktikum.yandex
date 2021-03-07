@@ -7,7 +7,7 @@ class ChatListController extends Controller {
     }
 
     async get () {
-        const name = "signup";
+        const name = "chatlist";
         const res = await chat_list_api.getchats()
         this.handle(res, name)
     }
@@ -15,13 +15,9 @@ class ChatListController extends Controller {
 
 
     handle(res: any, name: string) {
-        if (name === "signup") {
+        if (name === "chatlist") {
             if(res.status === 200) {
-                if(res.responseType === 'json') {
-                    const val = JSON.parse(res.response)
-                    this.set('chats.data.list', val)
-                }
-                
+				this.set('chatlist_area', res.response)
             }
             if(res.status === 401) {
                 this.go('/')
@@ -35,7 +31,7 @@ class ChatListController extends Controller {
             }
         }
     }
-            
+
 }
 
 

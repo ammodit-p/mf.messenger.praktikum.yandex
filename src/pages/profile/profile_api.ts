@@ -10,11 +10,11 @@ class ProfileApi {
     }
 
     get() {
-        return api.get('/auth/user', {headers: {}},)
+        return api.get('/auth/user', {headers: {'content-type': 'application/json'}},)
     }
 
     post() {
-        return api.post('/auth/logout', {headers: {}})
+        return api.post('/auth/logout', {headers: {'content-type': 'application/json'}})
     }
 }
 

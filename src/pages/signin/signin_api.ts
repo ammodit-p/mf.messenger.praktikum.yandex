@@ -9,7 +9,7 @@ class SigninApi {
     }
 
     signup(data: any) {
-        return api.post('/auth/signup', {data: data, headers: {'content-type': 'applicationon'}},)
+        return api.post('/auth/signup', {data: data, headers: {'content-type': 'application/json'}},)
     }
 }
 

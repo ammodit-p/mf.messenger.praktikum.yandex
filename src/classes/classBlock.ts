@@ -1,4 +1,4 @@
-import * as Handlebars from 'handlebars';
+// import * as Handlebars from 'handlebars';
 import {EventBus} from './eventBus';
 import {Indexed} from '../types';
 import {merge} from '../funcs/merge';
@@ -80,7 +80,14 @@ class Block {
 		this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
 	}
 
-	componentDidMount(): void {}
+	componentDidMount(): void {
+		this._getDataFromApi();
+		const propFromStore: any = store.get(this._meta.className);
+		this.setProps(propFromStore);
+		store.setStoreObserver(this._meta.className, this.componentDidUpdate);
+	}
+
+	_getDataFromApi(): void {}
 
 
 	_render(): void {
@@ -98,9 +105,6 @@ class Block {
 	}
 
 	render(): string {
-		const propFromStore: any = store.get(this._meta.className);
-		this.setProps(propFromStore);
-		store.setStoreObserver(this._meta.className, this.componentDidUpdate);
 		const {data} = this._meta.props;
 		const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl);
 		return template(data);
@@ -112,15 +116,16 @@ class Block {
 			return;
 		}
 
-		merge(this._meta.props, nextProps);
+		merge(this._meta.props.data, nextProps);
 	}
 
 	_componentDidUpdate(): void {
+		const propFromStore: any = store.get(this._meta.className);
+		this.setProps(propFromStore);
 		this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
 	}
 
 	componentDidUpdate(): any | void {
-		this.delete();
 		this._componentDidUpdate();
 	}
 
