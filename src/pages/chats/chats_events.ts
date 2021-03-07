@@ -1,7 +1,7 @@
 import {router} from "../../initialaze";
 import chat_controller from "./chat_controller";
 import jsonify from "../../funcs/jsonify";
-import {checkForms} from "../../funcs/forms/checkForms"
+import {checkForms} from "../../funcs/forms/checkForms";
 
 export const events = {
     click: function (event:any) {
@@ -24,13 +24,13 @@ export const events = {
     submit: function (event: any) {
         if (event.target === document.querySelector(".add_chat_form")) {
             event.preventDefault();
-    
+
             const form: any = document.querySelector('.popup')
             const checked: boolean = checkForms(form);
-            if(checked === false) {return}; 
+            if(checked === false) {return};
 
             const formdata = new FormData(form)
-            
+
             const json = jsonify (formdata)
             chat_controller.post(json)
             event.target.classList.remove('show')

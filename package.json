@@ -59,7 +59,7 @@
         "clean:build": "rimraf dist/",
         "clean:modules": "rimraf node_modules/",
         "tsc": "ttsc",
-        "build-tsc": "npm run clean && npm run tsc && npm run html && npm run css",
+        "build-tsc": "npm run tsc && npm run html && npm run css",
         "express": "node ./server.js",
         "start-tsc": "ttsc -w & npm run html & npm run css-w & npm run start & browser-sync start --proxy 'localhost:4000' --files 'dist'",
         "html": "find ./src/ -name \"*.html\" -type f -exec copyfiles -u 1 {} ./dist \\;",

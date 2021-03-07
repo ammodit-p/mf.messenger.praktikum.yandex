@@ -1,7 +1,7 @@
-export const chats_tmpl: string = 
+export const chats_tmpl: string =
 `
 <div class="chatlist grey">
-    
+
     <div class="chatlist_header">
         <span class = "add_chat">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,10 @@ export const chats_tmpl: string =
         </form>
 
     </div>
-   
-    
+
+
+</div>
+<div class="chat_area_mock">
+    <h1 class="chat_area_mock_text grey">Выберите чат чтобы отправить сообщение</h1>
 </div>
 `

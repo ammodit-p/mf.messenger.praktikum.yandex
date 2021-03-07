@@ -1,13 +1,27 @@
 @import"../../css/variables";
 @import "./chat_list/chat_list";
-@import "./chat_not_chosen/chat_not_chosen";
+@import './chat_body/chat_body';
 @import "../../modules/popup_form/popup_form";
+@import "../../css/extends";
 
 .chats {
     position: relative;
     display: flex;
     width: 100%;
     height: 100%;
+}
+
+.chat_area_mock {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.chat_area_mock_text {
+    @extend %font-base;
 }
 
 .add_chat {
