@@ -1,84 +1,97 @@
 import {Indexed} from '../types';
-import {merge} from '../funcs/merge';
-import {arrToObject} from '../funcs/arrToObject';
 
-class Store {
-    static _instance: any
-    stroreObservers: {[index: string]:any}
-    _props: Indexed
-    constructor() {
-      if (Store._instance) {
-        return Store._instance;
-      }
-      this._props = {};
-      this.stroreObservers = {};
-      Store._instance = this;
-    }
+function hash(key: string, size: number): number {
+	const MAX_LENGTH = 200;
 
-    get(name: string): Indexed | undefined {
-      const keys = name.split('.');
+	const start = key.length > MAX_LENGTH ?
+		Math.floor((key.length % MAX_LENGTH) / 2) : 0;
+	const end = Math.min(key.length, MAX_LENGTH);
 
-      let result: any = this._props;
-      for (const key of keys) {
-        const value = result[key];
+	let total = 0;
 
-        if (!value) {
-          return undefined;
-        }
+	for (let i = 0; i < end; i++) {
+		const charCode = key.charCodeAt(start + i);
+		total = (total + charCode * (i + 1)) % size;
+	}
 
-        result = value;
-      }
-
-      return result;
-    }
-
-    set(path: string, data: any): void {
-      if (typeof path !== 'string') {
-        throw new Error('path must be string');
-      }
-
-      const pathArr: Array<string|number> = path.split('.');
-      pathArr.push(data);
-      const pathObj: Indexed = arrToObject(pathArr);
-      this._props = merge(this._props, pathObj);
-    }
-
-    delete(path: string) {
-      const keys = path.split('.');
-
-      let result: any = this._props;
-      for (const key of keys) {
-        const value = result[key];
-
-        if (!value) {
-          delete result[key];
-          return;
-        }
-
-        result = value;
-      }
-
-      return;
-    }
-
-    setStoreObserver(name: string, callback: any) {
-      if (this.stroreObservers[name]) {
-        return;
-      }
-
-      this.stroreObservers[name]= [];
-      this.stroreObservers[name].push(callback);
-    }
-
-    _emitObserver(name: string) {
-      if (!this.stroreObservers[name]) {
-        throw new Error(`Нет события: ${name}`);
-      }
-
-      this.stroreObservers[name].forEach(function(observer: any) {
-        observer();
-      });
-    }
+	return total;
 }
 
-export const store = new Store();
+class Store {
+	static _instance: any
+	stroreObservers: {[index: string]:any}
+	memory: any[]
+	size: number;
+	constructor(size: number) {
+		if (!size || size < 0) {
+			throw new Error('Размер должен быть положительным числом');
+		}
+		if (Store._instance) {
+			return Store._instance;
+		}
+		this.size = size;
+		this.memory = [];
+		this.stroreObservers = {};
+		Store._instance = this;
+	}
+
+	set(key: string, data: Indexed): void {
+		if (this.memory[hash(key, this.size)]) {
+			const list = this.memory[hash(key, this.size)];
+			const index = this.findMatchIndex(list, key);
+			if (index !== undefined) {
+				list[index] = [key, data];
+				this._emitObserver(key);
+			}
+			if (index) {
+				list.push([key, data]);
+			}
+		}
+		if (!this.memory[hash(key, this.size)]) {
+			this.memory[hash(key, this.size)] = [[key, data]];
+		}
+	}
+
+	get(key: string): Indexed | undefined {
+		if (this.memory[hash(key, this.size)]) {
+			const list = this.memory[hash(key, this.size)];
+			const index = this.findMatchIndex(list, key);
+			if (index !== undefined) return list[index][1];
+		}
+	}
+
+	delete(key: string): void {
+		if (this.memory[hash(key, this.size)]) {
+			const list = this.memory[hash(key, this.size)];
+			const index = this.findMatchIndex(list, key);
+			if (index !== undefined) delete this.memory[hash(key, this.size)];
+		}
+	}
+
+	setStoreObserver(name: string, callback: any): void {
+		if (this.stroreObservers[name]) {
+			return;
+		}
+
+		this.stroreObservers[name]= [];
+		this.stroreObservers[name].push(callback);
+	}
+
+	_emitObserver(name: string): void {
+		if (!this.stroreObservers[name]) {
+			return;
+		}
+
+		this.stroreObservers[name].forEach(function(observer: any) {
+			observer();
+		});
+	}
+
+	findMatchIndex(list: Indexed, key: string): number | undefined {
+		for (let i = 0; i < list.length; i++) {
+			if (list[i][0] === key) return i;
+		}
+	}
+}
+
+export const store = new Store(100);

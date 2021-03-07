@@ -20,6 +20,8 @@ module.exports = {
   'rules': {
     "require-jsdoc": 0,
     "max-len": ["error", { "code": 100}],
+    "no-tabs": 0,
+    "indent": ["error", "tab"]
   },
   "overrides": [
     {
