@@ -22,6 +22,7 @@ export const events = {
 
 		if (event.target === document.querySelector('.chatlist_list_item_handler')) {
 			const chat: any = document.querySelector('.chat_body')
+			chat_controller.propsToBody(event.target.id)
 			chat.classList.add('show')
 		}
     },

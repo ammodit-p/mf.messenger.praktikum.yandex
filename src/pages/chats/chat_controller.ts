@@ -1,6 +1,7 @@
 import {Controller} from "../../classes/classController"
 import chat_api from "./chat_api";
 import chat_list_controller from './chat_list/chat_list_controller'
+import chat_body_controller from './chat_body/chat_body_controller'
 
 class ChatsController extends Controller {
     constructor() {
@@ -23,7 +24,7 @@ class ChatsController extends Controller {
     handle(res: any, name: string) {
         if (name === "post") {
             if(res.status === 200) {
-				chat_list_controller.get()
+				chat_list_controller.getchats()
             }
             if(res.status === 401) {
                 this.go('/')
@@ -39,7 +40,7 @@ class ChatsController extends Controller {
 
         if (name === "delete") {
             if(res.status === 200) {
-                chat_list_controller.get()
+                chat_list_controller.getchats()
             }
             if(res.status === 401) {
                 this.go('/')
@@ -52,7 +53,19 @@ class ChatsController extends Controller {
                 this.go('/500')
             }
         }
-    }
+	}
+
+	propsToBody(id: string):void {
+		const {list} = chat_list_controller.get('chatlist_area')
+		let props = {}
+		for (let key of list) {
+			if (key.id === (+id)) {
+				props = key
+			}
+		}
+
+		chat_body_controller.set('chat_body', JSON.stringify(props))
+	}
 
 }
 

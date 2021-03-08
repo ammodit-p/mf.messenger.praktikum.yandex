@@ -6,13 +6,13 @@ class ProfileController extends Controller {
         super()
     }
 
-    async get () {
+    async getuser () {
         const name = "getuserinfo";
         const res = await profile_api.get()
         this.handle(res, name)
     }
 
-    async post () {
+    async logout () {
         const name = "logout";
         const res = await profile_api.post()
         this.handle(res, name)

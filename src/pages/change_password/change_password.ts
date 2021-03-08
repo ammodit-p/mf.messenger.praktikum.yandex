@@ -15,6 +15,6 @@ export class Change_password extends Block {
         }, change_password_tmpl, 'profile');
     }
     componentDidMount () {
-      change_pass_controller.get()
+      change_pass_controller.getuser()
   }
 }

@@ -21,6 +21,6 @@ export class Login extends Block {
 	}
 
 	_getDataFromApi(): void {
-		login_controller.get()
+		login_controller.getuser()
 	}
 }

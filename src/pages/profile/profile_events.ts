@@ -1,6 +1,6 @@
 
 import profile_controller from "./profile_controller";
-    
+
 export const events = {
     click: function (event: any) {
         if(event.target === document.querySelector('#chats')) {
@@ -18,7 +18,7 @@ export const events = {
 
         if(event.target === document.querySelector('.logout')) {
             event.preventDefault()
-            profile_controller.post()
+            profile_controller.logout()
         }
     }
 }

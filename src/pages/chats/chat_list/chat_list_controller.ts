@@ -12,7 +12,7 @@ class ChatListController extends Controller {
 		return data
 	}
 
-    async get () {
+    async getchats () {
         const name = "chatlist";
         const res = await chat_list_api.getchats()
         this.handle(res, name)

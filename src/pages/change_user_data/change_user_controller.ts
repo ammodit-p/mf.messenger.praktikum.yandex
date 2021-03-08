@@ -6,13 +6,13 @@ class ChangeUserController extends Controller {
         super()
     }
 
-    async get () {
+    async getuser () {
         const name = "getuser";
         const res = await change_user_api.get()
         this.handle(res, name)
     }
 
-    async put (data: any) {
+    async changeuser (data: any) {
         const name = "change";
         const res = await change_user_api.put(data)
         this.handle(res, name, data)

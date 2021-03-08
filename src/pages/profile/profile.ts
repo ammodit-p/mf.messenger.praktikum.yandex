@@ -13,6 +13,6 @@ export class Profile extends Block {
     }
 
     async _getDataFromApi() {
-        await profile_controller.get()
+        await profile_controller.getuser()
     }
 }

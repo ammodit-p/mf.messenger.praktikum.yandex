@@ -26,6 +26,6 @@ export class Controller {
 	}
 
 	get(path: string): any {
-		store.get(path);
+		return store.get(path);
 	}
 }

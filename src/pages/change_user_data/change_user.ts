@@ -13,7 +13,7 @@ inputPartial();
 
 export class Change_user extends Block {
     constructor () {
-        super("div", 
+        super("div",
         {
             data: change_user_data,
             events: events,
@@ -22,6 +22,6 @@ export class Change_user extends Block {
     }
 
     componentDidMount () {
-      change_user_controller.get()
+      change_user_controller.getuser()
   }
 }

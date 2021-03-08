@@ -6,7 +6,7 @@ class SigninController extends Controller {
         super()
     }
 
-    async post (data?: any) {
+    async signup (data?: any) {
         const name = "signup";
         const res = await signin_api.signup(data)
         this.handle(res, name, data)

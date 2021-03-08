@@ -6,13 +6,13 @@ class ChangePassController extends Controller {
         super()
     }
 
-    async get () {
+    async getuser () {
         const name = "getuser";
         const res = await change_pass_api.get()
         this.handle(res, name)
     }
 
-    async put (data: any) {
+    async changepass (data: any) {
         const name = "change";
         const res = await change_pass_api.put(data)
         this.handle(res, name)

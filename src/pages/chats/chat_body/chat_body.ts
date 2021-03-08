@@ -3,6 +3,6 @@ import {chat_body_tmpl} from './chat_body_tmpl';
 
 export class Chat_body extends Block {
     constructor() {
-        super('main', {}, chat_body_tmpl, 'chat_body')
+        super('main', {data:{}}, chat_body_tmpl, 'chat_body')
     }
 }

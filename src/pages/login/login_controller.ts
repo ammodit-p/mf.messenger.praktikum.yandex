@@ -6,13 +6,13 @@ class LoginController extends Controller {
         super()
     }
 
-    async send (data?: any) {
+    async login (data?: any) {
         const name = "login";
         const res = await login_api.signin(data)
         this.handle(res, name)
     }
 
-    async get (data?: any) {
+    async getuser (data?: any) {
         const name = "getUserInfo"
         const res = await login_api.getUserInfo(data)
         this.handle(res, name)

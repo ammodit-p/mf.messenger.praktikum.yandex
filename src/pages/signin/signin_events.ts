@@ -2,18 +2,18 @@ import {router} from "../../initialaze";
 import {checkForms} from "../../funcs/forms/checkForms";
 import signin_controller from "./signin_controller";
 import jsonify from "../../funcs/jsonify";
-    
+
 export const events = {
     submit: function (event: any) {
         event.preventDefault();
 
         const form: any = document.forms[0]
         const checked: boolean = checkForms(form);
-        if(checked === false) {return}; 
-        
+        if(checked === false) {return};
+
         const formdata = new FormData(form)
         const json = jsonify (formdata)
-        signin_controller.post(json)
+        signin_controller.signup(json)
 },
 
 
