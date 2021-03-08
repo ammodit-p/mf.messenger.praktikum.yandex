@@ -13,16 +13,14 @@ export const chat_body_tmpl: string =
 
             <div class="chat_body_header_menu_show">
                 <ul>
-                    {{# each menu}}
                         <li class="chat_body_header_menu_item">
-                            <div class="chat_body_header_menu_item_icon {{svg}}"></div>
+                            <span class="chat_body_header_menu_item_icon"></span>
                             <div class="chat_body_header_menu_item_text">
                                 <button>
-                                    {{text}}
+                                    Удалить чат
                                 </button>
                             </div>
                         </li>
-                    {{/each}}
                 </ul>
             </div>
         </div>
@@ -36,12 +34,24 @@ export const chat_body_tmpl: string =
   </div>
 
   <div class="chat_body_messages_item">
-    <div class="chat_body_messages_item_message {{position}} {{message_type}}">
-     <span class="chat_body_messages_item_message_content {{message_type}}">Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.
+    <div class="chat_body_messages_item_message left_message {{message_type}} {{position}}">
+     <span class="chat_body_messages_item_message_content">Привет! Смотри, тут всплыл интересный кусок лунной космической истории — НАСА в какой-то момент попросила Хассельблад адаптировать модель SWC для полетов на Луну. Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову говоря, все тушки этих камер все еще находятся на поверхности Луны, так как астронавты с собой забрали только кассеты с пленкой.
 
 
 Хассельблад в итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету они так никогда и не попали. Всего их было произведено 25 штук, одну из них недавно продали на аукционе за 45000 евро.
       </span>
+      <span class="chat_body_messages_item_message_info">
+        <time class="chat_body_messages_item_message_time">11:56</time>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="chat_body_messages_item">
+    <div class="chat_body_messages_item_message right_message message_img {{message_type}} {{position}}">
+		 <span class="chat_body_messages_item_message_content">
+		 	<img src='../assets/photo.png'>
+		 </span>
       <span class="chat_body_messages_item_message_info">
         <time class="chat_body_messages_item_message_time">11:56</time>
       </span>
@@ -63,7 +73,7 @@ export const chat_body_tmpl: string =
     </svg>
 
     <div class="chat_body_footer_menu_show">
-      <div class="attach-menu">
+      <div class="chat_body_footer_menu_container">
         <div class="chat_body_footer_menu_item">
           <div class="chat_body_footer_menu_item_icon">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,31 +81,10 @@ export const chat_body_tmpl: string =
             </svg>
           </div>
 
-            <label class="cchat_body_footer_menu_item_text">
-              Фото или видео
+            <label class="chat_body_footer_menu_item_text">
+              Фото
               <input type="file" name="photo_video">
             </label>
-        </div>
-
-        <div class="chat_body_footer_menu_item">
-          <div class="chat_body_footer_menu_item_icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 1.5H18C19.3807 1.5 20.5 2.61929 20.5 4V12H16C13.7909 12 12 13.7909 12 16V20.5H4C2.61929 20.5 1.5 19.3807 1.5 18V4C1.5 2.61929 2.61929 1.5 4 1.5ZM12 22H4C1.79086 22 0 20.2091 0 18V4C0 1.79086 1.79086 0 4 0H18C20.2091 0 22 1.79086 22 4V12V18C22 20.2091 20.2091 22 18 22H12Z" fill="#3369F3"/>
-            </svg>
-          </div>
-          <label class="chat_body_footer_menu_item_text">
-              Файл
-              <input type="file" name="file">
-          </label>
-        </div>
-
-        <div class="chat_body_footer_menu_item">
-          <div class="chat_body_footer_menu_item_icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5 11C20.5 16.2467 16.2467 20.5 11 20.5C5.75329 20.5 1.5 16.2467 1.5 11C1.5 5.75329 5.75329 1.5 11 1.5C16.2467 1.5 20.5 5.75329 20.5 11ZM22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11ZM11 14C12.6569 14 14 12.6569 14 11C14 9.34315 12.6569 8 11 8C9.34315 8 8 9.34315 8 11C8 12.6569 9.34315 14 11 14Z" fill="#3369F3"/>
-            </svg>
-          </div>
-          <button class="chat_body_footer_menu_item_text">Локация</button>
         </div>
       </div>
 
