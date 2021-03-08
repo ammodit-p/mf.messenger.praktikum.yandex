@@ -16,9 +16,14 @@ export const events = {
         }
 
         if (event.target === document.querySelector(".popup")) {
-            const popup: any = document.querySelector(".add_chat_form")
+            const popup: any = document.querySelector(".popup")
             popup.classList.remove('show')
-        }
+		}
+
+		if (event.target === document.querySelector('.chatlist_list_item_handler')) {
+			const chat: any = document.querySelector('.chat_body')
+			chat.classList.add('show')
+		}
     },
 
     submit: function (event: any) {

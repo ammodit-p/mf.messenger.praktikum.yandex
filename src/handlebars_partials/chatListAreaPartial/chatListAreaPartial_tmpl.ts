@@ -18,7 +18,8 @@ export const chatListAreaPartial_tmpl: string =
         </span>
       <time class="chatlist_list_item_info_time">{{time}}</time>
       <mark class="chatlist_list_item_info_mark blue">{{unread}}</mark>
-    </div>
+		</div>
+		<div class='chatlist_list_item_handler'></div>
   </li>
     {{/each}}
 

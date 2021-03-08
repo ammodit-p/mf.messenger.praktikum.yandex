@@ -56,79 +56,7 @@
 /*Chat pages*/
 
 
-.chat-header {
-	position: relative;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	height: 54px;
-	border-bottom:1px solid #EAEAEA;
-	padding: 10px 0 10px 0;
-}
 
-.chat-avatar-img {
-	border-radius: 50%;
-	background-color: #EFEFEF;
-	margin-right: 10px;
-	width: 34px;
-	height: 34px;
-}
-
-.chat-menu {
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	position: absolute;
-	right: 10px;
-	top: 14.5px;
-	padding: 4px 10px 5px 10px;
-}
-
-.show-menu {
-	position: absolute;
-	right: 0px;
-	width: 50px;
-	height: 55px;	
-	display: none;
-	
-}
-
-.show-menu ul {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	right: 140px;
-	top: 30px;
-	width: 210px;
-	border-radius: 12px;
-	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
-	font-size: 12px;
-}
-
-.chat-menu-item {
-	display: flex;
-	height: 45px;
-}
-
-
-.chat-menu-item-icon {
-	margin: 0;
-	padding: 12px 15px 12px 15px;
-}
-
-
-
-.chat-menu-item-text {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0;
-	padding: 12px 0 12px 0;
-}
-
-.chat-menu-item-text {
-	height: 100%;
-}
 
 .chat-menu:hover {
 	background-color: #F5F5F5;
