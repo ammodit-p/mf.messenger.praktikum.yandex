@@ -109,6 +109,20 @@
 	padding-bottom: 30px;
 }
 
+.chat_body_view {
+	position: absolute;
+    display: flex;
+	justify-content: flex-end;
+	flex-direction: column;	
+	height: 85%;
+	width: 100%;
+	margin: auto;
+	top: 54px;
+	left: 20px;
+	bottom: 54px;
+	right: 20px;
+}
+
 .chat_body_messages_item {
     margin-bottom: 10px;
 }
