@@ -12,6 +12,17 @@ describe ('store tests', function() {
 		})
 	})
 
+	describe('store set new data test', function() {
+		before(function() {
+			store.set('test', {other_data: 'test_data'})
+		})
+
+		it('should return test object', function (){
+			expect(store.get('test')).to.have.property('test').to.be.equal('test_data')
+			expect(store.get('test')).to.have.property('other_data').to.be.equal('test_data')
+		})
+	})
+
 	describe('store emit observer', function() {
 		let test = 'a'
 		before(function() {

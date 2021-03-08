@@ -1,4 +1,5 @@
 import {Indexed} from '../types';
+import merge from '../funcs/merge';
 
 function hash(key: string, size: number): number {
 	const MAX_LENGTH = 200;
@@ -40,9 +41,9 @@ class Store {
 			const list = this.memory[hash(key, this.size)];
 			const index = this.findMatchIndex(list, key);
 			if (index !== undefined) {
-				list[index] = [key, data];
+				merge(list[index][1], data);
 			}
-			if (index) {
+			if (index === undefined) {
 				list.push([key, data]);
 			}
 		}

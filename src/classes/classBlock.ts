@@ -1,7 +1,7 @@
 // import * as Handlebars from 'handlebars';
 import {EventBus} from './eventBus';
 import {Indexed} from '../types';
-import {merge} from '../funcs/merge';
+import merge from '../funcs/merge';
 import {store} from '../store/Store';
 
 interface Meta {

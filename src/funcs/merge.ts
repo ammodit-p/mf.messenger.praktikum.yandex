@@ -1,6 +1,6 @@
 import {Indexed} from '../types';
 
-export function merge(target: any, source: any): Indexed {
+function merge(target: any, source: any): Indexed {
 	if (!isPlainObject(target) && isPlainObject(source)) {
 		return source;
 	}
@@ -26,3 +26,5 @@ function isPlainObject(value: unknown): value is Indexed {
         value.constructor === Object &&
         Object.prototype.toString.call(value) === '[object Object]';
 }
+
+export default merge;
