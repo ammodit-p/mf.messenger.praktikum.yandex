@@ -23,7 +23,7 @@ class ChatListController extends Controller {
     handle(res: any, name: string) {
         if (name === "chatlist") {
             if(res.status === 200) {
-				this.set('chatlist_area', res.response)
+				this.set('chatlist_area', res.response);
             }
             if(res.status === 401) {
                 this.go('/')

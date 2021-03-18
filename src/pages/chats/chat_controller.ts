@@ -18,7 +18,15 @@ class ChatsController extends Controller {
         const name = "delete"
         const res = await chat_api.delete(data)
         this.handle(res, name)
-    }
+	}
+
+	async getToken () {
+		const props: any = this.get('chat_body');
+		const id = props.id;
+		const url = '/chats/token/' + id;
+		const res = await chat_api.getToken(url);
+		this.handle(res, 'getToken');
+	}
 
 
     handle(res: any, name: string) {
@@ -35,12 +43,28 @@ class ChatsController extends Controller {
             }
             if(res.status === 500) {
                 this.go('/500')
-            }
+			}
         }
 
         if (name === "delete") {
             if(res.status === 200) {
                 chat_list_controller.getchats()
+            }
+            if(res.status === 401) {
+                this.go('/')
+            }
+            if(res.status === 400) {
+                alert("Что-то пошло не так")
+                    console.log(res.response)
+            }
+            if(res.status === 500) {
+                this.go('/500')
+            }
+		}
+
+		if (name === "getToken") {
+            if(res.status === 200) {
+				this.set('token', res.response)
             }
             if(res.status === 401) {
                 this.go('/')
