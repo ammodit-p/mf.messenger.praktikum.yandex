@@ -5,19 +5,19 @@ import chat_body_controller from './chat_body/chat_body_controller';
 import {chat_view} from './chat_body/chat_body_view/chat_body_view';
 import {message_instance} from './chat_body/message_instance/message_instance';
 
-class ChatsController extends Controller {
-    constructor() {
-        super()
-	}
 
-	renderMessages(data: any): void {
-		if (Array.isArray(data)) {
-			data.forEach((key) => {
-				this.set('chat_body_messages_item', key);
-				const el = chat_view.element;
-				el.appendChild(message_instance.getContent())
-			})
-		}
+class ChatsController extends Controller {
+	websocket: WebSocket;
+	chatId: number | string;
+	userId: number | string;
+	socketUrl: string;
+	token: string;
+    constructor() {
+		super()
+		this.websocket;
+		this.userId;
+		this.chatId;
+		this.socketUrl = 'wss://ya-praktikum.tech/ws/chats/';
 	}
 
     async post(data?: any) {
@@ -32,16 +32,100 @@ class ChatsController extends Controller {
         this.handle(res, name)
 	}
 
-	async getToken () {
+	async getToken() {
 		const props: any = this.get('chat_body');
-		const id = props.id;
-		const url = '/chats/token/' + id;
+		this.chatId = props.id;
+		const url = '/chats/token/' + this.chatId;
 		const res = await chat_api.getToken(url);
-		this.handle(res, 'getToken');
+		this.token = res.response;
+		this._createSocket();
+	}
+
+	async getUser(data?: any) {
+		const name = "getUserInfo"
+        const res = await chat_api.getUserInfo(data)
+        this.handle(res, name)
+	}
+
+	_makeUrlForSocket(): string {
+		this._getUserId();
+		const url = `${this.socketUrl}${this.userId}/${this.chatId}/${this.token}`;
+		return url
+	}
+	_getUserId() {
+		const data: any = this.get('profile');
+		this.userId = data.id;
+	}
+
+	_createSocket() {
+		const url = this._makeUrlForSocket()
+		this.websocket = new WebSocket(url);
+		this.websocket.addEventListener('open', () => {
+			console.log('Соединение установлено');
+		})
+
+		this.websocket.addEventListener('message', event => {
+			this.renderMessages(event.data)
+		});
+
+		this.websocket.addEventListener('error', (event: any) => {
+			console.log('Ошибка', event.message);
+		});
+	}
+
+	closeSocket() {
+		this.websocket.addEventListener('close', event => {
+			if (event.wasClean) {
+				console.log('Соединение закрыто чисто');
+			} else {
+				console.log('Обрыв соединения');
+			}
+
+			console.log(`Код: ${event.code} | Причина: ${event.reason}`);
+		});
+	}
+
+	sendMessage(data: any) {
+		const content: string = data.value;
+		this.websocket.send(JSON.stringify({
+            content: `${content}`,
+            type: 'message',
+        }));
+	}
+
+	renderMessages(data: any): void {
+		try{
+			const content: any = JSON.parse(data)
+			if (Array.isArray(content)) {
+				content.forEach((key) => {
+					this.set('chat_body_messages_item', key);
+					const el = chat_view.element;
+					el.appendChild(message_instance.getContent())
+				})
+			}
+		} catch(e){console.log(e)}
+
 	}
 
 
     handle(res: any, name: string) {
+		if (name === "getUserInfo") {
+            if(res.status === 200) {
+				this.set('profile', res.response)
+				this.go('/chat')
+            }
+            if(res.status === 401) {
+                return
+            }
+            if(res.status === 400) {
+                alert("Что-то пошло не так")
+                    console.log(res.response)
+            }
+            if(res.status === 500) {
+                this.go('/500')
+            }
+		}
+
         if (name === "post") {
             if(res.status === 200) {
 				chat_list_controller.getchats()

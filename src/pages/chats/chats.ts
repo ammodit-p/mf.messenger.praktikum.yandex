@@ -8,6 +8,7 @@ import {Button} from "../../modules/button/classButton";
 import {button_tmpl} from "../../modules/button/button_tmpl";
 import {chats_tmpl} from "./chats_tmpl";
 import {events} from "./chats_events";
+import chat_controller from './chat_controller';
 
 
 export class Chats extends Block {
@@ -34,5 +35,9 @@ export class Chats extends Block {
             },
             data: {}
         }, chats_tmpl, 'chats')
-    }
+	}
+
+	_getDataFromApi(): void {
+		chat_controller.getUser()
+	}
 }

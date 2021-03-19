@@ -18,6 +18,10 @@ class ChatApi {
 	getToken(url: string) {
 		return api.post(url, {data: {}, headers: {'content-type': 'applicationon'}});
 	}
+
+	getUserInfo(data: any) {
+        return api.get('/auth/user', {data: data, headers: {'content-type': 'application/json'}},)
+    }
 }
 
 const chat_api = new ChatApi()
