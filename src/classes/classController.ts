@@ -7,8 +7,13 @@ export class Controller {
 
 	set(path: string, value?: string): void {
 		if (value !== undefined) {
-			const data: Indexed = this._parse(value);
-			store.set(path, data);
+			if (typeof(value) === 'string') {
+				const data: Indexed = this._parse(value);
+				store.set(path, data);
+			}
+			if (typeof(value) === 'object') {
+				store.set(path, value);
+			}
 		}
 	}
 

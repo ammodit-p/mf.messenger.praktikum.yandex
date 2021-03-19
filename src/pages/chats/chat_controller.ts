@@ -1,12 +1,24 @@
 import {Controller} from "../../classes/classController"
 import chat_api from "./chat_api";
-import chat_list_controller from './chat_list/chat_list_controller'
-import chat_body_controller from './chat_body/chat_body_controller'
+import chat_list_controller from './chat_list/chat_list_controller';
+import chat_body_controller from './chat_body/chat_body_controller';
+import {chat_view} from './chat_body/chat_body_view/chat_body_view';
+import {message_instance} from './chat_body/message_instance/message_instance';
 
 class ChatsController extends Controller {
     constructor() {
         super()
-    }
+	}
+
+	renderMessages(data: any): void {
+		if (Array.isArray(data)) {
+			data.forEach((key) => {
+				this.set('chat_body_messages_item', key);
+				const el = chat_view.element;
+				el.appendChild(message_instance.getContent())
+			})
+		}
+	}
 
     async post(data?: any) {
         const name = "post";

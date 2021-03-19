@@ -30,6 +30,7 @@ class Block {
 	_meta: Meta;
 	props: Indexed;
 	className: string;
+	store: any;
 
 
 	constructor(tagName: string = 'div', props: Indexed = {}, tmpl: string, className: string) {
@@ -42,7 +43,7 @@ class Block {
 		};
 
 		this.props = this._meta.props;
-
+		this.store = store;
 		this.eventBus = eventBus;
 		this.componentDidUpdate = this.componentDidUpdate.bind(this);
 
@@ -82,9 +83,9 @@ class Block {
 
 	componentDidMount(): void {
 		this._getDataFromApi();
-		const propFromStore: any = store.get(this._meta.className);
+		const propFromStore: any = this.store.get(this._meta.className);
 		this.setProps(propFromStore);
-		store.setStoreObserver(this._meta.className, this.componentDidUpdate);
+		this.store.setStoreObserver(this._meta.className, this.componentDidUpdate);
 	}
 
 	_getDataFromApi(): void {}
@@ -96,12 +97,16 @@ class Block {
 		this._removeEvents();
 
 		this._element.innerHTML = block;
+
+		this._renderChildren();
+		this._addEvents();
+	}
+
+	_renderChildren(): void {
 		const {children = {}} = this.props;
 		Object.keys(children).forEach((childName) => {
 			this.element.appendChild(children[childName].getContent());
 		});
-
-		this._addEvents();
 	}
 
 	render(): string {
@@ -115,7 +120,6 @@ class Block {
 		if (!nextProps) {
 			return;
 		}
-
 		merge(this._meta.props.data, nextProps);
 	}
 
