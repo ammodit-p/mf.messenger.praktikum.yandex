@@ -4,7 +4,6 @@ import chat_list_controller from './chat_list/chat_list_controller';
 import chat_body_controller from './chat_body/chat_body_controller';
 import {chat_view} from './chat_body/chat_body_view/chat_body_view';
 import {MessageInstance} from './chat_body/message_instance/message_instance';
-import {message_instance_tmpl} from './chat_body/message_instance/message_instance_tmpl';
 
 
 class ChatsController extends Controller {
@@ -111,7 +110,7 @@ class ChatsController extends Controller {
 					content: content.content
 				}
 				content.userId === this.userId ? props.position = 'right_message' : props.position = 'left_message'
-				const message_instance = new MessageInstance('div', {data: props}, message_instance_tmpl, 'chat_body_messages_item')
+				const message_instance = new MessageInstance(props)
 				el.appendChild(message_instance.getContent())
 			}
 
@@ -125,7 +124,7 @@ class ChatsController extends Controller {
 						content: key.content
 					}
 					key.user_id === this.userId ? props.position = 'right_message' : props.position = 'left_message'
-					const message_instance = new MessageInstance('div', {data: props}, message_instance_tmpl, 'chat_body_messages_item')
+					const message_instance = new MessageInstance(props)
 					el.appendChild(message_instance.getContent())
 				})
 			}

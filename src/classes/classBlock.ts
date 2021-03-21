@@ -8,7 +8,9 @@ interface Meta {
 	tagName: string;
 	props: Indexed;
 	tmpl: string;
-	className: string
+	className: string;
+	events: Indexed;
+	children: Indexed;
 }
 class Block {
 	eventBus: EventBus;
@@ -33,10 +35,12 @@ class Block {
 	store: any;
 
 
-	constructor(tagName: string = 'div', props: Indexed = {}, tmpl: string, className: string) {
+	constructor(tagName: string = 'div', events: Indexed = {}, children: Indexed = {}, props: Indexed = {}, tmpl: string, className: string) {
 		const eventBus = new EventBus();
 		this._meta = {
 			tagName,
+			events,
+			children,
 			props,
 			tmpl,
 			className,
@@ -103,7 +107,7 @@ class Block {
 	}
 
 	_renderChildren(): void {
-		const {children = {}} = this.props;
+		const {children} = this._meta;
 		Object.keys(children).forEach((childName) => {
 			this.element.appendChild(children[childName].getContent());
 		});
@@ -134,15 +138,14 @@ class Block {
 	}
 
 	_addEvents(): void {
-		const {events = {}} = this.props;
-
+		const {events} = this._meta;
 		Object.keys(events).forEach((eventName) => {
 			this._element.addEventListener(eventName, events[eventName]);
 		});
 	}
 
 	_removeEvents(): void {
-		const {events = {}} = this.props;
+		const {events} = this._meta;
 
 		Object.keys(events).forEach((eventName) => {
 			this._element.removeEventListener(eventName, events[eventName]);
