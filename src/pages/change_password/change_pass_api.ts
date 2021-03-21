@@ -14,7 +14,7 @@ class ChangePassApi {
     }
 
     put(data: any) {
-        return api.put('/user/password', {data: data, headers: {'content-type': 'applicationon'}},)
+        return api.put('/user/password', {data: data, headers: {'content-type': 'application/json'}},)
     }
 }
 

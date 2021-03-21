@@ -14,7 +14,7 @@ class ChangeUserApi {
     }
 
     put(data: any) {
-        return api.put('/user/profile', {data: data, headers: {'content-type': 'applicationon'}},)
+        return api.put('/user/profile', {data: data, headers: {'content-type': 'application/json'}},)
     }
 }
 

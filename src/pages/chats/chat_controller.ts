@@ -21,9 +21,9 @@ class ChatsController extends Controller {
 		this.socketUrl = 'wss://ya-praktikum.tech/ws/chats/';
 	}
 
-    async post(data?: any) {
+    async createChat(data: any) {
         const name = "post";
-        const res = await chat_api.post(data)
+        const res = await chat_api.createChat(data)
         this.handle(res, name)
     }
 

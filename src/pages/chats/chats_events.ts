@@ -30,17 +30,17 @@ export const events = {
     },
 
     submit: function (event: any) {
-        if (event.target === document.querySelector(".add_chat_form")) {
+        if (event.target === document.querySelector("#add-chat")) {
             event.preventDefault();
 
-            const form: any = document.querySelector('.popup')
+            const form: any = event.target;
             const checked: boolean = checkForms(form);
             if(checked === false) {return};
 
             const formdata = new FormData(form);
 
-            const json = jsonify (formdata);
-            chat_controller.post(json);
+			const json = jsonify (formdata);
+            chat_controller.createChat(json);
             event.target.classList.remove('show');
 		}
 

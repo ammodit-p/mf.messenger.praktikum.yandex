@@ -18,17 +18,21 @@ export class Chats extends Block {
             children: {
                 chat_list: new Chat_list(),
                 chat_body: new Chat_body(),
-                add_chat: new PopupForm('form', {
+                add_chat: new PopupForm('div', {
                     data: {
                         fieldName: 'title',
                         inputClass: 'input_label',
                         labelValue: 'Название',
                         inputType: 'text',
                         class: 'form_input blue_input',
-                        form_class: "add_chat_form"
+						form_class: "add_chat_form",
+						id: "add-chat",
+						content: "Создать чат"
                     },
                     children: {
-                        button: new Button ('div', {data: {'text': 'Добавить'}}, button_tmpl, 'popup_form_button')
+                        button: new Button ('div', {data: {
+							'text': 'Добавить',
+						}}, button_tmpl, 'popup_form_button')
                     }
 
                 }, popup_form_tmpl, 'popup')
