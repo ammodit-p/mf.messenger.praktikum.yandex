@@ -2,6 +2,7 @@ import {router} from "../../initialaze";
 import chat_controller from "./chat_controller";
 import jsonify from "../../funcs/jsonify";
 import {checkForms} from "../../funcs/forms/checkForms";
+import objFromForm from '../../funcs/objFromForm';
 
 export const events = {
     click: function (event:any) {
@@ -20,7 +21,7 @@ export const events = {
             popup.classList.remove('show');
 		}
 
-		if (event.target === document.querySelector('.chatlist_list_item_handler')) {
+		if (event.target.hasAttribute('data-show')) {
 			const chat: any = document.querySelector('.chat_body');
 			chat_controller.propsToBody(event.target.id);
 			chat_controller.getToken();
@@ -41,6 +42,15 @@ export const events = {
             const json = jsonify (formdata);
             chat_controller.post(json);
             event.target.classList.remove('show');
-        }
+		}
+
+		if(event.target === document.querySelector('#send-message')) {
+			event.preventDefault();
+			const checked: boolean = checkForms(event.target);
+			if(checked === false) {return};
+			const formdata = new FormData(event.target);
+			const data = objFromForm(formdata);
+			chat_controller.sendMessage(data.message);
+		}
     }
 }

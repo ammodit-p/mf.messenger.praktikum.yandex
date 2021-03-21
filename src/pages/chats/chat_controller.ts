@@ -3,7 +3,8 @@ import chat_api from "./chat_api";
 import chat_list_controller from './chat_list/chat_list_controller';
 import chat_body_controller from './chat_body/chat_body_controller';
 import {chat_view} from './chat_body/chat_body_view/chat_body_view';
-import {message_instance} from './chat_body/message_instance/message_instance';
+import {MessageInstance} from './chat_body/message_instance/message_instance';
+import {message_instance_tmpl} from './chat_body/message_instance/message_instance_tmpl';
 
 
 class ChatsController extends Controller {
@@ -37,7 +38,7 @@ class ChatsController extends Controller {
 		this.chatId = props.id;
 		const url = '/chats/token/' + this.chatId;
 		const res = await chat_api.getToken(url);
-		this.token = res.response;
+		this.token = JSON.parse(res.response).token;
 		this._createSocket();
 	}
 
@@ -62,6 +63,10 @@ class ChatsController extends Controller {
 		this.websocket = new WebSocket(url);
 		this.websocket.addEventListener('open', () => {
 			console.log('Соединение установлено');
+			this.websocket.send(JSON.stringify({
+				content: '0',
+				type: 'get old'
+			}));
 		})
 
 		this.websocket.addEventListener('message', event => {
@@ -85,21 +90,42 @@ class ChatsController extends Controller {
 		});
 	}
 
-	sendMessage(data: any) {
-		const content: string = data.value;
-		this.websocket.send(JSON.stringify({
-            content: `${content}`,
-            type: 'message',
-        }));
+	sendMessage(message: string) {
+		const send = JSON.stringify({
+            content: `${message}`,
+			type: 'message',
+		})
+		this.websocket.send(send);
 	}
 
 	renderMessages(data: any): void {
+
 		try{
 			const content: any = JSON.parse(data)
+			if(!Array.isArray(content)) {
+				this.set('chat_body_messages_item', content);
+				const el = chat_view.element;
+				const props = {
+					type: content.type,
+					position: '',
+					content: content.content
+				}
+				content.userId === this.userId ? props.position = 'right_message' : props.position = 'left_message'
+				const message_instance = new MessageInstance('div', {data: props}, message_instance_tmpl, 'chat_body_messages_item')
+				el.appendChild(message_instance.getContent())
+			}
+
 			if (Array.isArray(content)) {
 				content.forEach((key) => {
 					this.set('chat_body_messages_item', key);
 					const el = chat_view.element;
+					const props = {
+						type: key.type,
+						position: '',
+						content: key.content
+					}
+					key.user_id === this.userId ? props.position = 'right_message' : props.position = 'left_message'
+					const message_instance = new MessageInstance('div', {data: props}, message_instance_tmpl, 'chat_body_messages_item')
 					el.appendChild(message_instance.getContent())
 				})
 			}
