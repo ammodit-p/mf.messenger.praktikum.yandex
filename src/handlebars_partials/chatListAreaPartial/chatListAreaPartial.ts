@@ -1,4 +1,4 @@
-// import * as Handlebars from 'handlebars';
+import * as Handlebars from 'handlebars';
 import {chatListAreaPartial_tmpl} from "./chatListAreaPartial_tmpl";
 
 export function chatListAreaPartial(): void {

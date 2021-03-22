@@ -7,7 +7,7 @@ import{Change_user} from "./pages/CHANGE_USER_DATA/change_user";
 import {Change_password} from "./pages/CHANGE_PASSWORD/change_password"
 import {FourHundred} from "./pages/400/400";
 import {FiveHundred} from "./pages/500/500";
-// import "./css/styles.scss";
+import "./css/styles.scss";
 
 
 
