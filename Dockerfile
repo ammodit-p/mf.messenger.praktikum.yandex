@@ -1,12 +1,15 @@
-FROM node:12.16.0
+FROM node:12
 
-COPY dist /dist
-COPY server.js /
-COPY package-lock.json /
-COPY package.json /
+WORKDIR /docker/
 
+
+COPY server.js /docker
+COPY package-lock.json /docker
+COPY package.json /docker
+COPY dist /docker
 RUN npm install
+
 
 EXPOSE 3000
 
-CMD npm run express
+CMD ["node", "./server.js"]
