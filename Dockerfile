@@ -1,15 +1,15 @@
 FROM node:12
 
-WORKDIR /docker/
 
-
-COPY server.js /docker
-COPY package-lock.json /docker
-COPY package.json /docker
-COPY dist /docker
+COPY server.js /
+COPY package-lock.json /
+COPY package.json /
+COPY . /
 RUN npm install
+RUN npm install -g sass
+RUN npm run build
 
 
-EXPOSE 3000
+EXPOSE 4000
 
 CMD ["node", "./server.js"]
