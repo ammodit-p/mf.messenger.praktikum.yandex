@@ -1,4 +1,4 @@
-import Block from "../../../classes/classBlock";
+import Block from '../../../classes/classBlock';
 import {chat_body_tmpl} from './chat_body_tmpl';
 import {chat_view} from './chat_body_view/chat_body_view';
 

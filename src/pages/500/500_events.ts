@@ -1,4 +1,4 @@
-import {router} from "../../initialaze"
+import {router} from '../../initialaze'
 
 export const events = {
     click: function (event: any) {

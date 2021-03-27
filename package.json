@@ -57,7 +57,7 @@
         "lint:ts": "eslint src/**/*.ts",
         "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",
         "check": "npm run lint:ts && npm run lint:scss && npm run test",
-        "start": "npm run build:watch & npm run express & browser-sync start --proxy 'localhost:4000' --files 'dist'",
+        "start": "npm run express & browser-sync start --proxy 'localhost:4000' --files 'dist'",
         "build:watch": "webpack --watch",
         "build": "webpack",
         "clean:build": "rimraf dist/",

@@ -1,4 +1,4 @@
-import Block from "../../../../classes/classBlock";
+import Block from '../../../../classes/classBlock';
 import {chat_body_view_tmpl} from './chat_body_view_tmpl';
 
 export class ChatBodyView extends Block {

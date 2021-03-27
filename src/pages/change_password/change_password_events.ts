@@ -1,6 +1,6 @@
-import change_pass_controller from "./change_pass_controller"
-import {checkForms} from "../../funcs/forms/checkForms";
-import jsonify from "../../funcs/jsonify"
+import change_pass_controller from './change_pass_controller'
+import {checkForms} from '../../funcs/forms/checkForms';
+import jsonify from '../../funcs/jsonify'
 
 export const events = {
     submit: function (event: any) {

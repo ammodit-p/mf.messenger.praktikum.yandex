@@ -33,7 +33,7 @@ describe ('store tests', function() {
 		})
 
 		it('should emit observer on change', function() {
-			store.set('test', {other_data: "test_data"})
+			store.set('test', {other_data: 'test_data'})
 			expect(test).to.be.equal('b')
 		})
 	})

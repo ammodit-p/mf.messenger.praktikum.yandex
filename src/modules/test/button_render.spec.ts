@@ -1,5 +1,5 @@
-import { expect } from "chai";
-import {Button} from "../button/classButton"
+import { expect } from 'chai';
+import {Button} from '../button/classButton'
 import {button_tmpl} from '../button/button_tmpl'
 import * as Handlebars from 'handlebars'
 
