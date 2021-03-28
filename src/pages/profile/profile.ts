@@ -7,7 +7,7 @@ import { Indexed } from "../../types";
 
 export class Profile extends Block {
     constructor (props: Indexed = {}) {
-        super("div", {events: events},{}, props, profile_tmpl, "profile");
+        super("div", events,{}, props, profile_tmpl, "profile");
     }
 
     async _getDataFromApi() {

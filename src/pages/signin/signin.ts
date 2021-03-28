@@ -10,7 +10,7 @@ inputPartial();
 export class Signin extends Block {
 	partial: void;
     constructor (props: Indexed = signinPage_data) {
-		super("form", {events: events}, {button: new Button (props)}, props, signin_tmpl, "signin_form");
+		super("form", events, {button: new Button (props)}, props, signin_tmpl, "signin_form");
     }
 }
 

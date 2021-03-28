@@ -14,7 +14,7 @@ inputPartial();
 export class Login extends Block {
 	partial: void;
     constructor (props: Indexed = loginPage_data) {
-		super("form", {events: events},{button: new Button (props)}, props, login_tmpl, "login_form");
+		super("form", events,{button: new Button (props)}, props, login_tmpl, "login_form");
 	}
 
 	_getDataFromApi(): void {

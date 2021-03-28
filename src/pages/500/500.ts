@@ -6,6 +6,6 @@ import { Indexed } from "../../types";
 
 export class FiveHundred extends Block {
     constructor (props: Indexed) {
-        super("div", {events: events}, {}, props, fiveHundred_tmpl, "wrapper");
+        super("div", events, {}, props, fiveHundred_tmpl, "wrapper");
     }
 }

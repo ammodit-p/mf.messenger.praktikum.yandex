@@ -23,7 +23,7 @@ const addChatPopup: Indexed = {
 
 export class Chats extends Block {
     constructor (props: Indexed = {}) {
-        super("div", {events: events}, {
+        super("div", events, {
 			chat_list: new Chat_list(),
 			chat_body: new Chat_body(),
 			add_chat: new PopupForm(addChatPopup)

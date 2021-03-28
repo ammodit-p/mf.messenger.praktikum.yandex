@@ -11,7 +11,7 @@ inputPartial();
 export class Change_user extends Block {
 	partial: void;
     constructor (props: Indexed = change_user_data) {
-		super("div",{events: events}, {form: new Change_user_form ()}, props, change_user_tmpl, "profile");
+		super("div",events, {form: new Change_user_form ()}, props, change_user_tmpl, "profile");
     }
 
     componentDidMount () {

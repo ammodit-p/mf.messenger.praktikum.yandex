@@ -152,7 +152,6 @@ class Block {
 
 	_removeEvents(): void {
 		const {events} = this._meta;
-
 		Object.keys(events).forEach((eventName) => {
 			this._element.removeEventListener(eventName, events[eventName]);
 		});

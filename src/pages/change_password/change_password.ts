@@ -9,9 +9,7 @@ import { Indexed } from "../../types";
 
 export class Change_password extends Block {
     constructor (props: Indexed = change_password_data) {
-        super("div", {
-			events: events
-		},
+        super("div", events,
 		{
 			form: new Change_password_form ()
 		}, props, change_password_tmpl, 'profile');
