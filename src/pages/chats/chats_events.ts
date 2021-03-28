@@ -1,23 +1,23 @@
-import {router} from "../../initialaze";
-import chat_controller from "./chat_controller";
-import jsonify from "../../funcs/jsonify";
-import {checkForms} from "../../funcs/forms/checkForms";
+import {router} from '../../initialaze';
+import chat_controller from './chat_controller';
+import jsonify from '../../funcs/jsonify';
+import {checkForms} from '../../funcs/forms/checkForms';
 import objFromForm from '../../funcs/objFromForm';
 
 export const events = {
     click: function (event:any) {
-        if (event.target === document.querySelector("#profile")) {
+        if (event.target === document.querySelector('#profile')) {
             event.preventDefault();
             router.go('/profile');
         }
 
-        if (event.target === document.querySelector(".add_chat svg")) {
-            const popup: any = document.querySelector(".popup");
+        if (event.target === document.querySelector('.add_chat svg')) {
+            const popup: any = document.querySelector('.popup');
             popup.classList.add('show');
         }
 
-        if (event.target === document.querySelector(".popup")) {
-            const popup: any = document.querySelector(".popup");
+        if (event.target === document.querySelector('.popup')) {
+            const popup: any = document.querySelector('.popup');
             popup.classList.remove('show');
 		}
 
@@ -30,7 +30,7 @@ export const events = {
     },
 
     submit: function (event: any) {
-        if (event.target === document.querySelector("#add-chat")) {
+        if (event.target === document.querySelector('#add-chat')) {
             event.preventDefault();
 
             const form: any = event.target;

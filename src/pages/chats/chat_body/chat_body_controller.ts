@@ -1,4 +1,4 @@
-import {Controller} from "../../../classes/classController"
+import {Controller} from '../../../classes/classController'
 
 class ChatBodyController extends Controller {
 	constructor(){

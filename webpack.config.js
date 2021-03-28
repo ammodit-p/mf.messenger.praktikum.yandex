@@ -19,24 +19,6 @@ module.exports = {
         'express-handlebars': './node_modules/handlebars/dist/handlebars.js'
     }
   },
-  devServer: {
-    contentBase: 'dist',
-    compress: true,
-    port: 3000,
-    // proxy: [
-    //     {
-    //         context: ['/proxy-api/**'],
-    //         target: 'https://proxy-api/api/',
-    //         pathRewrite: { '^/api/': '/' },
-    //         secure: false,
-    //         onProxyReq: proxyReq => {
-    //             proxyReq.setHeader('Host', 'my-custom-host');
-    //         },
-    //     },
-    // ],
-    https: true,
-    open: process.env.WEBPACK_SERVER_BROWSER || true,
-  },
   module: {
     rules: [
       {
@@ -51,6 +33,7 @@ module.exports = {
             options: {},
           },
           'css-loader',
+          'postcss-loader',
           'sass-loader',
         ],
       },

@@ -1,4 +1,4 @@
-// import * as Handlebars from 'handlebars';
+import * as Handlebars from 'handlebars';
 import {EventBus} from './eventBus';
 import {Indexed} from '../types';
 import merge from '../funcs/merge';
@@ -35,7 +35,14 @@ class Block {
 	store: any;
 
 
-	constructor(tagName: string = 'div', events: Indexed = {}, children: Indexed = {}, props: Indexed = {}, tmpl: string, className: string) {
+	constructor(
+		tagName: string = 'div',
+		events: Indexed = {},
+		children: Indexed = {},
+		props: Indexed = {},
+		tmpl: string,
+		className: string,
+	) {
 		const eventBus = new EventBus();
 		this._meta = {
 			tagName,
@@ -114,9 +121,8 @@ class Block {
 	}
 
 	render(): string {
-		const {data} = this._meta.props;
 		const template: HandlebarsTemplateDelegate<any> = Handlebars.compile(this._meta.tmpl);
-		return template(data);
+		return template(this.props);
 	}
 
 
@@ -124,7 +130,7 @@ class Block {
 		if (!nextProps) {
 			return;
 		}
-		merge(this._meta.props.data, nextProps);
+		merge(this.props, nextProps);
 	}
 
 	_componentDidUpdate(): void {

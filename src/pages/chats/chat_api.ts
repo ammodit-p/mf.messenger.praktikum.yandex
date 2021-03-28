@@ -1,4 +1,4 @@
-import Fetch from "../../classes/classFetch"
+import Fetch from '../../classes/classFetch'
 
 const api = new Fetch()
 
@@ -8,7 +8,6 @@ class ChatApi {
     }
 
     createChat(data: any) {
-		debugger
         return api.post('/chats', {data: data, headers: {'content-type': 'application/json'}});
     }
 
@@ -17,11 +16,15 @@ class ChatApi {
 	}
 
 	getToken(url: string) {
-		return api.post(url, {data: {}, headers: {'content-type': 'application/json'}});
+		return api.post(url, {headers: {'content-type': 'application/json'}});
 	}
 
 	getUserInfo(data: any) {
         return api.get('/auth/user', {data: data, headers: {'content-type': 'application/json'}},)
+	}
+
+	getchats() {
+        return api.get('/chats', {headers: {'content-type': 'application/json'}},)
     }
 }
 

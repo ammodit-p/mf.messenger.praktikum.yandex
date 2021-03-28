@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController";
-import change_user_api from "./change_user_api";
+import {Controller} from '../../classes/classController';
+import change_user_api from './change_user_api';
 
 class ChangeUserController extends Controller {
     constructor() {
@@ -7,13 +7,13 @@ class ChangeUserController extends Controller {
     }
 
     async getuser () {
-        const name = "getuser";
+        const name = 'getuser';
         const res = await change_user_api.get()
         this.handle(res, name)
     }
 
     async changeuser (data: any) {
-        const name = "change";
+        const name = 'change';
         const res = await change_user_api.put(data)
         this.handle(res, name, data)
     }
@@ -21,7 +21,7 @@ class ChangeUserController extends Controller {
 
 
     handle(res: any, name: string, data?: string) {
-        if (name === "getuser") {
+        if (name === 'getuser') {
             if(res.status === 200) {
                 this.set('profile.data', res.response)
             }
@@ -29,7 +29,7 @@ class ChangeUserController extends Controller {
                 this.go('/')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {
@@ -37,7 +37,7 @@ class ChangeUserController extends Controller {
             }
         }
 
-        if (name === "change") {
+        if (name === 'change') {
             if(res.status === 200) {
 				this.set('profile', data)
                 this.go('/profile')
@@ -46,7 +46,7 @@ class ChangeUserController extends Controller {
                 this.go('/')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {
