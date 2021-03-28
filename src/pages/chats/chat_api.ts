@@ -17,7 +17,7 @@ class ChatApi {
 	}
 
 	getToken(url: string) {
-		return api.post(url, {data: {}, headers: {'content-type': 'application/json'}});
+		return api.post(url, { headers: {'content-type': 'application/json'}});
 	}
 
 	getUserInfo(data: any) {
