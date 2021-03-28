@@ -99,7 +99,7 @@ class ChatsController extends Controller {
 			const content: any = JSON.parse(data)
 			if(!Array.isArray(content)) {
 				this.set('chat_body_messages_item', content);
-				const el = chat_view.element;
+				const el: any = document.querySelector('.chat_body_view');
 				const props = {
 					type: content.type,
 					position: '',
@@ -108,12 +108,13 @@ class ChatsController extends Controller {
 				content.userId === this.userId ? props.position = 'right_message' : props.position = 'left_message'
 				const message_instance = new MessageInstance(props)
 				el.appendChild(message_instance.getContent())
+				debugger
 			}
 
 			if (Array.isArray(content)) {
 				content.forEach((key) => {
 					this.set('chat_body_messages_item', key);
-					const el = chat_view.element;
+					const el: any = document.querySelector('.chat_body_view');
 					const props = {
 						type: key.type,
 						position: '',
