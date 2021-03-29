@@ -1,7 +1,5 @@
 import {Controller} from '../../classes/classController'
 import chat_api from './chat_api';
-import chat_body_controller from './chat_body/chat_body_controller';
-import {chat_view} from './chat_body/chat_body_view/chat_body_view';
 import {MessageInstance} from './chat_body/message_instance/message_instance';
 
 
@@ -22,7 +20,7 @@ class ChatsController extends Controller {
         this.handle(res, name)
     }
 
-    async delete (data?: any) {
+    async deleteChat (data?: any) {
         const name = 'delete'
         const res = await chat_api.delete(data)
         this.handle(res, name)
@@ -42,6 +40,12 @@ class ChatsController extends Controller {
         const res = await chat_api.getUserInfo(data)
         this.handle(res, name)
 	}
+
+	async getchats () {
+        const name = 'chatlist';
+        const res = await chat_api.getchats()
+        this.handle(res, name)
+    }
 
 	_makeUrlForSocket(): string {
 		this._getUserId();
@@ -129,11 +133,19 @@ class ChatsController extends Controller {
 
 	}
 
-    async getchats () {
-        const name = 'chatlist';
-        const res = await chat_api.getchats()
-        this.handle(res, name)
-    }
+	propsToBody(id: string):void {
+		const {list} = chat_controller.get('chatlist_area')
+		let props = {}
+		for (let key of list) {
+			if (key.id === (+id)) {
+				props = key
+			}
+		}
+
+		this.set('chat_body', JSON.stringify(props))
+	}
+
+
 
 
     handle(res: any, name: string) {
@@ -219,17 +231,7 @@ class ChatsController extends Controller {
         }
 	}
 
-	propsToBody(id: string):void {
-		const {list} = chat_controller.get('chatlist_area')
-		let props = {}
-		for (let key of list) {
-			if (key.id === (+id)) {
-				props = key
-			}
-		}
 
-		chat_body_controller.set('chat_body', JSON.stringify(props))
-	}
 
 }
 

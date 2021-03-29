@@ -52,7 +52,7 @@
 .chat_body_header_menu_show {
     position: absolute;
 	right: 0px;
-	width: 50px;
+	width: 60px;
 	height: 55px;	
     display: none;
     ul {
@@ -70,7 +70,7 @@
 }
 
 .chat_body_header_menu:hover {
-    background-color: #F5F5F5;
+	background-color: #F5F5F5;
     svg {
         circle{
             fill: #3369F3;

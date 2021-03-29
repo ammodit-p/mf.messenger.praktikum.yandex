@@ -15,9 +15,21 @@ const addChatPopup: Indexed = {
     inputType: 'text',
     class: 'form_input blue_input',
     form_class: "add_chat_form",
-    id: "add-chat",
+    id_element: "add-chat",
     content: "Создать чат",
     'text': 'Добавить',
+}
+
+const deleteChatPopup: Indexed = {
+	fieldName: 'title',
+    inputClass: 'input_label',
+    labelValue: 'Название',
+    inputType: 'text',
+    class: 'form_input blue_input',
+    form_class: "add_chat_form",
+    id_element: "delete-chat",
+    content: "Создать чат",
+    'text': 'Удалить',
 }
 
 
@@ -26,7 +38,8 @@ export class Chats extends Block {
         super("div", events, {
 			chat_list: new Chat_list(),
 			chat_body: new Chat_body(),
-			add_chat: new PopupForm(addChatPopup)
+			add_chat: new PopupForm(addChatPopup),
+			delete_chat: new PopupForm(deleteChatPopup)
 		}, props, chats_tmpl, 'chats')
 	}
 

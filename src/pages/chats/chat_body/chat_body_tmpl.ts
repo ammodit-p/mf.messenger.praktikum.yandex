@@ -13,14 +13,36 @@ export const chat_body_tmpl: string =
 
 				<div class="chat_body_header_menu_show">
 						<ul>
-										<li class="chat_body_header_menu_item">
-												<span class="chat_body_header_menu_item_icon"></span>
-												<div class="chat_body_header_menu_item_text">
-														<button>
-																Удалить чат
-														</button>
-												</div>
-										</li>
+							<li class="chat_body_header_menu_item" data-show='add-user'>
+								<span class="chat_body_header_menu_item_icon">
+									<img src="./assets/add_user_icon.svg">
+								</span>
+								<div class="chat_body_header_menu_item_text">
+									<button>
+										Добавить пользователя
+									</button>
+								</div>
+							</li>
+							<li class="chat_body_header_menu_item" data-show='delete-user'>
+								<span class="chat_body_header_menu_item_icon">
+									<img src="./assets/delete_user_icon.svg">
+								</span>
+								<div class="chat_body_header_menu_item_text">
+									<button>
+										Удалить пользователя
+									</button>
+								</div>
+							</li>
+							<li class="chat_body_header_menu_item" data-show='delete-chat'>
+								<span class="chat_body_header_menu_item_icon">
+									<img src="./assets/delete_icon.svg">
+								</span>
+								<div class="chat_body_header_menu_item_text">
+									<button>
+										Удалить чат
+									</button>
+								</div>
+							</li>
 						</ul>
 				</div>
 			</div>
