@@ -20,15 +20,27 @@ const addChatPopup: Indexed = {
     'text': 'Добавить',
 }
 
-const deleteChatPopup: Indexed = {
-	fieldName: 'title',
+const addUserPopup: Indexed = {
+    fieldName: 'login',
     inputClass: 'input_label',
-    labelValue: 'Название',
+    labelValue: 'Логин',
     inputType: 'text',
     class: 'form_input blue_input',
-    form_class: "add_chat_form",
-    id_element: "delete-chat",
-    content: "Создать чат",
+    form_class: "add_user_form",
+    id_element: "add-user",
+    content: "Добавить пользователя",
+    'text': 'Добавить',
+}
+
+const deleteUserPopup: Indexed = {
+	fieldName: 'login',
+    inputClass: 'input_label',
+    labelValue: 'Логин',
+    inputType: 'text',
+    class: 'form_input blue_input',
+    form_class: "delete_user_form",
+    id_element: "delete-user",
+    content: "Удалить пользователя",
     'text': 'Удалить',
 }
 
@@ -39,7 +51,8 @@ export class Chats extends Block {
 			chat_list: new Chat_list(),
 			chat_body: new Chat_body(),
 			add_chat: new PopupForm(addChatPopup),
-			delete_chat: new PopupForm(deleteChatPopup)
+			add_user: new PopupForm(addUserPopup),
+			delete_user: new PopupForm(deleteUserPopup),
 		}, props, chats_tmpl, 'chats')
 	}
 

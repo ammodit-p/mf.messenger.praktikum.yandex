@@ -29,7 +29,12 @@ export const 	events = {
 		}
 
         if (event.target.getAttribute('data-show') === 'delete-chat') {
-			chat_controller.deleteChat();
+			chat_controller.deleteChat()
+		}
+
+		if (event.target.getAttribute('data-show') === 'delete-user') {
+			const popup: any = document.getElementById('delete-user');
+			popup.classList.add('show');
 		}
 
 		if (event.target.getAttribute('data-show') === 'add-user') {
@@ -63,6 +68,7 @@ export const 	events = {
             if(checked === false) {return};
 
             const formData = new FormData(form);
+
             chat_controller.deleteUser(formData);
             event.target.classList.remove('show');
 		}

@@ -29,6 +29,14 @@
 	top: 21px;
 }
 
+.item_handler {
+	position: absolute;
+	width: 100%;
+	height: inherit;
+	background: none;
+	z-index: 1000;
+}
+
 .chatlist {
 	position: relative;
 	width: 310px;

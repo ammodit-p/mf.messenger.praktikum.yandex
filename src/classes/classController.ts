@@ -17,6 +17,14 @@ export class Controller {
 		}
 	}
 
+	formDataToObj(formData: FormData): Indexed {
+		const obj: Indexed = {};
+		for (const pair of formData.entries()) {
+			obj[pair[0]] = pair[1];
+		}
+		return obj;
+	}
+
 	_parse(value: string): Indexed {
 		const data = JSON.parse(value);
 		return data;

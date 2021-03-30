@@ -13,7 +13,7 @@ export const chat_body_tmpl: string =
 
 				<div class="chat_body_header_menu_show">
 						<ul>
-							<li class="chat_body_header_menu_item" data-show='add-user'>
+							<li class="chat_body_header_menu_item">
 								<span class="chat_body_header_menu_item_icon">
 									<img src="./assets/add_user_icon.svg">
 								</span>
@@ -22,8 +22,9 @@ export const chat_body_tmpl: string =
 										Добавить пользователя
 									</button>
 								</div>
+								<div class='item_handler' data-show='add-user'></div>
 							</li>
-							<li class="chat_body_header_menu_item" data-show='delete-user'>
+							<li class="chat_body_header_menu_item">
 								<span class="chat_body_header_menu_item_icon">
 									<img src="./assets/delete_user_icon.svg">
 								</span>
@@ -32,6 +33,7 @@ export const chat_body_tmpl: string =
 										Удалить пользователя
 									</button>
 								</div>
+								<div class='item_handler' data-show='delete-user'></div>
 							</li>
 							<li class="chat_body_header_menu_item" data-show='delete-chat'>
 								<span class="chat_body_header_menu_item_icon">
@@ -42,6 +44,7 @@ export const chat_body_tmpl: string =
 										Удалить чат
 									</button>
 								</div>
+								<div class='item_handler' data-show='delete-chat'></div>
 							</li>
 						</ul>
 				</div>

@@ -20,10 +20,35 @@ class ChatsController extends Controller {
         this.handle(res, name)
     }
 
-    async deleteChat (data?: any) {
-        const name = 'delete'
-        const res = await chat_api.delete(data)
+    async deleteChat() {
+		const name = 'delete'
+		const data = JSON.stringify({chatId: this.chatId})
+        const res = await chat_api.deleteChat(data)
         this.handle(res, name)
+	}
+
+	async addUser(formData: FormData) {
+		const data = JSON.stringify(this.formDataToObj(formData))
+		const user = await chat_api.searchUser(data);
+		if (user.status === 200) {
+			const userId = JSON.parse(user.response)[0].id
+			const userData = JSON.stringify({users: [userId], chatId: this.chatId})
+			const res = await chat_api.addUser(userData)
+			this.handle(res, 'addUser') //дописать обработку
+		}
+		this.handle(user, 'addUser')
+	}
+
+	async deleteUser(formData: FormData) {
+		const data = JSON.stringify(this.formDataToObj(formData))
+		const user = await chat_api.searchUser(data);
+		if (user.status === 200) {
+			const userId = JSON.parse(user.response)[0].id
+			const userData = JSON.stringify({users: [userId], chatId: this.chatId})
+			const res = await chat_api.deleteUser(userData)
+			this.handle(res, 'deleteUser') //дописать обработку
+		}
+		this.handle(user, 'deleteUser')
 	}
 
 	async getToken() {
@@ -112,7 +137,6 @@ class ChatsController extends Controller {
 				content.userId === this.userId ? props.position = 'right_message' : props.position = 'left_message'
 				const message_instance = new MessageInstance(props)
 				el.appendChild(message_instance.getContent())
-				debugger
 			}
 
 			if (Array.isArray(content)) {

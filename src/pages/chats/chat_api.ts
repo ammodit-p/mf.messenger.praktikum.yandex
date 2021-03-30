@@ -11,8 +11,20 @@ class ChatApi {
         return api.post('/chats', {data: data, headers: {'content-type': 'application/json'}});
     }
 
-    delete(data: any) {
+    deleteChat(data: any) {
         return api.delete('/chats', {data: data, headers: {'content-type': 'application/json'}});
+	}
+
+	searchUser(data: any) {
+		return api.post('/user/search', {data: data, headers: {'content-type': 'application/json'}})
+	}
+
+	addUser(data: any) {
+		return api.put('/chats/users', {data: data, headers: {'content-type': 'application/json'}})
+	}
+
+	deleteUser(data:any) {
+		return api.delete('/chats/users', {data: data, headers: {'content-type': 'application/json'}})
 	}
 
 	getToken(url: string) {
