@@ -23,7 +23,7 @@ class ChangeUserController extends Controller {
     handle(res: any, name: string, data?: string) {
         if (name === "getuser") {
             if(res.status === 200) {
-                this.set('profile.data', res.response)
+				this.set('profile', res.response)
             }
             if(res.status === 401) {
                 this.go('/')

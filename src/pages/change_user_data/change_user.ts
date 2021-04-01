@@ -21,7 +21,7 @@ export class Change_user extends Block {
         }, change_user_tmpl, "profile");
     }
 
-    componentDidMount () {
+    _getDataFromApi () {
       change_user_controller.getuser()
   }
 }
