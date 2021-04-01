@@ -136,7 +136,7 @@ class ChatsController extends Controller {
 					position: '',
 					content: content.content
 				}
-				content.userId === this.userId ? props.position = 'right_message' : props.position = 'left_message'
+				content.user_id === this.userId ? props.position = 'right_message' : props.position = 'left_message'
 				const message_instance = new MessageInstance(props)
 				el.appendChild(message_instance.getContent())
 			}
