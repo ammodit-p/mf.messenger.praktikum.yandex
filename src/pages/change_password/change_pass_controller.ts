@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController";
-import change_pass_api from "./change_pass_api";
+import {Controller} from '../../classes/classController';
+import change_pass_api from './change_pass_api';
 
 class ChangePassController extends Controller {
     constructor() {
@@ -7,13 +7,13 @@ class ChangePassController extends Controller {
     }
 
     async getuser () {
-        const name = "getuser";
+        const name = 'getuser';
         const res = await change_pass_api.get()
         this.handle(res, name)
     }
 
     async changepass (data: any) {
-        const name = "change";
+        const name = 'change';
         const res = await change_pass_api.put(data)
         this.handle(res, name)
     }
@@ -21,7 +21,7 @@ class ChangePassController extends Controller {
 
 
     handle(res: any, name: string) {
-        if (name === "getuser") {
+        if (name === 'getuser') {
             if(res.status === 200) {
                 return
             }
@@ -29,7 +29,7 @@ class ChangePassController extends Controller {
                 this.go('/')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {
@@ -37,7 +37,7 @@ class ChangePassController extends Controller {
             }
         }
 
-        if (name === "change") {
+        if (name === 'change') {
             if(res.status === 200) {
                 this.go('/profile')
             }
@@ -45,7 +45,7 @@ class ChangePassController extends Controller {
                 this.go('/')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {

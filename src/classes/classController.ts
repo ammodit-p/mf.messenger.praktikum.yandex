@@ -5,7 +5,7 @@ import {Indexed} from '../types';
 export class Controller {
 	constructor() {}
 
-	set(path: string, value?: string): void {
+	set(path: string, value?: string | Indexed): void {
 		if (value !== undefined) {
 			if (typeof(value) === 'string') {
 				const data: Indexed = this._parse(value);
@@ -15,6 +15,14 @@ export class Controller {
 				store.set(path, value);
 			}
 		}
+	}
+
+	formDataToObj(formData: FormData): Indexed {
+		const obj: Indexed = {};
+		for (const pair of formData.entries()) {
+			obj[pair[0]] = pair[1];
+		}
+		return obj;
 	}
 
 	_parse(value: string): Indexed {

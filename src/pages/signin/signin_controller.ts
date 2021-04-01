@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController"
-import signin_api from "./signin_api";
+import {Controller} from '../../classes/classController'
+import signin_api from './signin_api';
 
 class SigninController extends Controller {
     constructor() {
@@ -7,13 +7,13 @@ class SigninController extends Controller {
     }
 
     async signup (data?: any) {
-        const name = "signup";
+        const name = 'signup';
         const res = await signin_api.signup(data)
         this.handle(res, name, data)
     }
 
     handle(res: any, name: string, data: any) {
-        if (name === "signup") {
+        if (name === 'signup') {
             if(res.status === 200) {
 				this.set('profile', data)
 				this.go('/chat')
@@ -22,7 +22,7 @@ class SigninController extends Controller {
                 alert('Неверный логин/пароль')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {

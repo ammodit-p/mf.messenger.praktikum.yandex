@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController"
-import login_api from "./login_api";
+import {Controller} from '../../classes/classController'
+import login_api from './login_api';
 
 class LoginController extends Controller {
     constructor() {
@@ -7,20 +7,20 @@ class LoginController extends Controller {
     }
 
     async login (data?: any) {
-        const name = "login";
+        const name = 'login';
         const res = await login_api.signin(data)
         this.handle(res, name)
     }
 
     async getuser (data?: any) {
-        const name = "getUserInfo"
+        const name = 'getUserInfo'
         const res = await login_api.getUserInfo(data)
         this.handle(res, name)
     }
 
 
     handle(res: any, name: string) {
-        if (name === "login") {
+        if (name === 'login') {
             if(res.status === 200) {
                 this.go('/chat')
             }
@@ -28,7 +28,7 @@ class LoginController extends Controller {
                 alert('Неверный логин/пароль')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {
@@ -36,7 +36,7 @@ class LoginController extends Controller {
             }
         }
 
-        if (name === "getUserInfo") {
+        if (name === 'getUserInfo') {
             if(res.status === 200) {
 				this.set('profile', res.response)
 				this.go('/chat')
@@ -45,7 +45,7 @@ class LoginController extends Controller {
                 return
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {
