@@ -1,4 +1,5 @@
 import {Controller} from '../../classes/classController'
+import { Indexed } from '../../types';
 import chat_api from './chat_api';
 import {MessageInstance} from './chat_body/message_instance/message_instance';
 
@@ -14,9 +15,10 @@ class ChatsController extends Controller {
 		this.socketUrl = 'wss://ya-praktikum.tech/ws/chats/';
 	}
 
-    async createChat(data: any) {
+    async createChat(formData: FormData) {
+		const data: Indexed = this.formDataToObj(formData)
         const name = 'post';
-        const res = await chat_api.createChat(data)
+        const res = await chat_api.createChat(JSON.stringify(data))
         this.handle(res, name)
     }
 

@@ -12,6 +12,7 @@
     border-radius: 12px;
     text-align: center;
     display: none;
+    z-index: 1000;
 }
 
 .popup_form_header {
@@ -24,8 +25,4 @@
     position: absolute;
     left: (505/1280)*100%;
     bottom: 300/720*100%;
-}
-
-.show {
-    display: block
 }
