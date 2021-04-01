@@ -2,7 +2,7 @@
 import profile_controller from './profile_controller';
 
 export const events = {
-    click: function (event: any) {
+    click: function (event: MouseEvent) {
         if(event.target === document.querySelector('#chats')) {
             event.preventDefault()
             profile_controller.go('/chat')
@@ -19,7 +19,31 @@ export const events = {
         if(event.target === document.querySelector('.logout')) {
             event.preventDefault()
             profile_controller.logout()
-        }
-    }
+		}
+
+		if (event.target === document.getElementById('overlay')) {
+			document.querySelectorAll('.popup')?.forEach((element: HTMLElement) => {
+				element.classList.remove('show');
+			})
+			document.getElementById('overlay')?.classList.remove('show');
+		}
+
+		if (event.target === document.querySelector('.profile_header_button')) {
+			const popup = document.getElementById('change-avatar');
+			document.getElementById('overlay')?.classList.add('show');
+			popup?.classList.add('show');
+		}
+	},
+
+	submit: function (event: MouseEvent | KeyboardEvent) {
+		if (event.target === document.getElementById('change-avatar')) {
+			event.preventDefault();
+			const form: any = document.getElementById('change-avatar');
+			const formData = new FormData(form);
+			profile_controller.changeAvatar(formData);
+			form?.classList.remove('show');
+			document.getElementById('overlay')?.classList.remove('show');
+		}
+	}
 }
 

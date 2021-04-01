@@ -8,15 +8,23 @@ class ProfileController extends Controller {
 
     async getuser () {
         const name = 'getuserinfo';
-        const res = await profile_api.get()
+        const res = await profile_api.getUser()
         this.handle(res, name)
     }
 
     async logout () {
         const name = 'logout';
-        const res = await profile_api.post()
+        const res = await profile_api.logout()
         this.handle(res, name)
-    }
+	}
+
+	async changeAvatar(formData: FormData) {
+		const res = await profile_api.changeAvatar(formData);
+		if (res.status === 200) {
+			const avatar = await profile_api.getAvatar(JSON.parse(res.response).avatar)
+			console.log(avatar)
+		}
+	}
 
 
 

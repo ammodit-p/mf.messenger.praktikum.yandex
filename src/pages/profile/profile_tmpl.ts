@@ -1,12 +1,11 @@
-export const profile_tmpl: string = 
+export const profile_tmpl: string =
 `<button class="profile_return_button" id="chats">
     <span class="profile_return_button_circle"></span>
 </button>
 
 <div class="profile_header">
-    <button class="profile_header_button">
-         <img src={{avatar}} class="profile_header_img"></assets>
-    </button>
+    <img class="profile_header_button" src='{{avatar}}'">
+    </img>
     <h1 class="profile_header_login">{{first_name}}</h1>
 </div>
 
@@ -48,4 +47,6 @@ export const profile_tmpl: string =
     <div class="profile_menu_item}"><span class="blue_link user-data">Изменить данные</span></div>
     <div class="profile_menu_item"><span class="blue_link user-pass">Изменить пароль</span></div>
     <div class="profile_menu_item"><span class="red_link logout">Выйти</span></div>
-</div>`
+</div>
+<div class="overlay" id="overlay"></div>
+`

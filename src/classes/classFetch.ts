@@ -62,7 +62,9 @@ class Fetch {
 			xhr.withCredentials = true;
 
 
-			setHeaders(headers);
+			if (headers) {
+				setHeaders(headers);
+			}
 			xhr.onload = function() {
 				resolve(xhr);
 			};
