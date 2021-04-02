@@ -21,8 +21,7 @@ class ProfileController extends Controller {
 	async changeAvatar(formData: FormData) {
 		const res = await profile_api.changeAvatar(formData);
 		if (res.status === 200) {
-			const avatar = await profile_api.getAvatar(JSON.parse(res.response).avatar)
-			console.log(avatar)
+			this.set('profile', res.response)
 		}
 	}
 

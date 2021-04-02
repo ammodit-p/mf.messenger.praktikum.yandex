@@ -4,7 +4,7 @@ export const profile_tmpl: string =
 </button>
 
 <div class="profile_header">
-    <img class="profile_header_button" src='{{avatar}}'">
+    <img class="profile_header_button" src='https://ya-praktikum.tech/api/v2/resources/{{avatar}}'">
     </img>
     <h1 class="profile_header_login">{{first_name}}</h1>
 </div>

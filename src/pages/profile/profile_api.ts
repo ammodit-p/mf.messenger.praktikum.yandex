@@ -19,7 +19,7 @@ class ProfileApi {
 	}
 
 	getAvatar(path: string) {
-		return api.post(`/resources${path}`, {headers: {'content-type': 'application/json'}})
+		return api.get(`/resources${path}`, {headers: {'content-type': 'application/json'}})
 	}
 }
 
