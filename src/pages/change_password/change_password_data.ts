@@ -5,25 +5,28 @@ export const change_password_data: {} = {
      "text": "Сохранить",
     "inputs": [
         {
-            "fieldName": "oldPassword", 
+            "fieldName": "oldPassword",
             "inputType": "password",
             "class": "profile_input",
             "inputClass": "input_label black_label",
-            "labelValue": "Старый пароль",
+			"labelValue": "Старый пароль",
+			"val": "old password"
         },
         {
-            "fieldName": "newPassword", 
+            "fieldName": "newPassword",
             "inputType": "password",
             "class": "profile_input",
             "inputClass": "input_label black_label",
-            "labelValue": "Новый пароль",
+			"labelValue": "Новый пароль",
+			"val": "new password"
         },
         {
-            "fieldName": "checkNewPassword", 
+            "fieldName": "checkNewPassword",
             "inputType": "password",
             "inputClass": "input_label black_label",
             "class": "profile_input",
-            "labelValue": "Повторите новый пароль",
+			"labelValue": "Повторите новый пароль",
+			"val": "confirm password"
         },
     ]
 }

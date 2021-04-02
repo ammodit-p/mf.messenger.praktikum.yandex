@@ -14,7 +14,7 @@ export class Change_password extends Block {
 			form: new Change_password_form ()
 		}, props, change_password_tmpl, 'profile');
     }
-    componentDidMount () {
+    _getDataFromApi () {
       change_pass_controller.getuser()
   }
 }

@@ -14,5 +14,6 @@ export class Change_password_form extends Block {
         super("form",{}, {
 			button: new Button (props)
 		}, props, change_pass_form_tmpl, 'pass_form');
+		this.props = super.props;
     }
 }

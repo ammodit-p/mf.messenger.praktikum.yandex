@@ -96,6 +96,10 @@ class Block {
 		this._getDataFromApi();
 		const propFromStore: any = this.store.get(this._meta.className);
 		this.setProps(propFromStore);
+		this._emitStore();
+	}
+
+	_emitStore(): void {
 		this.store.setStoreObserver(this._meta.className, this.componentDidUpdate);
 	}
 

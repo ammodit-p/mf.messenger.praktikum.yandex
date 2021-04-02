@@ -23,7 +23,7 @@ class ChangePassController extends Controller {
     handle(res: any, name: string) {
         if (name === 'getuser') {
             if(res.status === 200) {
-                return
+				this.set('profile', res.response);
             }
             if(res.status === 401) {
                 this.go('/')
