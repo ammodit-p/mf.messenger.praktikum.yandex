@@ -1,4 +1,4 @@
-import Fetch from "../../classes/classFetch"
+import Fetch from '../../classes/classFetch'
 
 const api = new Fetch()
 
@@ -8,12 +8,23 @@ class ChatApi {
     }
 
     createChat(data: any) {
-		debugger
         return api.post('/chats', {data: data, headers: {'content-type': 'application/json'}});
     }
 
-    delete(data: any) {
+    deleteChat(data: any) {
         return api.delete('/chats', {data: data, headers: {'content-type': 'application/json'}});
+	}
+
+	searchUser(data: any) {
+		return api.post('/user/search', {data: data, headers: {'content-type': 'application/json'}})
+	}
+
+	addUser(data: any) {
+		return api.put('/chats/users', {data: data, headers: {'content-type': 'application/json'}})
+	}
+
+	deleteUser(data:any) {
+		return api.delete('/chats/users', {data: data, headers: {'content-type': 'application/json'}})
 	}
 
 	getToken(url: string) {
@@ -22,6 +33,10 @@ class ChatApi {
 
 	getUserInfo(data: any) {
         return api.get('/auth/user', {data: data, headers: {'content-type': 'application/json'}},)
+	}
+
+	getchats() {
+        return api.get('/chats', {headers: {'content-type': 'application/json'}},)
     }
 }
 

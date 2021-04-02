@@ -1,56 +1,57 @@
 export const signinPage_data: {} = {
-    "header": "Регистрация",
+	"header": "Регистрация",
+	"text": "Зарегистрироваться",
     "inputs": [
         {
-            "fieldName": "email", 
+            "fieldName": "email",
             "inputType": "email",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Почта" 
+            "labelValue": "Почта"
         },
-        
+
         {
-            "fieldName": "login", 
+            "fieldName": "login",
             "inputType": "text",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Логин" 
+            "labelValue": "Логин"
         },
         {
-            "fieldName": "first_name", 
+            "fieldName": "first_name",
             "inputType": "text",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Имя" 
+            "labelValue": "Имя"
         },
         {
-            "fieldName": "second_name", 
+            "fieldName": "second_name",
             "inputType": "text",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Фамилия" 
+            "labelValue": "Фамилия"
         },
         {
-            "fieldName": "phone", 
+            "fieldName": "phone",
             "inputType": "tel",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Телефон" 
+            "labelValue": "Телефон"
         },
         {
-            "fieldName": "password", 
+            "fieldName": "password",
             "inputType": "password",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Пароль" 
+            "labelValue": "Пароль"
         },
         {
-            "fieldName": "second_password", 
+            "fieldName": "second_password",
             "inputType": "password",
             "class": "from_input blue_input",
             "inputClass": "input_label",
-            "labelValue": "Пароль (еще раз)" 
+            "labelValue": "Пароль (еще раз)"
         },
-        
+
     ]
 }

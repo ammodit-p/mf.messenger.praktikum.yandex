@@ -1,8 +1,8 @@
 
-import {router} from "../../initialaze";
-import {checkForms} from "../../funcs/forms/checkForms";
-import jsonify from "../../funcs/jsonify";
-import login_controller from "./login_controller"
+import {router} from '../../initialaze';
+import {checkForms} from '../../funcs/forms/checkForms';
+import jsonify from '../../funcs/jsonify';
+import login_controller from './login_controller'
 
 export const events = {
     submit: function onSubmit (event: any) {

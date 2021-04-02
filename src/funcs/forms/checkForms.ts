@@ -1,6 +1,6 @@
 
-import {checkEmptyForm} from "./checkEmpty";
-import {validate} from "./validate";
+import {checkEmptyForm} from './checkEmpty';
+import {validate} from './validate';
 
 export function checkForms (form: any): boolean {
     checkEmptyForm(form)

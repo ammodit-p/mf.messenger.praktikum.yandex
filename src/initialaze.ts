@@ -1,4 +1,4 @@
-import {Router} from "./classes/classRouter";
+import {Router} from './classes/classRouter';
 
 
-export const router = new Router(".app")
+export const router = new Router('.app')

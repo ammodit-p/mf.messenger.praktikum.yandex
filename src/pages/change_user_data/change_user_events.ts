@@ -1,5 +1,5 @@
-import {checkForms} from "../../funcs/forms/checkForms";
-import change_user_controller from "./change_user_controller"
+import {checkForms} from '../../funcs/forms/checkForms';
+import change_user_controller from './change_user_controller'
 import jsonify from '../../funcs/jsonify'
 
 export const events = {

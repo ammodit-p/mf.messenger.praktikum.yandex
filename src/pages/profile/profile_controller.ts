@@ -1,5 +1,5 @@
-import {Controller} from "../../classes/classController";
-import profile_api from "./profile_api";
+import {Controller} from '../../classes/classController';
+import profile_api from './profile_api';
 
 class ProfileController extends Controller {
     constructor() {
@@ -7,13 +7,13 @@ class ProfileController extends Controller {
     }
 
     async getuser () {
-        const name = "getuserinfo";
+        const name = 'getuserinfo';
         const res = await profile_api.get()
         this.handle(res, name)
     }
 
     async logout () {
-        const name = "logout";
+        const name = 'logout';
         const res = await profile_api.post()
         this.handle(res, name)
     }
@@ -21,7 +21,7 @@ class ProfileController extends Controller {
 
 
     handle(res: any, name: string) {
-        if (name === "getuserinfo") {
+        if (name === 'getuserinfo') {
             if(res.status === 200) {
 				this.set('profile', res.response)
             }
@@ -29,7 +29,7 @@ class ProfileController extends Controller {
                 this.go('/')
             }
             if(res.status === 400) {
-                alert("Что-то пошло не так")
+                alert('Что-то пошло не так')
                     console.log(res.response)
             }
             if(res.status === 500) {
@@ -37,7 +37,7 @@ class ProfileController extends Controller {
             }
         }
 
-        if (name === "logout") {
+        if (name === 'logout') {
             if(res.status === 200) {
                 this.go('/')
             }

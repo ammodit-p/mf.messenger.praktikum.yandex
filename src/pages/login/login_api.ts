@@ -1,6 +1,6 @@
 
 
-import Fetch from "../../classes/classFetch"
+import Fetch from '../../classes/classFetch'
 
 
 const api = new Fetch()
