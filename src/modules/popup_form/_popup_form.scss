@@ -15,14 +15,17 @@
     z-index: 1000;
 }
 
-.popup_header {
+.popup_form_header {
     font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .popup_form_button {
     position: absolute;
     left: (505/1280)*100%;
     bottom: 300/720*100%;
+}
+
+.popup_form {
+    margin-bottom: 40px;
 }
