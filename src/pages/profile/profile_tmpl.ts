@@ -1,6 +1,6 @@
 export const profile_tmpl: string =
 `<button class="profile_return_button" id="chats">
-    <span class="profile_return_button_circle"></span>
+	<img class="profile_return_button_circle" src="./assets/profile_btn.svg"></img>
 </button>
 
 <div class="profile_header">

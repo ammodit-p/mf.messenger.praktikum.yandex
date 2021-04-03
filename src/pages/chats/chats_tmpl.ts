@@ -17,9 +17,8 @@ export const chats_tmpl: string =
         <span class="chatlist_profile_link_arrow"></span>
         </a>
 
-        <form class="chatlist_search_form">
-        <input type="search" name="search" class="chatlist_search_input" placeholder="Поиск">
-        <span class="chatlist_search_icon"></span>
+        <form class="chatlist_search_form" id="search-chat">
+			<input type="search" name="title" class="chatlist_search_input" placeholder="Поиск">
         </form>
 
     </div>

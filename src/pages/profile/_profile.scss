@@ -29,7 +29,8 @@
 	height: 28px;
 	padding: 7px 2px;
 	border-radius: 50%;
-	background-color:  $blue-color;
+    background-color:  $blue-color;
+    pointer-events: none;
 }
 
 .profile_header {

@@ -29,7 +29,7 @@ class Fetch {
 		const {data} = options;
 		url = this._url + url;
 		if (data) {
-			url = url + queryString(data);
+			url = url + '?' + queryString(data);
 		}
 		return this.request(url, options, METHODS.GET);
 	}

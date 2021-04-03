@@ -1,4 +1,5 @@
 import Fetch from '../../classes/classFetch'
+import { Indexed } from '../../types';
 
 const api = new Fetch()
 
@@ -39,8 +40,8 @@ class ChatApi {
         return api.get('/auth/user', {data: data, headers: {'content-type': 'application/json'}},)
 	}
 
-	getchats() {
-        return api.get('/chats', {headers: {'content-type': 'application/json'}},)
+	getchats(data?: Indexed) {
+        return api.get('/chats', {data: data, headers: {'content-type': 'application/json'}},)
     }
 }
 

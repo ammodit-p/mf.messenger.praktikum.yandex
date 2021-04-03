@@ -104,10 +104,7 @@ export const 	events = {
 			const formdata = new FormData(event.target);
 			const data = objFromForm(formdata);
 			chat_controller.sendMessage(data.message);
-			const input: HTMLInputElement | null = document.querySelector('.chat_body_footer_form_message');
-			if (input) {
-				input.value = '';
-			}
+			event.target.elements.message.value = '';
 		}
 
 		if (event.target === document.getElementById('change-avatar')) {
@@ -117,6 +114,14 @@ export const 	events = {
 			chat_controller.changeChatAvatar(formData);
 			form?.classList.remove('show');
 			document.getElementById('overlay')?.classList.remove('show');
+		}
+
+		if (event.target === document.getElementById('search-chat')) {
+			event.preventDefault();
+			const form: any = document.getElementById('search-chat');
+			const formData = new FormData(form);
+			chat_controller.getchats(formData);
+			form.elements.title.value = '';
 		}
     }
 }

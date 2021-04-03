@@ -68,9 +68,13 @@ class ChatsController extends Controller {
         this.handle(res, name)
 	}
 
-	async getchats () {
-        const name = 'chatlist';
-        const res = await chat_api.getchats()
+	async getchats (formData?: FormData) {
+		const name = 'chatlist';
+		let data: Indexed = {};
+		if (formData) {
+			data = this.formDataToObj(formData)
+		}
+		const res = await chat_api.getchats(data);
         this.handle(res, name)
 	}
 
