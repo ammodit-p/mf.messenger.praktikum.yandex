@@ -33,10 +33,11 @@
 }
 
 .profile_header {
+    position: relative;
     text-align: center;
 }
 
-.profile_header_button {
+.profile_header_avatar {
     display: block;
 	width: 130px;
 	height: 130px;
@@ -45,6 +46,27 @@
     margin-left: auto;
     margin-right: auto;
     background-color: #EFEFEF;
+}
+
+.profile_header_button {
+    position: absolute;
+    margin:auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 13px;
+    text-align: center;
+    display: none;
+}
+
+.profile_header_avatar:hover + .profile_header_button {
+    display: block;
 }
 
 .profile_header_login {

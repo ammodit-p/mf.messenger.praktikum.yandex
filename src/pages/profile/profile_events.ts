@@ -29,9 +29,8 @@ export const events = {
 		}
 
 		if (event.target === document.querySelector('.profile_header_button')) {
-			const popup = document.getElementById('change-avatar');
+			document.getElementById('change-avatar')?.classList.add('show');
 			document.getElementById('overlay')?.classList.add('show');
-			popup?.classList.add('show');
 		}
 	},
 
