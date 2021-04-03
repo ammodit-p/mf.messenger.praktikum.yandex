@@ -97,13 +97,17 @@ export const 	events = {
 			document.getElementById('overlay')?.classList.remove('show')
 		}
 
-		if(event.target === document.querySelector('#send-message')) {
+		if(event.target === document.getElementById('send-message')) {
 			event.preventDefault();
 			const checked: boolean = checkForms(event.target);
 			if(checked === false) {return};
 			const formdata = new FormData(event.target);
 			const data = objFromForm(formdata);
 			chat_controller.sendMessage(data.message);
+			const input: HTMLInputElement | null = document.querySelector('.chat_body_footer_form_message');
+			if (input) {
+				input.value = '';
+			}
 		}
 
 		if (event.target === document.getElementById('change-avatar')) {
