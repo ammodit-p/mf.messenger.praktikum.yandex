@@ -105,5 +105,14 @@ export const 	events = {
 			const data = objFromForm(formdata);
 			chat_controller.sendMessage(data.message);
 		}
+
+		if (event.target === document.getElementById('change-avatar')) {
+			event.preventDefault();
+			const form: any = document.getElementById('change-avatar');
+			const formData = new FormData(form);
+			chat_controller.changeChatAvatar(formData);
+			form?.classList.remove('show');
+			document.getElementById('overlay')?.classList.remove('show');
+		}
     }
 }

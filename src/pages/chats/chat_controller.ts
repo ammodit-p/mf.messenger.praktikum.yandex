@@ -78,8 +78,8 @@ class ChatsController extends Controller {
 		formData.append('chatId', String(this.chatId))
 		const res = await chat_api.changeChatAvatar(formData);
 		if (res.status === 200) {
-			this.set('chat_body', JSON.parse(res.response).avatar)
-			this.set('chatlist_area', JSON.parse(res.response).avatar)
+			this.set('chat_body', res.response)
+			this.set('chatlist_area', res.response)
 		}
 	}
 
