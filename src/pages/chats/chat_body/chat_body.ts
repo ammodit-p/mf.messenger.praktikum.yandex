@@ -5,6 +5,6 @@ import {ChatBodyView} from './chat_body_view/chat_body_view';
 
 export class Chat_body extends Block {
     constructor(props: Indexed = {}) {
-        super('main', {}, {chat_view: new ChatBodyView(props)}, props, chat_body_tmpl, 'chat_body')
+		super('main', {}, {chat_view: new ChatBodyView(props)}, props, chat_body_tmpl, 'chat_body')
     }
 }

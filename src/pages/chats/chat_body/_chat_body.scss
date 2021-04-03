@@ -33,11 +33,32 @@
 }
 
 .chat_body_header_avatar {
-    border-radius: 50%;
-	background-color: #EFEFEF;
-	margin-right: 10px;
+    display: block;
 	width: 34px;
 	height: 34px;
+	border-radius: 50%;
+    background-color: #EFEFEF;
+}
+
+.chat_body_header_button {
+	position: absolute;
+	left: 0;
+    border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #ffffff;
+    font-weight: 13px;
+    text-align: center;
+	width: 34px;
+	height: 34px;
+	display: none;
+}
+
+.chat_body_header_avatar:hover + .chat_body_header_button {
+	display: block;
+}
+
+.chat_body_header_button:hover {
+	display: block;
 }
 
 .chat_body_header_menu {

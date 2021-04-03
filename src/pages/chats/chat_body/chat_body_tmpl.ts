@@ -1,8 +1,12 @@
 export const chat_body_tmpl: string =
 `<div class = "chat_body_container">
-    <header class="chat_body_header">
-			<img src="{{avatar}}" class="chat_body_header_avatar">
-			<h1 class="chat_body_header_login">{{title}}</h1>
+	<header class="chat_body_header">
+		<span class="chat_body_header_avatar">
+			<img class="chat_body_header_avatar" src='https://ya-praktikum.tech/api/v2/resources/{{avatar}}'>
+			</img>
+		</span>
+		<button class="chat_body_header_button"></button>
+		<h1 class="chat_body_header_login">{{title}}</h1>
 
 			<div  class="chat_body_header_menu">
 				<svg width="3" height="16" viewBox="0 0 3 16" fill="none" xmlns="http://www.w3.org/2000/svg">

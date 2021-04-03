@@ -72,7 +72,16 @@ class ChatsController extends Controller {
         const name = 'chatlist';
         const res = await chat_api.getchats()
         this.handle(res, name)
-    }
+	}
+
+	async changeChatAvatar(formData: FormData) {
+		formData.append('chatId', String(this.chatId))
+		const res = await chat_api.changeChatAvatar(formData);
+		if (res.status === 200) {
+			this.set('chat_body', JSON.parse(res.response).avatar)
+			this.set('chatlist_area', JSON.parse(res.response).avatar)
+		}
+	}
 
 	_makeUrlForSocket(): string {
 		this._getUserId();

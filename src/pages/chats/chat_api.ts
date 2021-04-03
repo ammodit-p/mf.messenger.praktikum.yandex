@@ -5,7 +5,11 @@ const api = new Fetch()
 class ChatApi {
     constructor() {
 
-    }
+	}
+
+	changeChatAvatar(formdata: FormData) {
+		return api.put('/chats/avatar', {data: formdata})
+	}
 
     createChat(data: any) {
         return api.post('/chats', {data: data, headers: {'content-type': 'application/json'}});

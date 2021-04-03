@@ -5,7 +5,7 @@ export const profile_tmpl: string =
 
 <div class="profile_header">
 	<span class="profile_header_avatar">
-		<img class="profile_header_avatar" src='https://ya-praktikum.tech/api/v2/resources/{{avatar}}'">
+		<img class="profile_header_avatar" src='https://ya-praktikum.tech/api/v2/resources/{{avatar}}'>
 		</img>
 	</span>
 	<button class="profile_header_button">Поменять аватар</button>

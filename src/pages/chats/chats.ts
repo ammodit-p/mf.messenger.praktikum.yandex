@@ -7,6 +7,14 @@ import {chats_tmpl} from "./chats_tmpl";
 import {events} from "./chats_events";
 import chat_controller from './chat_controller';
 import { Indexed } from "../../types";
+import {PopupUpload} from '../../modules/popup_upload/classPopupUpload';
+
+const changeAvatar = {
+	fieldName: 'title',
+	id_element: "change-avatar",
+	content: "Загрузите фото",
+	'text': 'Поменять',
+}
 
 const addChatPopup: Indexed = {
     fieldName: 'title',
@@ -53,6 +61,7 @@ export class Chats extends Block {
 			add_chat: new PopupForm(addChatPopup),
 			add_user: new PopupForm(addUserPopup),
 			delete_user: new PopupForm(deleteUserPopup),
+			change_avatar: new PopupUpload(changeAvatar),
 		}, props, chats_tmpl, 'chats')
 	}
 

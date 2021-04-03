@@ -48,6 +48,11 @@ export const 	events = {
 			popup?.classList.add('show');
 		}
 
+		if (event.target === document.querySelector('.chat_body_header_button')) {
+			document.getElementById('change-avatar')?.classList.add('show');
+			document.getElementById('overlay')?.classList.add('show');
+		}
+
 
     },
 

@@ -9,7 +9,7 @@ chatListAreaPartial()
 export class Chat_list extends Block {
 	partial: void;
 	constructor(props: Indexed = {}) {
-			super("aside", {}, {}, props, chat_list_tmpl, "chatlist_area");
+		super("aside", {}, {}, props, chat_list_tmpl, "chatlist_area");
 	}
 
 	_getDataFromApi(): void {
