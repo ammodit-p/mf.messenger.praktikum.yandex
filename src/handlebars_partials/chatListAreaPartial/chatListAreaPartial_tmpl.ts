@@ -6,7 +6,7 @@ export const chatListAreaPartial_tmpl: string =
     <li class="chatlist_list_item {{chosen}}">
     <div class="chatlist_list_item_icon">
       <span>
-        <img src={{avatar}}>
+        <img src='https://ya-praktikum.tech/api/v2/resources/{{avatar}}'>
       </span>
     </div>
     <div class="chatlist_list_item_info">
