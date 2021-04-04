@@ -38,4 +38,21 @@ export class Controller {
 	get(path: string): any {
 		return store.get(path);
 	}
+
+	handle(res: XMLHttpRequest): void {
+		switch (res.status) {
+		case 401:
+			this.go('/');
+			break;
+
+		case 400:
+			alert('Что-то пошло не так');
+			console.log(res.response);
+			break;
+
+		case 500:
+			this.go('/500');
+			break;
+		}
+	}
 }

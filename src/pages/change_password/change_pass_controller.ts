@@ -6,7 +6,7 @@ class ChangePassController extends Controller {
         super()
     }
 
-    async getuser () {
+    async getuser(): Promise<void> {
 		const res = await change_pass_api.get()
 		if (res.status !== 200) {
 			this.handle(res)
@@ -14,7 +14,7 @@ class ChangePassController extends Controller {
 		this.set('profile', res.response);
     }
 
-    async changepass (formData: FormData) {
+    async changepass(formData: FormData): Promise<void> {
 		const data: string = JSON.stringify(this.formDataToObj(formData))
         const res = await change_pass_api.put(data)
 		if (res.status !== 200) {
@@ -22,25 +22,6 @@ class ChangePassController extends Controller {
 		}
 		this.go('/profile')
     }
-
-
-    handle(res: XMLHttpRequest) {
-		switch(res.status) {
-			case 401:
-				this.go('/');
-				break;
-
-			case 500:
-				this.go('/500');
-				break;
-
-			case 400:
-			alert('Что-то пошло не так')
-			console.log(res.response);
-			break;
-		}
-    }
-
 }
 
 

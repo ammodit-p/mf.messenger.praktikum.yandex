@@ -10,11 +10,11 @@ class LoginApi {
 
     }
 
-    getUserInfo(data: any) {
-        return api.get('/auth/user', {data: data, headers: {'content-type': 'application/json'}},)
+    getUserInfo() {
+        return api.get('/auth/user', {headers: {'content-type': 'application/json'}},)
     }
 
-    signin(data: any) {
+    signin(data: string) {
         return api.post('/auth/signin', {data: data, headers: {'content-type': 'application/json'}},)
     }
 }

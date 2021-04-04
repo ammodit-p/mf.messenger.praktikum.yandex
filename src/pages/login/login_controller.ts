@@ -6,54 +6,45 @@ class LoginController extends Controller {
         super()
     }
 
-    async login (data?: any) {
-        const name = 'login';
+    async login (formData: FormData) {
+		const data = JSON.stringify(this.formDataToObj(formData));
         const res = await login_api.signin(data)
-        this.handle(res, name)
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
+		this.go('/chat');
     }
 
-    async getuser (data?: any) {
-        const name = 'getUserInfo'
-        const res = await login_api.getUserInfo(data)
-        this.handle(res, name)
-    }
+    async getuser () {
+        const res = await login_api.getUserInfo()
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
+		this.set('profile', res.response)
+		this.go('/chat')
+	}
 
+	handle(res: XMLHttpRequest): void {
+		switch (res.status) {
+			case 401:
+				if (res.response == '{"reason":"Cookie is not valid"}') {
+					return
+				}
+				alert('Неверный логин/пароль');
+				break;
 
-    handle(res: any, name: string) {
-        if (name === 'login') {
-            if(res.status === 200) {
-                this.go('/chat')
-            }
-            if(res.status === 401) {
-                alert('Неверный логин/пароль')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
+			case 400:
+				alert('Что-то пошло не так');
+				console.log(res.response);
+				break;
 
-        if (name === 'getUserInfo') {
-            if(res.status === 200) {
-				this.set('profile', res.response)
-				this.go('/chat')
-            }
-            if(res.status === 401) {
-                return
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
-    }
-
+			case 500:
+				this.go('/500');
+				break;
+		}
+	}
 }
 
 

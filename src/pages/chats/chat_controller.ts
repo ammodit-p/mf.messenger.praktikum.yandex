@@ -14,72 +14,111 @@ class ChatsController extends Controller {
 		this.socketUrl = 'wss://ya-praktikum.tech/ws/chats/';
 	}
 
-    async createChat(formData: FormData) {
-		const data: {[k in string]: any} = this.formDataToObj(formData)
-        const name = 'post';
+	propsToBody(id: string):void {
+		const {list} = chat_controller.get('chatlist_area')
+		let props = {}
+		for (let key of list) {
+			if (key.id === (+id)) {
+				props = key
+			}
+		}
+		this.set('chat_body', JSON.stringify(props))
+	}
+
+    async createChat(formData: FormData): Promise<void> {
+		const data = this.formDataToObj(formData)
         const res = await chat_api.createChat(JSON.stringify(data))
-        this.handle(res, name)
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
+		this.getchats()
     }
 
-    async deleteChat() {
-		const name = 'delete'
+    async deleteChat(): Promise<void> {
 		const data = JSON.stringify({chatId: this.chatId})
         const res = await chat_api.deleteChat(data)
-        this.handle(res, name)
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
+		this.getchats()
 	}
 
-	async addUser(formData: FormData) {
+	async addUser(formData: FormData): Promise<void> {
 		const data = JSON.stringify(this.formDataToObj(formData))
 		const user = await chat_api.searchUser(data);
-		if (user.status === 200) {
-			const userId = JSON.parse(user.response)[0].id
-			const userData = JSON.stringify({users: [userId], chatId: this.chatId})
-			const res = await chat_api.addUser(userData)
-			this.handle(res, 'addUser') //дописать обработку
-		}
-		this.handle(user, 'addUser')
-	}
 
-	async deleteUser(formData: FormData) {
+		if (user.status !== 200) {
+			this.handle(user);
+		}
+
+		const userId = JSON.parse(user.response)[0].id
+		const userData = JSON.stringify({users: [userId], chatId: this.chatId})
+		const res = await chat_api.addUser(userData)
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
+}
+
+	async deleteUser(formData: FormData): Promise<void> {
 		const data = JSON.stringify(this.formDataToObj(formData))
 		const user = await chat_api.searchUser(data);
-		if (user.status === 200) {
-			const userId = JSON.parse(user.response)[0].id
-			const userData = JSON.stringify({users: [userId], chatId: this.chatId})
-			const res = await chat_api.deleteUser(userData)
-			this.handle(res, 'deleteUser') //дописать обработку
+
+		if (user.status !== 200) {
+			this.handle(user);
 		}
-		this.handle(user, 'deleteUser')
+		const userId = JSON.parse(user.response)[0].id
+		const userData = JSON.stringify({users: [userId], chatId: this.chatId})
+		const res = await chat_api.deleteUser(userData)
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
 	}
 
-	async getToken() {
+	async getToken(): Promise<void> {
 		const props: any = this.get('chat_body');
 		this.chatId = props.id;
 		const url = '/chats/token/' + this.chatId;
 		const res = await chat_api.getToken(url);
+		if (res.status !== 200) {
+			this.handle(res)
+		}
 		this.token = JSON.parse(res.response).token;
 		this._createSocket();
 	}
 
-	async getUser(data?: any) {
-		const name = 'getUserInfo'
+	async getUser(data?: any): Promise<void> {
         const res = await chat_api.getUserInfo(data)
-        this.handle(res, name)
+		if (res.status !== 200) {
+			this.handle(res)
+		}
+		this.set('profile', res.response)
+		this.go('/chat')
 	}
 
-	async getchats (formData?: FormData) {
-		const name = 'chatlist';
+	async getchats (formData?: FormData): Promise<void> {
 		let data: {[k in string]: any} = {};
 		if (formData) {
 			data = this.formDataToObj(formData)
 		}
 		const res = await chat_api.getchats(data);
-        this.handle(res, name)
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
+		this.set('chatlist_area', {list: JSON.parse(res.response)});
 	}
 
-	async changeChatAvatar(formData: FormData) {
+	async changeChatAvatar(formData: FormData): Promise<void> {
 		formData.append('chatId', String(this.chatId))
 		const res = await chat_api.changeChatAvatar(formData);
+		if (res.status !== 200) {
+			this.handle(res);
+			return;
+		}
 		if (res.status === 200) {
 			this.set('chat_body', res.response)
 			this.set('chatlist_area', res.response)
@@ -91,12 +130,12 @@ class ChatsController extends Controller {
 		const url = `${this.socketUrl}${this.userId}/${this.chatId}/${this.token}`;
 		return url
 	}
-	_getUserId() {
+	_getUserId(): void {
 		const data: any = this.get('profile');
 		this.userId = data.id;
 	}
 
-	_createSocket() {
+	_createSocket(): void {
 		const url = this._makeUrlForSocket();
 		this.websocket = new WebSocket(url);
 		this.websocket.addEventListener('open', () => {
@@ -116,7 +155,7 @@ class ChatsController extends Controller {
 		});
 	}
 
-	closeSocket() {
+	closeSocket(): void {
 		this.websocket.addEventListener('close', event => {
 			if (event.wasClean) {
 				console.log('Соединение закрыто чисто');
@@ -128,7 +167,7 @@ class ChatsController extends Controller {
 		});
 	}
 
-	sendMessage(formData: FormData) {
+	sendMessage(formData: FormData): void {
 		const data = this.formDataToObj(formData)
 		this.websocket.send(JSON.stringify({
             content: `${data.message}`,
@@ -170,107 +209,6 @@ class ChatsController extends Controller {
 		} catch(e){console.log(e)}
 
 	}
-
-	propsToBody(id: string):void {
-		const {list} = chat_controller.get('chatlist_area')
-		let props = {}
-		for (let key of list) {
-			if (key.id === (+id)) {
-				props = key
-			}
-		}
-
-		this.set('chat_body', JSON.stringify(props))
-	}
-
-
-
-
-    handle(res: any, name: string) {
-		if (name === 'getUserInfo') {
-            if(res.status === 200) {
-				this.set('profile', res.response)
-				this.go('/chat')
-            }
-            if(res.status === 401) {
-                return
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-		}
-
-        if (name === 'post') {
-            if(res.status === 200) {
-				chat_controller.getchats()
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-			}
-        }
-
-        if (name === 'delete') {
-            if(res.status === 200) {
-                chat_controller.getchats()
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-		}
-
-		if (name === 'chatlist') {
-            if(res.status === 200) {
-				this.set('chatlist_area', {list: JSON.parse(res.response)});
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
-
-		if (name === 'getToken') {
-            if(res.status === 200) {
-				this.set('token', res.response)
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
-	}
-
-
-
 }
 
 

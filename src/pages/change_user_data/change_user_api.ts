@@ -9,11 +9,11 @@ class ChangeUserApi {
 
     }
 
-    get() {
+    getUser() {
         return api.get('/auth/user', {headers: {}},)
     }
 
-    put(data: any) {
+    changeUser(data: string) {
         return api.put('/user/profile', {data: data, headers: {'content-type': 'application/json'}},)
     }
 }

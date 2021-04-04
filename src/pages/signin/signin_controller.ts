@@ -6,31 +6,35 @@ class SigninController extends Controller {
         super()
     }
 
-    async signup (data?: any) {
-        const name = 'signup';
+    async signup (formData: FormData) {
+		const data = JSON.stringify(this.formDataToObj(formData));
         const res = await signin_api.signup(data)
-        this.handle(res, name, data)
+		if (res.status !== 200) {
+			this.handle(res)
+		}
+		this.set('profile', data)
+		this.go('/chat')
     }
 
-    handle(res: any, name: string, data: any) {
-        if (name === 'signup') {
-            if(res.status === 200) {
-				this.set('profile', data)
-				this.go('/chat')
-            }
-            if(res.status === 401) {
-                alert('Неверный логин/пароль')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
-    }
+	handle(res: XMLHttpRequest): void {
+		switch (res.status) {
+			case 401:
+				if (res.response == '{"reason":"Cookie is not valid"}') {
+					return
+				}
+				alert('Неверный логин/пароль');
+				break;
 
+			case 400:
+				alert('Что-то пошло не так');
+				console.log(res.response);
+				break;
+
+			case 500:
+				this.go('/500');
+				break;
+		}
+	}
 }
 
 

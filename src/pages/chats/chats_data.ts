@@ -8,7 +8,6 @@ import {PopupForm} from "../../modules/popup_form/classPopupForm";
 
 export const events = {
     click: function (event:any) {
-		event.preventDefault();
         if (event.target === document.querySelector('#profile')) {
             chat_controller.go('/profile');
         }
@@ -57,11 +56,9 @@ export const events = {
     submit: function (event: any) {
         if (event.target === document.getElementById('add-chat')) {
             event.preventDefault();
-
             const form: HTMLFormElement = event.target;
-            const checked: boolean = checkForms(form);
+			const checked: boolean = checkForms(form);
             if(checked === false) {return};
-
             const formData = new FormData(form);
             chat_controller.createChat(formData);
 			event.target.classList.remove('show');

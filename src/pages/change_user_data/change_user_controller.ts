@@ -6,59 +6,26 @@ class ChangeUserController extends Controller {
         super()
     }
 
-    async getuser () {
-        const name = 'getuser';
-        const res = await change_user_api.get()
-        this.handle(res, name)
+    async getuser (): Promise<void> {
+        const res = await change_user_api.getUser()
+        if (res.status !== 200) {
+			this.handle(res)
+		}
+		this.set('profile', res.response)
+		this.set('user_form', res.response)
     }
 
-    async changeuser (data: any) {
-        const name = 'change';
-        const res = await change_user_api.put(data)
-        this.handle(res, name, data)
-    }
-
-
-
-    handle(res: any, name: string, data?: string) {
-        if (name === 'getuser') {
-            if(res.status === 200) {
-				this.set('profile', res.response)
-				this.set('user_form', res.response)
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
-
-        if (name === 'change') {
-            if(res.status === 200) {
-				this.set('profile', data)
-                this.go('/profile')
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
+    async changeuser (formData: FormData): Promise<void> {
+		const data: string = JSON.stringify(this.formDataToObj(formData));
+        const res = await change_user_api.changeUser(data)
+        if (res.status !== 200) {
+			this.handle(res)
+		}
+		this.set('profile', res.response)
+        this.go('/profile')
     }
 
 }
-
-
 
 const change_user_controller = new ChangeUserController();
 

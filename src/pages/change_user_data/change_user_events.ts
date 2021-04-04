@@ -1,6 +1,5 @@
 import {checkForms} from '../../funcs/forms/checkForms';
-import change_user_controller from './change_user_controller'
-import jsonify from '../../funcs/jsonify'
+import change_user_controller from './change_user_controller';
 
 export const events = {
     submit: function (event: any) {
@@ -9,11 +8,7 @@ export const events = {
         const form: any = document.forms[0]
         const checked: boolean = checkForms(form);
         if(checked === false) {return};
-        const formdata = new FormData(form)
-
-        const json = jsonify (formdata)
-
-        change_user_controller.changeuser(json)
+        change_user_controller.changeuser(new FormData(form))
 },
 
 
