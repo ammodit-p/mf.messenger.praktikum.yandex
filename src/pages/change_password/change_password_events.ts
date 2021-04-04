@@ -1,6 +1,5 @@
-import change_pass_controller from './change_pass_controller'
+import change_pass_controller from './change_pass_controller';
 import {checkForms} from '../../funcs/forms/checkForms';
-import jsonify from '../../funcs/jsonify'
 
 export const events = {
     submit: function (event: any) {
@@ -9,16 +8,11 @@ export const events = {
         const form: any = document.forms[0]
         const checked: boolean = checkForms(form);
         if(checked === false) {return};
-        const formdata = new FormData(form)
 
-        const json = jsonify (formdata)
-
-        change_pass_controller.changepass(json)
+        change_pass_controller.changepass(new FormData(form))
 },
 
-
-
-    focusout: function(event:any) {
+    focusout: function(event: any) {
         if (!event.target.value) {
             event.target.classList.add('invalid');
         }

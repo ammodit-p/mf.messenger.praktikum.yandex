@@ -7,51 +7,38 @@ class ChangePassController extends Controller {
     }
 
     async getuser () {
-        const name = 'getuser';
-        const res = await change_pass_api.get()
-        this.handle(res, name)
+		const res = await change_pass_api.get()
+		if (res.status !== 200) {
+			this.handle(res)
+		}
+		this.set('profile', res.response);
     }
 
-    async changepass (data: any) {
-        const name = 'change';
+    async changepass (formData: FormData) {
+		const data: string = JSON.stringify(this.formDataToObj(formData))
         const res = await change_pass_api.put(data)
-        this.handle(res, name)
+		if (res.status !== 200) {
+			this.handle(res)
+		}
+		this.go('/profile')
     }
 
 
+    handle(res: XMLHttpRequest) {
+		switch(res.status) {
+			case 401:
+				this.go('/');
+				break;
 
-    handle(res: any, name: string) {
-        if (name === 'getuser') {
-            if(res.status === 200) {
-				this.set('profile', res.response);
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
+			case 500:
+				this.go('/500');
+				break;
 
-        if (name === 'change') {
-            if(res.status === 200) {
-                this.go('/profile')
-            }
-            if(res.status === 401) {
-                this.go('/')
-            }
-            if(res.status === 400) {
-                alert('Что-то пошло не так')
-                    console.log(res.response)
-            }
-            if(res.status === 500) {
-                this.go('/500')
-            }
-        }
+			case 400:
+			alert('Что-то пошло не так')
+			console.log(res.response);
+			break;
+		}
     }
 
 }
