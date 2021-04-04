@@ -1,4 +1,4 @@
-import {Indexed} from '../types';
+
 import merge from '../funcs/merge';
 
 function hash(key: string, size: number): number {
@@ -36,7 +36,7 @@ class Store {
 		Store._instance = this;
 	}
 
-	set(key: string, data: Indexed): void {
+	set(key: string, data: {[k in string]: any}): void {
 		if (this.memory[hash(key, this.size)]) {
 			const list = this.memory[hash(key, this.size)];
 			const index = this.findMatchIndex(list, key);
@@ -53,7 +53,7 @@ class Store {
 		this._emitObserver(key);
 	}
 
-	get(key: string): Indexed | undefined {
+	get(key: string): {[k in string]: any} | undefined {
 		if (this.memory[hash(key, this.size)]) {
 			const list = this.memory[hash(key, this.size)];
 			const index = this.findMatchIndex(list, key);
@@ -88,7 +88,7 @@ class Store {
 		});
 	}
 
-	findMatchIndex(list: Indexed, key: string): number | undefined {
+	findMatchIndex(list: {[k in string]: any}, key: string): number | undefined {
 		for (let i = 0; i < list.length; i++) {
 			if (list[i][0] === key) return i;
 		}

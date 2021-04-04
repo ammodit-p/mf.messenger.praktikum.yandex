@@ -1,4 +1,4 @@
-import {Indexed} from '../types';
+
 import {Options} from '../types';
 import {queryString} from './../funcs/queryString';
 
@@ -49,7 +49,7 @@ class Fetch {
 		const {headers, data} = options;
 
 		return new Promise((resolve, reject) => {
-			function setHeaders(headers: Indexed) {
+			function setHeaders(headers: {[k in string]: any}) {
 				for (const key in headers) {
 					if (key) {
 						xhr.setRequestHeader(key, headers[key]);

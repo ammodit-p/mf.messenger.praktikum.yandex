@@ -1,11 +1,10 @@
 import Block from "../../classes/classBlock";
 import {fiveHundred_tmpl} from "./500_tmpl";
-import {events} from "./500_events"
-import { Indexed } from "../../types";
+import {events} from "./500_events";
 
 
 export class FiveHundred extends Block {
-    constructor (props: Indexed) {
+    constructor (props: {[k in string]: any}) {
         super("div", events, {}, props, fiveHundred_tmpl, "wrapper");
     }
 }

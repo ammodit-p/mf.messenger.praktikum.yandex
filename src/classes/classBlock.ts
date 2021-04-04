@@ -1,16 +1,16 @@
 import * as Handlebars from 'handlebars';
 import {EventBus} from './eventBus';
-import {Indexed} from '../types';
+
 import merge from '../funcs/merge';
 import {store} from '../store/Store';
 
 interface Meta {
 	tagName: string;
-	props: Indexed;
+	props: {[k in string]: any};
 	tmpl: string;
 	className: string;
-	events: Indexed;
-	children: Indexed;
+	events: {[k in string]: any};
+	children: {[k in string]: any};
 }
 class Block {
 	eventBus: EventBus;
@@ -30,16 +30,16 @@ class Block {
 
 	_element: HTMLElement;
 	_meta: Meta;
-	props: Indexed;
+	props: {[k in string]: any};
 	className: string;
 	store: any;
 
 
 	constructor(
 		tagName: string = 'div',
-		events: Indexed = {},
-		children: Indexed = {},
-		props: Indexed = {},
+		events: {[k in string]: any} = {},
+		children: {[k in string]: any} = {},
+		props: {[k in string]: any} = {},
 		tmpl: string,
 		className: string,
 	) {
@@ -130,7 +130,7 @@ class Block {
 	}
 
 
-	setProps(nextProps: Indexed): void {
+	setProps(nextProps: {[k in string]: any}): void {
 		if (!nextProps) {
 			return;
 		}

@@ -1,6 +1,6 @@
 import {isEqual} from '../funcs/isEqual';
 import render from '../funcs/render';
-import {Indexed} from '../types';
+
 
 export class Route {
 	_pathname: string;
@@ -8,7 +8,7 @@ export class Route {
 	_block: any | null;
 	_props: any;
 
-	constructor(pathname: string, view: any, props: Indexed) {
+	constructor(pathname: string, view: any, props: {[k in string]: any}) {
 		this._pathname = pathname;
 		this._blockClass = view;
 		this._block = null;

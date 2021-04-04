@@ -5,7 +5,6 @@ import {PopupUpload} from '../../modules/popup_upload/classPopupUpload';
 import { Chat_list } from "./chat_list/chat_list";
 import {Chat_body} from "./chat_body/chat_body";
 import {PopupForm} from "../../modules/popup_form/classPopupForm";
-import { Indexed } from '../../types';
 
 export const events = {
     click: function (event:any) {
@@ -133,7 +132,7 @@ const changeAvatar = {
 	'text': 'Поменять',
 }
 
-const addChatPopup: Indexed = {
+const addChatPopup: {[k in string]: any} = {
     fieldName: 'title',
     inputClass: 'input_label',
     labelValue: 'Название',
@@ -145,7 +144,7 @@ const addChatPopup: Indexed = {
     'text': 'Добавить',
 }
 
-const addUserPopup: Indexed = {
+const addUserPopup: {[k in string]: any} = {
     fieldName: 'login',
     inputClass: 'input_label',
     labelValue: 'Логин',
@@ -157,7 +156,7 @@ const addUserPopup: Indexed = {
     'text': 'Добавить',
 }
 
-const deleteUserPopup: Indexed = {
+const deleteUserPopup: {[k in string]: any} = {
 	fieldName: 'login',
     inputClass: 'input_label',
     labelValue: 'Логин',

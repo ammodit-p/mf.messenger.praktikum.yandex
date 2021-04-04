@@ -1,6 +1,6 @@
-import {Indexed} from '../types';
 
-function merge(target: any, source: any): Indexed {
+
+function merge(target: any, source: any): {[k in string]: any} {
 	if (!isPlainObject(target) && isPlainObject(source)) {
 		return source;
 	}
@@ -20,7 +20,7 @@ function merge(target: any, source: any): Indexed {
 	return target;
 }
 
-function isPlainObject(value: unknown): value is Indexed {
+function isPlainObject(value: unknown): value is {[k in string]: any} {
 	return typeof value === 'object' &&
         value !== null &&
         value.constructor === Object &&

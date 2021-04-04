@@ -5,15 +5,14 @@ import {login_tmpl} from "./login_tmpl";
 import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial";
 import {loginPage_data} from "./loginPage_data";
 import {events} from "./login_events";
-import login_controller from './login_controller'
-import { Indexed } from "../../types";
+import login_controller from './login_controller';
 
 
 inputPartial();
 
 export class Login extends Block {
 	partial: void;
-    constructor (props: Indexed = loginPage_data) {
+    constructor (props: {[k in string]: any} = loginPage_data) {
 		super("form", events,{button: new Button (props)}, props, login_tmpl, "login_form");
 	}
 

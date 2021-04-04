@@ -1,7 +1,7 @@
-import {Indexed} from '../types';
-export function arrToObject(arr: any): Indexed {
-	const result: Indexed = arr.reduceRight((acc: string|number, key:string|number) => ({
-		[key]: acc,
-	}));
+export function arrToObject(arr: any): {[k in string]: any} {
+	const result: {[k in string]: any} = arr.reduceRight(
+		(acc: string|number, key:string|number) => ({
+			[key]: acc,
+		}));
 	return result;
 }

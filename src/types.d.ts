@@ -1,5 +1,3 @@
-export type Indexed = {[k in string]: any}
-
 export type StringObj = {
 	[k in string]: string | boolean
 }

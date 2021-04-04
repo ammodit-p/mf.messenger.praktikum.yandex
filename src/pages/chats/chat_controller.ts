@@ -1,5 +1,4 @@
-import {Controller} from '../../classes/classController'
-import { Indexed } from '../../types';
+import {Controller} from '../../classes/classController';
 import chat_api from './chat_api';
 import {MessageInstance} from './chat_body/message_instance/message_instance';
 
@@ -16,7 +15,7 @@ class ChatsController extends Controller {
 	}
 
     async createChat(formData: FormData) {
-		const data: Indexed = this.formDataToObj(formData)
+		const data: {[k in string]: any} = this.formDataToObj(formData)
         const name = 'post';
         const res = await chat_api.createChat(JSON.stringify(data))
         this.handle(res, name)
@@ -70,7 +69,7 @@ class ChatsController extends Controller {
 
 	async getchats (formData?: FormData) {
 		const name = 'chatlist';
-		let data: Indexed = {};
+		let data: {[k in string]: any} = {};
 		if (formData) {
 			data = this.formDataToObj(formData)
 		}

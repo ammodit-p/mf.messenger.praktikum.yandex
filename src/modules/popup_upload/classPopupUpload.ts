@@ -1,11 +1,10 @@
 import Block from "../../classes/classBlock";
-import { Indexed } from "../../types";
 import {Button} from '../button/classButton';
 import {popup_upload_tmpl} from './popup_upload_tmpl';
 
 
 export class PopupUpload extends Block {
-	constructor(props: Indexed) {
+	constructor(props: {[k in string]: any}) {
 		super('form', {}, {button: new Button(props)}, props, popup_upload_tmpl, 'popup')
 	}
 

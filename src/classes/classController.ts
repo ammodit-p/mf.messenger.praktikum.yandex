@@ -1,12 +1,11 @@
 import {router} from '../initialaze';
 import {store} from '../store/Store';
-import {Indexed} from '../types';
 
 export class Controller {
-	set(path: string, value?: string | Indexed): void {
+	set(path: string, value?: string | {[k in string]: any}): void {
 		if (value !== undefined) {
 			if (typeof(value) === 'string') {
-				const data: Indexed = this._parse(value);
+				const data: {[k in string]: any} = this._parse(value);
 				store.set(path, data);
 			}
 			if (typeof(value) === 'object') {
@@ -15,15 +14,15 @@ export class Controller {
 		}
 	}
 
-	formDataToObj(formData: FormData): Indexed {
-		const obj: Indexed = {};
+	formDataToObj(formData: FormData): {[k in string]: any} {
+		const obj: {[k in string]: any} = {};
 		for (const pair of formData.entries()) {
 			obj[pair[0]] = pair[1];
 		}
 		return obj;
 	}
 
-	_parse(value: string): Indexed {
+	_parse(value: string): {[k in string]: any} {
 		const data = JSON.parse(value);
 		return data;
 	}
