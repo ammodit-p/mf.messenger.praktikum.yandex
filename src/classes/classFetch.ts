@@ -20,12 +20,12 @@ class Fetch {
 		this.request = this.request.bind(this);
 	}
 
-	put(url: string, options:Options = {'headers': {}}): Promise<XMLHttpRequest> {
+	put(url: string, options:Options = {headers: {}}): Promise<XMLHttpRequest> {
 		const newUrl = this._url + url;
 		return this.request(newUrl, options, METHODS.PUT);
 	}
 
-	get(url: string, options:Options = {'headers': {}}): Promise<XMLHttpRequest> {
+	get(url: string, options:Options = {headers: {}}): Promise<XMLHttpRequest> {
 		const {data} = options;
 		url = this._url + url;
 		if (data) {
@@ -34,12 +34,12 @@ class Fetch {
 		return this.request(url, options, METHODS.GET);
 	}
 
-	post(url: string, options:Options = {'headers': {}}): Promise<XMLHttpRequest> {
+	post(url: string, options:Options = {headers: {}}): Promise<XMLHttpRequest> {
 		url = this._url + url;
 		return this.request(url, options, METHODS.POST);
 	}
 
-	delete(url: string, options:Options = {'headers': {}}): Promise<XMLHttpRequest> {
+	delete(url: string, options:Options = {headers: {}}): Promise<XMLHttpRequest> {
 		url = this._url + url;
 		return this.request(url, options, METHODS.DELETE);
 	}
