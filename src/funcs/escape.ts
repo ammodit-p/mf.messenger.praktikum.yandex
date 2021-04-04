@@ -1,7 +1,5 @@
-import {S} from '../types';
-
 export default function escape(string: string): string {
-	const htmlEscapes: S = {
+	const htmlEscapes: {[k in string]: string} = {
 		'&': '&amp;',
 		'<': '&lt;',
 		'>': '&gt;',

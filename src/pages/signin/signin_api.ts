@@ -4,9 +4,6 @@ import Fetch from '../../classes/classFetch'
 const api = new Fetch()
 
 class SigninApi {
-    constructor() {
-
-    }
 
     signup(data: any) {
         return api.post('/auth/signup', {data: data, headers: {'content-type': 'application/json'}},)

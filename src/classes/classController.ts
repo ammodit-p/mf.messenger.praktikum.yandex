@@ -3,8 +3,6 @@ import {store} from '../store/Store';
 import {Indexed} from '../types';
 
 export class Controller {
-	constructor() {}
-
 	set(path: string, value?: string | Indexed): void {
 		if (value !== undefined) {
 			if (typeof(value) === 'string') {

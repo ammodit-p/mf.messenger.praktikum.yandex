@@ -1,10 +1,11 @@
 @import './variables';
 @import './extends';
-@import './global-styles';
 @import '../pages/LOGIN/login';
 @import '../pages/SIGNIN/signin';
 @import '../pages/CHATS/chats';
 @import '../pages/PROFILE/profile';
 @import '../pages/CHANGE_USER_DATA/change_user_data';
 @import '../pages/400/400';
-@import '../modules/popup_upload/popup_upload'
+@import '../modules/popup_upload/popup_upload';
+@import '../modules/popup_form/popup_form';
+@import './global-styles';

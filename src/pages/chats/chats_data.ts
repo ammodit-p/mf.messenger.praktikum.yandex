@@ -1,18 +1,21 @@
-import {router} from '../../initialaze';
 import chat_controller from './chat_controller';
 import {checkForms} from '../../funcs/forms/checkForms';
 import objFromForm from '../../funcs/objFromForm';
+import {PopupUpload} from '../../modules/popup_upload/classPopupUpload';
+import { Chat_list } from "./chat_list/chat_list";
+import {Chat_body} from "./chat_body/chat_body";
+import {PopupForm} from "../../modules/popup_form/classPopupForm";
+import { Indexed } from '../../types';
 
-export const 	events = {
+export const events = {
     click: function (event:any) {
+		event.preventDefault();
         if (event.target === document.querySelector('#profile')) {
-            event.preventDefault();
-            router.go('/profile');
+            chat_controller.go('/profile');
         }
 
-        if (event.target === document.querySelector('.add_chat svg')) {
-			const popup = document.getElementById('add-chat');
-			popup?.classList.add('show');
+        if (event.target === document.querySelector('.add_chat')) {
+			document.getElementById('add-chat')?.classList.add('show');
 			document.getElementById('overlay')?.classList.add('show');
         }
 
@@ -24,28 +27,24 @@ export const 	events = {
 		}
 
 		if (event.target.getAttribute('data-show') === 'show-chat-window') {
-			const chat = document.querySelector('.chat_body');
 			chat_controller.propsToBody(event.target.id);
 			chat_controller.getToken();
-			chat?.classList.add('show');
+			document.querySelector('.chat_body')?.classList.add('show');
 		}
 
         if (event.target.getAttribute('data-show') === 'delete-chat') {
 			chat_controller.deleteChat();
-			const chat = document.querySelector('.chat_body');
-			chat?.classList.remove('show');
+			document.querySelector('.chat_body')?.classList.remove('show');
 		}
 
 		if (event.target.getAttribute('data-show') === 'add-user') {
-			const popup = document.getElementById('add-user');
 			document.getElementById('overlay')?.classList.add('show');
-			popup?.classList.add('show');
+			document.getElementById('add-user')?.classList.add('show');
 		}
 
 		if (event.target.getAttribute('data-show') === 'delete-user') {
-			const popup = document.getElementById('delete-user');
 			document.getElementById('overlay')?.classList.add('show');
-			popup?.classList.add('show');
+			document.getElementById('delete-user')?.classList.add('show');
 		}
 
 		if (event.target === document.querySelector('.chat_body_header_button')) {
@@ -125,3 +124,58 @@ export const 	events = {
 		}
     }
 }
+
+
+const changeAvatar = {
+	fieldName: 'title',
+	id_element: "change-avatar",
+	content: "Загрузите фото",
+	'text': 'Поменять',
+}
+
+const addChatPopup: Indexed = {
+    fieldName: 'title',
+    inputClass: 'input_label',
+    labelValue: 'Название',
+    inputType: 'text',
+    class: 'form_input blue_input',
+    form_class: "add_chat_form",
+    id_element: "add-chat",
+    content: "Создать чат",
+    'text': 'Добавить',
+}
+
+const addUserPopup: Indexed = {
+    fieldName: 'login',
+    inputClass: 'input_label',
+    labelValue: 'Логин',
+    inputType: 'text',
+    class: 'form_input blue_input',
+    form_class: "add_user_form",
+    id_element: "add-user",
+    content: "Добавить пользователя",
+    'text': 'Добавить',
+}
+
+const deleteUserPopup: Indexed = {
+	fieldName: 'login',
+    inputClass: 'input_label',
+    labelValue: 'Логин',
+    inputType: 'text',
+    class: 'form_input blue_input',
+    form_class: "delete_user_form",
+    id_element: "delete-user",
+    content: "Удалить пользователя",
+    'text': 'Удалить',
+}
+
+export const children = {
+	chat_list: new Chat_list(),
+	chat_body: new Chat_body(),
+	add_chat: new PopupForm(addChatPopup),
+	add_user: new PopupForm(addUserPopup),
+	delete_user: new PopupForm(deleteUserPopup),
+	change_avatar: new PopupUpload(changeAvatar),
+}
+
+

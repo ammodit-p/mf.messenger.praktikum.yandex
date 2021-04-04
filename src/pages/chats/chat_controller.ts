@@ -129,12 +129,12 @@ class ChatsController extends Controller {
 		});
 	}
 
-	sendMessage(message: string) {
-		const send = JSON.stringify({
-            content: `${message}`,
+	sendMessage(formData: FormData) {
+		const data = this.formDataToObj(formData)
+		this.websocket.send(JSON.stringify({
+            content: `${data.message}`,
 			type: 'message',
-		})
-		this.websocket.send(send);
+		}));
 	}
 
 	renderMessages(data: any): void {
@@ -143,7 +143,7 @@ class ChatsController extends Controller {
 			const content: any = JSON.parse(data)
 			if(!Array.isArray(content)) {
 				this.set('chat_body_messages_item', content);
-				const el: any = document.querySelector('.chat_body_view');
+				const el: any = document.querySelector('.chat_body_messages');
 				const props = {
 					type: content.type,
 					position: '',
@@ -157,7 +157,7 @@ class ChatsController extends Controller {
 			if (Array.isArray(content)) {
 				content.forEach((key) => {
 					this.set('chat_body_messages_item', key);
-					const el: any = document.querySelector('.chat_body_view');
+					const el: any = document.querySelector('.chat_body_messages');
 					const props = {
 						type: key.type,
 						position: '',
