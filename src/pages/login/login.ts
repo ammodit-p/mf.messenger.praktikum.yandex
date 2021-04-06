@@ -1,4 +1,3 @@
-//
 import Block from "../../classes/classBlock";
 import {Button} from "../../modules/button/classButton"
 import {login_tmpl} from "./login_tmpl";

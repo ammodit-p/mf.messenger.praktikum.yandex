@@ -118,7 +118,13 @@ export const events = {
 			chat_controller.getchats(formData);
 			form.elements.title.value = '';
 		}
-    }
+	},
+
+	change: function (event: Event) {
+		if (event.target === document.querySelector('input[type="file"]')) {
+			document.querySelector('.file_upload')?.classList.add('show');
+		}
+	}
 }
 
 

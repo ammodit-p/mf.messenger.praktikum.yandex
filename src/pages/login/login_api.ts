@@ -6,9 +6,6 @@ import Fetch from '../../classes/classFetch'
 const api = new Fetch()
 
 class LoginApi {
-    constructor() {
-
-    }
 
     getUserInfo() {
         return api.get('/auth/user', {headers: {'content-type': 'application/json'}},)
