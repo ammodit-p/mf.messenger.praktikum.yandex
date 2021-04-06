@@ -43,6 +43,12 @@ export const events = {
 			form?.classList.remove('show');
 			document.getElementById('overlay')?.classList.remove('show');
 		}
+	},
+
+	change: function (event: Event) {
+		if (event.target === document.querySelector('input[type="file"]')) {
+			document.querySelector('.file_upload')?.classList.add('show');
+		}
 	}
 }
 
