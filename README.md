@@ -11,7 +11,7 @@ Heroku: https://ya-praktikum-my-app.herokuapp.com/
 
 Как собрать и запустить:
 1. Дев-режим: npm run dev && npm run start.В одну команду не объединяю, чтобы в разных окнах консоли запускать
-2. Сборка вебпаком: npm run build
+2. Сборка вебпаком: npm run build.
 
 Что еще не сделано:
 

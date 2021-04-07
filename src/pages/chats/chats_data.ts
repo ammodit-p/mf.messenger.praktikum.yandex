@@ -1,6 +1,5 @@
 import chat_controller from './chat_controller';
 import {checkForms} from '../../funcs/forms/checkForms';
-import objFromForm from '../../funcs/objFromForm';
 import {PopupUpload} from '../../modules/popup_upload/classPopupUpload';
 import { Chat_list } from "./chat_list/chat_list";
 import {Chat_body} from "./chat_body/chat_body";
@@ -96,9 +95,7 @@ export const events = {
 			event.preventDefault();
 			const checked: boolean = checkForms(event.target);
 			if(checked === false) {return};
-			const formdata = new FormData(event.target);
-			const data = objFromForm(formdata);
-			chat_controller.sendMessage(data.message);
+			chat_controller.sendMessage(new FormData(event.target));
 			event.target.elements.message.value = '';
 		}
 

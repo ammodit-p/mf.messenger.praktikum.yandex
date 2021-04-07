@@ -168,7 +168,7 @@ class ChatsController extends Controller {
 	}
 
 	sendMessage(formData: FormData): void {
-		const data = this.formDataToObj(formData)
+		const data = this.formDataToObj(formData);
 		this.websocket.send(JSON.stringify({
             content: `${data.message}`,
 			type: 'message',
