@@ -11,8 +11,8 @@ import './css/styles.scss';
 
 
 
-const router: Router = new Router ('.app');
-
+export const router: Router = new Router ('.app');
+router.setErrorPage('/404');
 router
     .use('/', Login)
     .use('/signin', Signin)

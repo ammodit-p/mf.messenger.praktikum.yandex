@@ -8,6 +8,7 @@ export class Route {
 	_block: any | null;
 	_props: any;
 
+
 	constructor(pathname: string, view: any, props: {[k in string]: any}) {
 		this._pathname = pathname;
 		this._blockClass = view;

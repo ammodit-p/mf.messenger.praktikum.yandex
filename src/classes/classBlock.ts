@@ -1,6 +1,5 @@
 import * as Handlebars from 'handlebars';
 import {EventBus} from './eventBus';
-
 import merge from '../funcs/merge';
 import {store} from '../store/Store';
 
