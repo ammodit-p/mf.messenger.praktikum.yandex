@@ -61,7 +61,6 @@ export class Router {
 
 	_onRoute(pathname: string): void {
 		const route = this.getRoute(pathname);
-
 		if (!route) {
 			this.eventBus.emit(Router.EVENTS.GO);
 			return;
@@ -95,5 +94,13 @@ export class Router {
 
 	getRoute(pathname: string): Route | undefined {
 		return this.routes.find((route) => route.match(pathname));
+	}
+
+	deleteRoute(pathname: string): void {
+		const route = this.getRoute(pathname);
+		if (route) {
+			const routeIndex = this.routes.indexOf(route);
+			this.routes.splice(routeIndex, 1);
+		}
 	}
 }
