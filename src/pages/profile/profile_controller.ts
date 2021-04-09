@@ -7,30 +7,36 @@ class ProfileController extends Controller {
     }
 
     async getuser () {
-        const res = await profile_api.getUser()
-		if (res.status !== 200) {
-			this.handle(res)
+        const res = await profile_api.getUser().catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.set('profile', res.response)
 		}
-		this.set('profile', res.response)
     }
 
     async logout () {
-        const res = await profile_api.logout()
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+        const res = await profile_api.logout().catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.go('/');
 		}
-		this.go('/');
 
 	}
 
 	async changeAvatar(formData: FormData) {
-		const res = await profile_api.changeAvatar(formData);
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+		const res = await profile_api.changeAvatar(formData).catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.set('profile', res.response)
 		}
-		this.set('profile', res.response)
 	}
 }
 

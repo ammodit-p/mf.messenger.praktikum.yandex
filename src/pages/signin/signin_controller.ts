@@ -8,12 +8,14 @@ class SigninController extends Controller {
 
     async signup (formData: FormData) {
 		const data = JSON.stringify(this.formDataToObj(formData));
-        const res = await signin_api.signup(data)
-		if (res.status !== 200) {
-			this.handle(res)
+        const res = await signin_api.signup(data).catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.set('profile', data)
+			this.go('/chat')
 		}
-		this.set('profile', data)
-		this.go('/chat')
     }
 
 	handle(res: XMLHttpRequest): void {

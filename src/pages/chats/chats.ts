@@ -11,6 +11,6 @@ export class Chats extends Block {
 	}
 
 	_getDataFromApi(): void {
-		chat_controller.getUser()
+		chat_controller.getchats();
 	}
 }

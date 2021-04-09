@@ -3,22 +3,14 @@ import {profile_tmpl} from "./profile_tmpl";
 import {events} from "./profile_events";
 import profile_controller from "./profile_controller";
 import {PopupUpload} from '../../modules/popup_upload/classPopupUpload';
-import {profile_data} from './profile_data';
-
-
-const changeAvatar = {
-	fieldName: 'title',
-	id_element: "change-avatar",
-	content: "Загрузите фото",
-	'text': 'Поменять',
-}
+import {profile_data, changeAvatar} from './profile_data';
 
 export class Profile extends Block {
     constructor (props: {[k in string]: any} = profile_data) {
         super("div", events,{children: new PopupUpload(changeAvatar)}, props, profile_tmpl, "profile");
     }
 
-    async _getDataFromApi() {
-        await profile_controller.getuser()
+    _getDataFromApi() {
+        profile_controller.getuser()
     }
 }
