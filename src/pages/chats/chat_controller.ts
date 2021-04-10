@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController';
-import chat_api from './chat_api';
+import {chat_api} from './chat_api';
 import {MessageInstance} from './chat_body/message_instance/message_instance';
 
 
@@ -231,6 +231,4 @@ class ChatsController extends Controller {
 
 
 
-const chat_controller = new ChatsController();
-
-export default chat_controller
+export const chat_controller = new ChatsController();

@@ -1,4 +1,4 @@
-import Block from "../../classes/classBlock";
+import {Block} from "../../classes/classBlock";
 import {fourHundred_tmpl} from "./400_tmpl";
 import {events} from "./400_events";
 

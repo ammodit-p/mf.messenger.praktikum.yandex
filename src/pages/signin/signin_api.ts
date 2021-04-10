@@ -1,4 +1,4 @@
-import Fetch from '../../classes/classFetch'
+import {Fetch} from '../../classes/classFetch'
 
 
 const api = new Fetch()
@@ -10,6 +10,5 @@ class SigninApi {
     }
 }
 
-const signin_api = new SigninApi()
+export const signin_api = new SigninApi()
 
-export default signin_api

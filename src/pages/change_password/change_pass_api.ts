@@ -1,5 +1,5 @@
 
-import Fetch from '../../classes/classFetch'
+import {Fetch} from '../../classes/classFetch'
 
 
 const api = new Fetch()
@@ -18,6 +18,5 @@ class ChangePassApi {
     }
 }
 
-const change_pass_api = new ChangePassApi()
+export const change_pass_api = new ChangePassApi()
 
-export default change_pass_api

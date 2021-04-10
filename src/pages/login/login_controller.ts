@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController'
-import login_api from './login_api';
+import {login_api} from './login_api';
 
 class LoginController extends Controller {
     constructor() {
@@ -53,6 +53,5 @@ class LoginController extends Controller {
 
 
 
-const login_controller = new LoginController();
+export const login_controller = new LoginController();
 
-export default login_controller

@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController';
-import profile_api from './profile_api';
+import {profile_api} from './profile_api';
 
 class ProfileController extends Controller {
     constructor() {
@@ -40,6 +40,5 @@ class ProfileController extends Controller {
 	}
 }
 
-const profile_controller = new ProfileController();
+export const profile_controller = new ProfileController();
 
-export default profile_controller;

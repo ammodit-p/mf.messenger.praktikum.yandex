@@ -1,5 +1,5 @@
 
-import merge from '../funcs/merge';
+import {merge} from '../funcs/merge';
 
 function hash(key: string, size: number): number {
 	const MAX_LENGTH = 200;

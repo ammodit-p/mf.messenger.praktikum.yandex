@@ -9,7 +9,7 @@ enum METHODS {
 		POST = 'POST',
 		DELETE = 'DELETE'
 	}
-class Fetch {
+export class Fetch {
 	_url: string
 	constructor() {
 		this._url = 'https://ya-praktikum.tech/api/v2';
@@ -81,4 +81,3 @@ class Fetch {
 	}
 }
 
-export default Fetch;

@@ -1,4 +1,4 @@
-import chat_controller from './chat_controller';
+import {chat_controller} from './chat_controller';
 import {checkForms} from '../../funcs/forms/checkForms';
 import {PopupUpload} from '../../modules/popup_upload/classPopupUpload';
 import { Chat_list } from "./chat_list/chat_list";

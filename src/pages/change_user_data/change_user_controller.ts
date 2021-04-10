@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController';
-import change_user_api from './change_user_api';
+import {change_user_api} from './change_user_api';
 
 class ChangeUserController extends Controller {
     constructor() {
@@ -31,6 +31,4 @@ class ChangeUserController extends Controller {
 
 }
 
-const change_user_controller = new ChangeUserController();
-
-export default change_user_controller;
+export const change_user_controller = new ChangeUserController();

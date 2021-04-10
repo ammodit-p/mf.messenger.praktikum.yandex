@@ -1,5 +1,5 @@
 import {checkForms} from '../../funcs/forms/checkForms';
-import change_user_controller from './change_user_controller';
+import {change_user_controller} from './change_user_controller';
 
 export const events = {
     submit: function (event: any) {

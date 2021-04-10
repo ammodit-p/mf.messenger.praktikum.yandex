@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController';
-import change_pass_api from './change_pass_api';
+import {change_pass_api} from './change_pass_api';
 
 class ChangePassController extends Controller {
     constructor() {
@@ -30,6 +30,5 @@ class ChangePassController extends Controller {
 
 
 
-const change_pass_controller = new ChangePassController();
+export const change_pass_controller = new ChangePassController();
 
-export default change_pass_controller;

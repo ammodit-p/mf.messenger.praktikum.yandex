@@ -1,5 +1,5 @@
 import {isEqual} from '../funcs/isEqual';
-import render from '../funcs/render';
+import {render} from '../funcs/render';
 
 
 export class Route {

@@ -1,4 +1,4 @@
-import Block from "../../../classes/classBlock";
+import {Block} from "../../../classes/classBlock";
 import {Button} from "../../../modules/button/classButton"
 import {change_password_data} from "../change_password_data"
 import {change_pass_form_tmpl} from "./change_pass_form_tmpl";

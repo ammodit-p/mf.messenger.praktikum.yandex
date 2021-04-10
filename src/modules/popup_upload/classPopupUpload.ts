@@ -1,4 +1,4 @@
-import Block from "../../classes/classBlock";
+import {Block} from "../../classes/classBlock";
 import {Button} from '../button/classButton';
 import {popup_upload_tmpl} from './popup_upload_tmpl';
 

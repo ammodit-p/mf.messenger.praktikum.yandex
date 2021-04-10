@@ -1,6 +1,6 @@
 
 
-function merge(target: any, source: any): {[k in string]: any} {
+export function merge(target: any, source: any): {[k in string]: any} {
 	if (!isPlainObject(target) && isPlainObject(source)) {
 		return source;
 	}
@@ -26,5 +26,3 @@ function isPlainObject(value: unknown): value is {[k in string]: any} {
         value.constructor === Object &&
         Object.prototype.toString.call(value) === '[object Object]';
 }
-
-export default merge;
