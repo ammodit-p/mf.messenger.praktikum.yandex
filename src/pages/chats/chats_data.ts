@@ -118,7 +118,7 @@ export const events = {
 	},
 
 	change: function (event: Event) {
-		if (event.target === document.querySelector('input[type="file"]')) {
+		if (event.target === document.getElementById('avatar')) {
 			document.querySelector('.file_upload')?.classList.add('show');
 		}
 	}
