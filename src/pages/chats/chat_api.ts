@@ -1,4 +1,4 @@
-import Fetch from '../../classes/classFetch';
+import {Fetch} from '../../classes/classFetch';
 
 const api = new Fetch()
 
@@ -44,6 +44,4 @@ class ChatApi {
     }
 }
 
-const chat_api = new ChatApi()
-
-export default chat_api
+export const chat_api = new ChatApi()

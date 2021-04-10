@@ -1,5 +1,5 @@
 
-import Fetch from '../../classes/classFetch';
+import {Fetch} from '../../classes/classFetch';
 
 
 const api = new Fetch()
@@ -23,6 +23,5 @@ class ProfileApi {
 	}
 }
 
-const profile_api = new ProfileApi()
+export const profile_api = new ProfileApi()
 
-export default profile_api

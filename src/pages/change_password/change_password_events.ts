@@ -1,4 +1,4 @@
-import change_pass_controller from './change_pass_controller';
+import {change_pass_controller} from './change_pass_controller';
 import {checkForms} from '../../funcs/forms/checkForms';
 
 export const events = {

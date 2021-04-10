@@ -1,7 +1,6 @@
 import * as Handlebars from 'handlebars';
 import {EventBus} from './eventBus';
-
-import merge from '../funcs/merge';
+import {merge} from '../funcs/merge';
 import {store} from '../store/Store';
 
 interface Meta {
@@ -12,7 +11,7 @@ interface Meta {
 	events: {[k in string]: any};
 	children: {[k in string]: any};
 }
-class Block {
+export class Block {
 	eventBus: EventBus;
 	EVENTS: {
 		INIT: string;
@@ -181,4 +180,3 @@ class Block {
 	}
 }
 
-export default Block;

@@ -1,4 +1,4 @@
-import Block from "../../classes/classBlock"
+import {Block} from "../../classes/classBlock"
 import {inputPartial} from "../../handlebars_partials/inputPartial/inputPartial";
 import {Button} from '../button/classButton';
 import {popup_form_tmpl} from './popup_form_tmpl';

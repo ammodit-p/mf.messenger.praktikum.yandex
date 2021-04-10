@@ -53,6 +53,7 @@
     },
     "scripts": {
         "scss:fix": "stylelint --fix src/**/*.scss",
+        "ts:fix": "eslint --fix src/**/*.ts",
         "lint:scss": "stylelint src/**/*.scss",
         "lint:ts": "eslint src/**/*.ts",
         "test": "cross-env TS_NODE_COMPILER_OPTIONS='{ \"module\": \"commonjs\" }' mocha -r ts-node/register -r jsdom-global/register src/**/*.spec.ts",

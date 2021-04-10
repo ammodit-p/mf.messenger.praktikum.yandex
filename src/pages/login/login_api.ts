@@ -1,14 +1,11 @@
 
 
-import Fetch from '../../classes/classFetch'
+import {Fetch} from '../../classes/classFetch'
 
 
 const api = new Fetch()
 
 class LoginApi {
-    constructor() {
-
-    }
 
     getUserInfo() {
         return api.get('/auth/user', {headers: {'content-type': 'application/json'}},)
@@ -19,6 +16,5 @@ class LoginApi {
     }
 }
 
-const login_api = new LoginApi()
+export const login_api = new LoginApi()
 
-export default login_api

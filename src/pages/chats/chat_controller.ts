@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController';
-import chat_api from './chat_api';
+import {chat_api} from './chat_api';
 import {MessageInstance} from './chat_body/message_instance/message_instance';
 
 
@@ -27,54 +27,66 @@ class ChatsController extends Controller {
 
     async createChat(formData: FormData): Promise<void> {
 		const data = this.formDataToObj(formData)
-        const res = await chat_api.createChat(JSON.stringify(data))
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+        const res = await chat_api.createChat(JSON.stringify(data)).catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.getchats()
 		}
-		this.getchats()
     }
 
     async deleteChat(): Promise<void> {
 		const data = JSON.stringify({chatId: this.chatId})
-        const res = await chat_api.deleteChat(data)
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+        const res = await chat_api.deleteChat(data).catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.getchats()
 		}
-		this.getchats()
 	}
 
 	async addUser(formData: FormData): Promise<void> {
 		const data = JSON.stringify(this.formDataToObj(formData))
-		const user = await chat_api.searchUser(data);
+		const user = await chat_api.searchUser(data).catch((e) => {console.log(e)});
 
-		if (user.status !== 200) {
-			this.handle(user);
-		}
+		if (user) {
+			if (user.status !== 200) {
+				this.handle(user);
+			}
 
-		const userId = JSON.parse(user.response)[0].id
-		const userData = JSON.stringify({users: [userId], chatId: this.chatId})
-		const res = await chat_api.addUser(userData)
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+			const userId = JSON.parse(user.response)[0].id
+			const userData = JSON.stringify({users: [userId], chatId: this.chatId})
+			const res = await chat_api.addUser(userData).catch((e) => {console.log(e)})
+			if (res) {
+				if (res.status !== 200) {
+					this.handle(res);
+					return;
+				}
+			}
 		}
 }
 
 	async deleteUser(formData: FormData): Promise<void> {
 		const data = JSON.stringify(this.formDataToObj(formData))
-		const user = await chat_api.searchUser(data);
+		const user = await chat_api.searchUser(data).catch((e) => {console.log(e)});
 
-		if (user.status !== 200) {
-			this.handle(user);
-		}
-		const userId = JSON.parse(user.response)[0].id
-		const userData = JSON.stringify({users: [userId], chatId: this.chatId})
-		const res = await chat_api.deleteUser(userData)
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+		if (user) {
+			if (user.status !== 200) {
+				this.handle(user);
+			}
+			const userId = JSON.parse(user.response)[0].id
+			const userData = JSON.stringify({users: [userId], chatId: this.chatId})
+			const res = await chat_api.deleteUser(userData).catch((e) => {console.log(e)})
+			if (res) {
+				if (res.status !== 200) {
+					this.handle(res);
+					return;
+				}
+			}
 		}
 	}
 
@@ -82,21 +94,25 @@ class ChatsController extends Controller {
 		const props: any = this.get('chat_body');
 		this.chatId = props.id;
 		const url = '/chats/token/' + this.chatId;
-		const res = await chat_api.getToken(url);
-		if (res.status !== 200) {
-			this.handle(res)
+		const res = await chat_api.getToken(url).catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.token = JSON.parse(res.response).token;
+			this._createSocket();
 		}
-		this.token = JSON.parse(res.response).token;
-		this._createSocket();
 	}
 
 	async getUser(data?: any): Promise<void> {
-        const res = await chat_api.getUserInfo(data)
-		if (res.status !== 200) {
-			this.handle(res)
+        const res = await chat_api.getUserInfo(data).catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.set('profile', res.response)
+			this.go('/chat')
 		}
-		this.set('profile', res.response)
-		this.go('/chat')
 	}
 
 	async getchats (formData?: FormData): Promise<void> {
@@ -104,22 +120,24 @@ class ChatsController extends Controller {
 		if (formData) {
 			data = this.formDataToObj(formData)
 		}
-		const res = await chat_api.getchats(data);
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+		const res = await chat_api.getchats(data).catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.set('chatlist_area', {list: JSON.parse(res.response)});
 		}
-		this.set('chatlist_area', {list: JSON.parse(res.response)});
 	}
 
 	async changeChatAvatar(formData: FormData): Promise<void> {
 		formData.append('chatId', String(this.chatId))
-		const res = await chat_api.changeChatAvatar(formData);
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
-		}
-		if (res.status === 200) {
+		const res = await chat_api.changeChatAvatar(formData).catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
 			this.set('chat_body', res.response)
 			this.set('chatlist_area', res.response)
 		}
@@ -168,7 +186,7 @@ class ChatsController extends Controller {
 	}
 
 	sendMessage(formData: FormData): void {
-		const data = this.formDataToObj(formData)
+		const data = this.formDataToObj(formData);
 		this.websocket.send(JSON.stringify({
             content: `${data.message}`,
 			type: 'message',
@@ -213,6 +231,4 @@ class ChatsController extends Controller {
 
 
 
-const chat_controller = new ChatsController();
-
-export default chat_controller
+export const chat_controller = new ChatsController();

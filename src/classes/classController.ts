@@ -1,4 +1,4 @@
-import {router} from '../initialaze';
+import {router} from '../index';
 import {store} from '../store/Store';
 
 export class Controller {

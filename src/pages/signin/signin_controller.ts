@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController'
-import signin_api from './signin_api';
+import {signin_api} from './signin_api';
 
 class SigninController extends Controller {
     constructor() {
@@ -8,12 +8,14 @@ class SigninController extends Controller {
 
     async signup (formData: FormData) {
 		const data = JSON.stringify(this.formDataToObj(formData));
-        const res = await signin_api.signup(data)
-		if (res.status !== 200) {
-			this.handle(res)
+        const res = await signin_api.signup(data).catch((e) => {console.log(e)});
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.set('profile', data)
+			this.go('/chat')
 		}
-		this.set('profile', data)
-		this.go('/chat')
     }
 
 	handle(res: XMLHttpRequest): void {
@@ -39,6 +41,5 @@ class SigninController extends Controller {
 
 
 
-const signin_controller = new SigninController();
+export const signin_controller = new SigninController();
 
-export default signin_controller

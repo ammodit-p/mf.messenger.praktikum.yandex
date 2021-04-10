@@ -1,5 +1,5 @@
 import {isEqual} from '../funcs/isEqual';
-import render from '../funcs/render';
+import {render} from '../funcs/render';
 
 
 export class Route {
@@ -7,6 +7,7 @@ export class Route {
 	_blockClass: any;
 	_block: any | null;
 	_props: any;
+
 
 	constructor(pathname: string, view: any, props: {[k in string]: any}) {
 		this._pathname = pathname;

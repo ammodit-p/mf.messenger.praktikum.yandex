@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController'
-import login_api from './login_api';
+import {login_api} from './login_api';
 
 class LoginController extends Controller {
     constructor() {
@@ -8,22 +8,26 @@ class LoginController extends Controller {
 
     async login (formData: FormData) {
 		const data = JSON.stringify(this.formDataToObj(formData));
-        const res = await login_api.signin(data)
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+        const res = await login_api.signin(data).catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.go('/chat');
 		}
-		this.go('/chat');
     }
 
     async getuser () {
-        const res = await login_api.getUserInfo()
-		if (res.status !== 200) {
-			this.handle(res);
-			return;
+        const res = await login_api.getUserInfo().catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res);
+				return;
+			}
+			this.set('profile', res.response)
+			this.go('/chat')
 		}
-		this.set('profile', res.response)
-		this.go('/chat')
 	}
 
 	handle(res: XMLHttpRequest): void {
@@ -49,6 +53,5 @@ class LoginController extends Controller {
 
 
 
-const login_controller = new LoginController();
+export const login_controller = new LoginController();
 
-export default login_controller

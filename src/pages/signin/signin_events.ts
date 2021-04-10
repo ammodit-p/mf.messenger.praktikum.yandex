@@ -1,6 +1,6 @@
-import {router} from '../../initialaze';
+import {router} from '../../index';
 import {checkForms} from '../../funcs/forms/checkForms';
-import signin_controller from './signin_controller';
+import {signin_controller} from './signin_controller';
 
 export const events = {
     submit: function (event: any) {

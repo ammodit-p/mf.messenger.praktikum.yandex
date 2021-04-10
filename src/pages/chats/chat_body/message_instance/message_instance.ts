@@ -1,4 +1,4 @@
-import Block from "../../../../classes/classBlock";
+import {Block} from "../../../../classes/classBlock";
 import {message_instance_tmpl} from './message_instance_tmpl';
 
 

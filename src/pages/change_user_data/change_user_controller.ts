@@ -1,5 +1,5 @@
 import {Controller} from '../../classes/classController';
-import change_user_api from './change_user_api';
+import {change_user_api} from './change_user_api';
 
 class ChangeUserController extends Controller {
     constructor() {
@@ -7,26 +7,28 @@ class ChangeUserController extends Controller {
     }
 
     async getuser (): Promise<void> {
-        const res = await change_user_api.getUser()
-        if (res.status !== 200) {
-			this.handle(res)
+        const res = await change_user_api.getUser().catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.set('profile', res.response)
+			this.set('user_form', res.response)
 		}
-		this.set('profile', res.response)
-		this.set('user_form', res.response)
     }
 
     async changeuser (formData: FormData): Promise<void> {
 		const data: string = JSON.stringify(this.formDataToObj(formData));
-        const res = await change_user_api.changeUser(data)
-        if (res.status !== 200) {
-			this.handle(res)
+        const res = await change_user_api.changeUser(data).catch((e) => {console.log(e)})
+		if (res) {
+			if (res.status !== 200) {
+				this.handle(res)
+			}
+			this.set('profile', res.response)
+			this.go('/profile')
 		}
-		this.set('profile', res.response)
-        this.go('/profile')
     }
 
 }
 
-const change_user_controller = new ChangeUserController();
-
-export default change_user_controller;
+export const change_user_controller = new ChangeUserController();

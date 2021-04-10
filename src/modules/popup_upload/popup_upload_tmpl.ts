@@ -7,6 +7,7 @@ export const popup_upload_tmpl: string =
 		Выбрать файл на компьютере
 		<input type="file" name="avatar">
 	</label>
+	<span class="file_upload">Файл загружен</span>
 
 </div>
 `

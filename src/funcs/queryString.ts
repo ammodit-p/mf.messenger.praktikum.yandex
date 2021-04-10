@@ -1,5 +1,5 @@
 
-import isPlainObject from './isPlainObj';
+import {isPlainObject} from './isPlainObj';
 
 
 function isArray(value: unknown): value is [] {
